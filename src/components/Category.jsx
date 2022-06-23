@@ -1,14 +1,16 @@
 import React from 'react';
 
 const Category = ({ category }) => {
-  const { title, imageURL, id } = category;
+  const { title, imageURL, key } = category;
   return (
-    <div className={id <= 2 ? 'category category--wide' : 'category category--narrow'}>
+    <div className={`category category--${key}`}>
       <div
         className='category__image'
         style={{
           backgroundImage: `url(${imageURL})`,
-          backgroundPosition: `${id === 3 ? 'center 60%' : id === 4 ? 'center 20%' : 'center'}`
+          backgroundPosition: `${
+            key === 'anniversary' ? 'center 60%' : key === 'thank-you' ? 'center 20%' : 'center'
+          }`
         }}
       >
         <div className='category__body'>

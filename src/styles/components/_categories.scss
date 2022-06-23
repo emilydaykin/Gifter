@@ -8,3 +8,9 @@
   // align-items: center;
   margin: 5rem auto;
 }
+
+@media (max-width: 1270px) {
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
