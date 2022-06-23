@@ -1,0 +1,9 @@
+.categories {
+  // display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  // border: 2px solid blue;
+  // justify-content: space-around;
+  margin: 5rem auto;
+}
