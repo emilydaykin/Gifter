@@ -3,7 +3,7 @@ import React from 'react';
 const Category = ({ category }) => {
   const { title, imageURL, id } = category;
   return (
-    <div className='category'>
+    <div className={id <= 2 ? 'category category--wide' : 'category category--narrow'}>
       <div
         className='category__image'
         style={{
