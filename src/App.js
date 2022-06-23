@@ -1,5 +1,7 @@
+import Categories from './components/Categories';
+
 const App = () => {
-  return <div>Hello World</div>;
+  return <Categories />;
 };
 
 export default App;
