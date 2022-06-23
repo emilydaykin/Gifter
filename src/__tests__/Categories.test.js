@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Categories from '../components/Categories';
 
 test('Gifts categories are rendered', () => {
-  render(<App />);
+  render(<Categories />);
   const xmasCategory = screen.getByText(/christmas/i);
   const bdayCategory = screen.getByText(/birthday/i);
   const annivCategory = screen.getByText(/anniversary/i);
