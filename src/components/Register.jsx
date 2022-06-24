@@ -36,16 +36,12 @@ const Register = () => {
           console.error(`Register error: ${err}`);
         }
       }
-      // const userDocRef = await createUserDocumentFromAuth(response.user);
     }
   };
 
   const handleInputChange = (event) => {
-    // console.log('event.target.value', event.target.value);
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
-
-  // console.log('formData', formData);
 
   return (
     <div>

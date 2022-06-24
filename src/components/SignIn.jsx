@@ -6,21 +6,10 @@ import {
   signInWithGoogleRedirect,
   createUserDocumentFromAuth
 } from '../firebase/firebase.utils';
+
 import Register from './Register';
 
 const SignIn = () => {
-  // Sign in with Google Redirect (rather than a popup)
-  // useEffect(() => {
-  //   const getAuthResponse = async () => {
-  //     const resp = await getRedirectResult(auth);
-  //     console.log('resp', resp);
-  //     if (resp) {
-  //       const userDocRef = await createUserDocumentFromAuth(resp.user);
-  //     }
-  //   };
-  //   getAuthResponse();
-  // }, []);
-
   const logGoogleUser = async () => {
     const response = await signInWithGooglePopup();
     const userDocRef = await createUserDocumentFromAuth(response.user);

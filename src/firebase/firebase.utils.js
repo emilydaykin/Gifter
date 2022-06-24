@@ -36,7 +36,6 @@ provider.setCustomParameters({
 
 export const auth = getAuth(); // singleton
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-// export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
 
 // --------------------------- Storage --------------------------- //
 export const db = getFirestore();
@@ -44,13 +43,11 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) 
   if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid); // args: db, collection, identifier (created by google)
-  // console.log('userDocRef', userDocRef);
   const userSnapshot = await getDoc(userDocRef); // data
-  // console.log('userSnapshot', userSnapshot);
-  // console.log('userSnapshot.exists()', userSnapshot.exists()); // does instance exist in db
 
   // if user data does NOT exist, create (setDoc) in collection using userSnapshot
   if (!userSnapshot.exists()) {
+    // if instance does not exist in db:
     const { displayName, email } = userAuth;
     const createdAt = new Date();
     try {
