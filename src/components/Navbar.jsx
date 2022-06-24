@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { ReactComponent as GiftLogo } from '../assets/ecommerce_gift.svg';
+import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 
 const Navbar = () => {
   return (
