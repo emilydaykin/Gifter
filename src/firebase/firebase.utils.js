@@ -1,7 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'; // to create an auth instance
+import {
+  getAuth,
+  // signInWithRedirect,
+  signInWithPopup,
+  GoogleAuthProvider
+} from 'firebase/auth'; // to create an auth instance
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -30,7 +35,7 @@ provider.setCustomParameters({
 
 export const auth = getAuth(); // singleton
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
+// export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
 
 // --------------------------- Storage --------------------------- //
 export const db = getFirestore();
