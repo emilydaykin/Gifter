@@ -14,6 +14,9 @@ const Navbar = () => {
           <Link className='navbar__link' to='/shop'>
             Shop
           </Link>
+          <Link className='navbar__link' to='/sign-in'>
+            Sign In
+          </Link>
         </div>
       </div>
       <Outlet /> {/* Everything else will be rendered below the nav bar now! */}
