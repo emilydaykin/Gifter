@@ -15,7 +15,7 @@ const Category = ({ category }) => {
       >
         <div className='category__body'>
           <h2>{title}</h2>
-          <p>Shop Now</p>
+          <p>Browse Now</p>
         </div>
       </div>
     </div>
