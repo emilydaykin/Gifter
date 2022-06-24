@@ -1,15 +1,43 @@
 import { useState } from 'react';
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth
+} from '../firebase/firebase.utils';
 
 const Register = () => {
-  const [formData, setFormData] = useState({
+  const blankForm = {
     displayName: '',
     email: '',
     password: '',
     passwordConfirmation: ''
-  });
+  };
+  const [formData, setFormData] = useState(blankForm);
 
-  const handleRegister = () => {
+  const handleRegister = async (event) => {
+    event.preventDefault();
     console.log('register clicked');
+
+    if (formData.password !== formData.passwordConfirmation) {
+      alert('Passwords do not match');
+      return;
+    } else {
+      try {
+        const response = await createAuthUserWithEmailAndPassword(
+          formData.email,
+          formData.password
+        );
+        // console.log('reSPONSE', response);
+        await createUserDocumentFromAuth(response.user, { displayName: formData.displayName });
+        setFormData(blankForm);
+      } catch (err) {
+        if (err.code === 'auth/email-already-in-use') {
+          alert('Email already registered.');
+        } else {
+          console.error(`Register error: ${err}`);
+        }
+      }
+      // const userDocRef = await createUserDocumentFromAuth(response.user);
+    }
   };
 
   const handleInputChange = (event) => {
@@ -17,7 +45,7 @@ const Register = () => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
-  console.log('formData', formData);
+  // console.log('formData', formData);
 
   return (
     <div>
