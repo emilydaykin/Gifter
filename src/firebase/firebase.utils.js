@@ -30,6 +30,7 @@ provider.setCustomParameters({
 
 export const auth = getAuth(); // singleton
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
 
 // --------------------------- Storage --------------------------- //
 export const db = getFirestore();
