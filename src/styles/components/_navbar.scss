@@ -36,3 +36,51 @@
     letter-spacing: .3rem;
   }
 }
+
+@media (max-width: 645px) {
+  .navbar {
+    flex-direction: column;
+
+    &__links {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .navbar {
+    
+    &__links {
+      margin-top: 2rem;
+
+      .navbar__link:not(:last-child) {
+        margin-right: 3.5rem;
+      }
+    }
+
+    &__link {
+      letter-spacing: .1rem;
+    }
+  }
+}
+
+@media (max-width: 355px) {
+  .navbar {
+    
+    &__links {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      // border: 2px solid orange;
+
+      .navbar__link:not(:last-child) {  
+        // border: 2px solid red;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+
+  }
+}
+
