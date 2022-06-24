@@ -44,42 +44,55 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className='register'>
       <h2>Register with your email and password</h2>
-      <form onSubmit={handleRegister}>
-        <label htmlFor='displayName'>Display Name</label>
-        <input
-          type='text'
-          id='displayName'
-          value={formData.displayName}
-          onChange={handleInputChange}
-          required
-        />
-        <label htmlFor='email'>Email</label>
-        <input
-          type='email'
-          id='email'
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-        />
-        <label htmlFor='password'>Password</label>
-        <input
-          type='password'
-          id='password'
-          value={formData.password}
-          onChange={handleInputChange}
-          required
-        />
-        <label htmlFor='passwordConfirmation'>Password Confirmation</label>
-        <input
-          type='password'
-          id='passwordConfirmation'
-          value={formData.passwordConfirmation}
-          onChange={handleInputChange}
-          required
-        />
-        <button type='submit'>Register!</button>
+      <form onSubmit={handleRegister} className='form'>
+        <div className='form__element'>
+          <label htmlFor='displayName'>Display Name</label>
+          <input
+            type='text'
+            id='displayName'
+            value={formData.displayName}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className='form__element'>
+          <label htmlFor='email'>Email</label>
+          <input
+            type='email'
+            id='email'
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <div className='form__element'>
+          <label htmlFor='password'>Password</label>
+          <input
+            type='password'
+            id='password'
+            value={formData.password}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <div className='form__element'>
+          <label htmlFor='passwordConfirmation'>Password Confirmation</label>
+          <input
+            type='password'
+            id='passwordConfirmation'
+            value={formData.passwordConfirmation}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <button className='button' type='submit'>
+          Register!
+        </button>
       </form>
     </div>
   );
