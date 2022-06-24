@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import Categories from '../components/Categories';
+// import Categories from '../components/Categories';
+import { BrowserRouter } from 'react-router-dom';
+import App from '../App';
 
-test('Gifts categories are rendered', () => {
-  render(<Categories />);
+test('Gift categories are rendered', () => {
+  render(
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+
   const xmasCategory = screen.getByText(/christmas/i);
   const bdayCategory = screen.getByText(/birthday/i);
   const annivCategory = screen.getByText(/anniversary/i);
