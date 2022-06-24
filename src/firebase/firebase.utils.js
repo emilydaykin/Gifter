@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'; // to create an auth instance
-
+import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,6 +22,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const analytics = getAnalytics(firebaseApp);
 
+// ------------------------ Authentication ------------------------ //
 const provider = new GoogleAuthProvider(); // a class
 provider.setCustomParameters({
   prompt: 'select_account' // everytime sb interacts with our (google) provider we always want them to select an account
@@ -29,3 +30,13 @@ provider.setCustomParameters({
 
 export const auth = getAuth(); // singleton
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+// --------------------------- Storage --------------------------- //
+export const db = getFirestore();
+export const createUserDocumentFromAuth = async (userAuth) => {
+  const userDocRef = doc(db, 'users', userAuth.uid); // args: db, collection, identifier (created by google)
+  console.log('userDocRef', userDocRef);
+  const userSnapshot = await getDoc(userDocRef); // data
+  console.log('userSnapshot', userSnapshot);
+  console.log('userSnapshot.exists()', userSnapshot.exists());
+};
