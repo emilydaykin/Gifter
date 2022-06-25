@@ -4,7 +4,7 @@ import {
   createUserDocumentFromAuth
 } from '../firebase/firebase.utils';
 
-import FormInput from './FormInput';
+import FormElement from './FormElement';
 
 const Register = () => {
   const blankForm = {
@@ -48,39 +48,43 @@ const Register = () => {
     <div className='register'>
       <h2>Register with your email and password</h2>
       <form onSubmit={handleRegister} className='form'>
-        <FormInput
+        <FormElement
           label='Display Name'
           type='text'
           id='displayName'
+          placeholder='Display Name'
           value={formData.displayName}
           onChange={handleInputChange}
           required
         />
-        <FormInput
+        <FormElement
           label='Email'
-          type='text'
+          type='email'
           id='email'
+          placeholder='Email'
           value={formData.email}
           onChange={handleInputChange}
           required
         />
-        <FormInput
+        <FormElement
           label='Password'
           type='password'
           id='password'
+          placeholder='Password'
           value={formData.password}
           onChange={handleInputChange}
           required
         />
-        <FormInput
+        <FormElement
           label='Password Confirmation'
           type='password'
           id='passwordConfirmation'
+          placeholder='Password Confirmation'
           value={formData.passwordConfirmation}
           onChange={handleInputChange}
           required
         />
-        <button className='button' type='submit'>
+        <button className='button button--register' type='submit'>
           Register!
         </button>
       </form>
