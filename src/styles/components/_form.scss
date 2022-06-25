@@ -3,24 +3,41 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 100%;
+  margin-top: 1.5rem;
 
-  &__input {
+  &__element {
     display: flex;
     flex-direction: column;
   }
 
-  label {
-    margin-bottom: .5rem;
+  &__label {
+    margin-bottom: 2.5rem;
+    margin-left: .75rem; // matching the input left padding
+    color: $theme-grey-light;
+    font-size: 1.4rem;
+    transition: all .5s;
   }
 
-  input {
-    width: 20rem;
+  &__input {
+    width: 30rem;
     padding: .75rem;
     font-family: inherit;
-    margin-bottom: 1.5rem;
-    border: 1px solid $theme-grey-dark;
-    border-radius: $default-border-radius;
-    ;
+    font-size: 1.65rem;
+    margin-bottom: .75rem;
+    border: none;
+    border-bottom: 1px solid $theme-grey-dark;
+    
+    &:focus {
+      outline: none;
+    }
   }
+
+  &__input:placeholder-shown + &__label {
+    // next adjacent sibling selector (+): immediately after. Use ~ if there are more siblings in between
+    opacity: 0; // without this, we can't animate it if it's just not there
+    visibility: hidden; // if just `opacity:0`, then it's still there
+    transform: translateY(-4rem);
+  }
+
 }

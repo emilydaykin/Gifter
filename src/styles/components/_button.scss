@@ -6,4 +6,7 @@
   border: 1px solid $theme-grey-dark;
   border-radius: $default-border-radius;
 
+  &--register {
+    margin-top: 2rem;
+  }
 }
