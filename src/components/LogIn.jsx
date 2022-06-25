@@ -13,8 +13,10 @@ const LogIn = () => {
     password: ''
   };
   const [formData, setFormData] = useState(blankForm);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (event) => {
+    setErrorMessage('');
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
@@ -27,13 +29,19 @@ const LogIn = () => {
       console.log('LOG IN response', response);
       setFormData(blankForm);
     } catch (err) {
-      console.error(`Register error: ${err}`);
+      if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
+        setErrorMessage('Incorrect email and/or password.');
+      } else {
+        console.error(`Log In error: ${err}`);
+        setErrorMessage('Error logging in.');
+      }
     }
   };
 
-  const logGoogleUser = async () => {
+  const logInWithGoogle = async () => {
+    setErrorMessage('');
     const response = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(response.user);
+    await createUserDocumentFromAuth(response.user);
   };
 
   return (
@@ -61,11 +69,12 @@ const LogIn = () => {
           onChange={handleInputChange}
           required
         />
+        <p className='logIn__error-message'>{errorMessage}</p>
         <button className='button button--log-in' type='submit'>
           Log In!
         </button>
       </form>
-      <button className='button button--google' onClick={logGoogleUser}>
+      <button className='button button--google' onClick={logInWithGoogle}>
         Log In with Google
       </button>
     </div>
