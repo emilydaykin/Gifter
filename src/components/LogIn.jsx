@@ -14,7 +14,7 @@ const LogIn = () => {
   };
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
-  const { setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -74,13 +74,21 @@ const LogIn = () => {
           required
         />
         <p className='logIn__error-message'>{errorMessage}</p>
-        <button className='button button--log-in' type='submit'>
-          Log In!
-        </button>
+        {currentUser ? (
+          <button className='button button--log-in button--disallowed' type='button'>
+            You're logged in!
+          </button>
+        ) : (
+          <button className='button button--log-in' type='submit'>
+            Log In!
+          </button>
+        )}
       </form>
-      <button className='button button--google' onClick={logInWithGoogle}>
-        Log In with Google
-      </button>
+      {!currentUser && (
+        <button className='button button--google' onClick={logInWithGoogle}>
+          Log In with Google
+        </button>
+      )}
     </div>
   );
 };

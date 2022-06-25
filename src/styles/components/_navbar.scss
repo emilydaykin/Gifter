@@ -28,6 +28,10 @@
       // border: 2px solid orange;
       align-items: center;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__heading {

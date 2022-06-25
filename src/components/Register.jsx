@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../contexts/user.context';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth
@@ -16,7 +17,11 @@ const Register = () => {
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
 
-  console.log('HIT');
+  // const val = useContext(UserContext); // this component will rerun when UserContext changes
+
+  // console.log('HIT');
+
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -32,12 +37,12 @@ const Register = () => {
       return;
     } else {
       try {
-        const response = await createAuthUserWithEmailAndPassword(
+        const { user } = await createAuthUserWithEmailAndPassword(
           formData.registerEmail,
           formData.registerPassword
         );
-        // console.log('reSPONSE', response);
-        await createUserDocumentFromAuth(response.user, { displayName: formData.displayName });
+        setCurrentUser(user);
+        await createUserDocumentFromAuth(user, { displayName: formData.displayName });
         setFormData(blankForm);
       } catch (err) {
         switch (err.code) {
@@ -102,9 +107,15 @@ const Register = () => {
           required
         />
         <p className='register__error-message'>{errorMessage}</p>
-        <button className='button button--register' type='submit'>
-          Register!
-        </button>
+        {currentUser ? (
+          <button className='button button--register button--disallowed' type='button'>
+            You're registered!
+          </button>
+        ) : (
+          <button className='button button--register' type='submit'>
+            Register!
+          </button>
+        )}
       </form>
     </div>
   );

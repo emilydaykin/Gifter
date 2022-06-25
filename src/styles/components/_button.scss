@@ -39,6 +39,22 @@
       color: $theme-blue-grey;
     }
   }
+
+  &--disallowed {
+    background-color: $theme-grey-light;
+    border: 1px solid $theme-grey-light;
+    
+    &:hover {
+      cursor: not-allowed;
+      background-color: $theme-grey-light;
+      border: 1px solid $theme-grey-light;
+      color: $theme-white;
+    }
+
+    &:active {
+      transform: none;
+    }
+  }
 }
 
 @media (max-width: 500px) {

@@ -2,10 +2,17 @@ import { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 import { UserContext } from '../contexts/user.context';
+import { signOutUser } from '../firebase/firebase.utils';
 
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
-  console.log('CURRENT USER:', currentUser);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    // console.log('LOG OUT RESP:', resp);
+    setCurrentUser(null);
+  };
+
   return (
     <>
       <div className='navbar'>
@@ -20,9 +27,15 @@ const Navbar = () => {
           <Link className='navbar__link' to='/about'>
             About
           </Link>
-          <Link className='navbar__link' to='/auth'>
-            Sign In
-          </Link>
+          {currentUser ? (
+            <span className='navbar__link' onClick={signOutHandler}>
+              Sign Out
+            </span>
+          ) : (
+            <Link className='navbar__link' to='/auth'>
+              Sign In
+            </Link>
+          )}
         </div>
       </div>
       <Outlet /> {/* Everything else will be rendered below the nav bar now! */}
