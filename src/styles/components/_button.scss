@@ -1,21 +1,29 @@
 .button {
-  width: 15rem;
+  width: 20rem; 
   font-family: inherit;
-  background-color: $theme-white;
-  padding: 1rem 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  padding: 1.75rem 4rem;
   border: 1px solid $theme-grey-dark;
   border-radius: $default-border-radius;
-  font-weight: 500;
+  background-color: $theme-white;
+  box-shadow: 0 1rem 2rem rgba($theme-black, .1);
+  transition: all .1s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $theme-white;
+    color: $theme-grey-dark;
+  }
+
+  &:active {
+    transform: scale(.97);
+  }
 
   &--register {
     margin-top: 2rem;
     background-color: $theme-grey-dark;
     color: $theme-white;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $theme-white;
-      color: $theme-grey-dark;
-    }
   }
 }

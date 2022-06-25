@@ -3,11 +3,16 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: flex-start;
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.75rem;
     margin-bottom: 1rem;
     font-weight: 500;
+  }
+  
+  span {
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
   }
 }
