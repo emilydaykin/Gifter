@@ -4,7 +4,7 @@
   flex-direction: column;
   // align-items: center;
   width: 100%;
-  margin-top: 1.5rem;
+  // margin-top: 1.5rem;
 
   &__element {
     display: flex;
@@ -13,7 +13,7 @@
   }
 
   &__label {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.25rem;
     margin-left: .75rem; // matching the input left padding
     color: $theme-grey-light;
     font-size: 1.4rem;
@@ -23,7 +23,7 @@
   }
 
   &__input {
-    width: 35rem;
+    width: 45rem;
     padding: .75rem;
     font-family: inherit;
     font-size: 1.65rem;

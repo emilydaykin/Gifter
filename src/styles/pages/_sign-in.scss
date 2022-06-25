@@ -1,0 +1,22 @@
+.signInPage {
+  // border: 2px solid green;
+  display: flex;
+  width: 90%;
+  margin: 2.75rem auto;
+  justify-content: space-around;
+
+  h2 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  
+  span {
+    margin-bottom: 2.5rem;
+    font-size: 1.75rem;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+}

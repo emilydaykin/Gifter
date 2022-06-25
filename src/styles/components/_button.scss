@@ -3,7 +3,7 @@
   font-family: inherit;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: .2rem;
+  letter-spacing: .1rem;
   padding: 1.75rem 4rem;
   border: 1px solid $theme-grey-dark;
   border-radius: $default-border-radius;
@@ -21,9 +21,22 @@
     transform: scale(.97);
   }
 
-  &--register {
-    margin-top: 2rem;
+  &--register, &--log-in {
+    margin-top: 1rem;
     background-color: $theme-grey-dark;
     color: $theme-white;
+  }
+
+  &--google {
+    margin-top: 4rem;
+    width: 40rem;
+    background-color: $theme-blue-grey;
+    border: 1px solid $theme-blue-grey;
+    color: $theme-white;
+
+    &:hover {
+      background-color: $theme-white;
+      color: $theme-blue-grey;
+    }
   }
 }
