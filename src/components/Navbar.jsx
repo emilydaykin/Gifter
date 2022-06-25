@@ -1,8 +1,11 @@
-// import React from 'react';
+import { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
+import { UserContext } from '../contexts/user.context';
 
 const Navbar = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log('CURRENT USER:', currentUser);
   return (
     <>
       <div className='navbar'>

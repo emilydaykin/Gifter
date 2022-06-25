@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../contexts/user.context';
 import {
-  auth,
   signInWithGooglePopup,
   createUserDocumentFromAuth,
   signUserInWithEmailAndPassword
@@ -14,6 +14,7 @@ const LogIn = () => {
   };
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
+  const { setCurrentUser } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -25,8 +26,8 @@ const LogIn = () => {
     console.log('login clicked');
 
     try {
-      const response = await signUserInWithEmailAndPassword(formData.email, formData.password);
-      console.log('LOG IN response', response);
+      const { user } = await signUserInWithEmailAndPassword(formData.email, formData.password);
+      setCurrentUser(user);
       setFormData(blankForm);
     } catch (err) {
       if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
