@@ -44,3 +44,27 @@
   }
 
 }
+
+@media (max-width: 1050px) {
+  .form {
+    &__input {
+      width: 39rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    &__input {
+      width: 30rem;
+    }
+  }
+}
+
+@media (max-width: 395px) {
+  .form {
+    &__input {
+      width: 23rem;
+    }
+  }
+}

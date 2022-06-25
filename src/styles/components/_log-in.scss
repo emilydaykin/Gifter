@@ -1,7 +1,19 @@
 .logIn {
   // border: 2px solid orange;
-  width: 48rem;
+  // width: 48rem;
   display: flex;
   flex-direction: column;
 
+}
+
+@media (max-width: 925px) {
+  .logIn {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .logIn {
+    margin: 0 2rem;
+  }
 }

@@ -40,3 +40,28 @@
     }
   }
 }
+
+// @media (max-width: 925px) {
+//   .button {
+//     &--register,
+//     &--log-in {
+//       align-self: center;
+//     }
+//   }
+// }
+
+@media (max-width: 500px) {
+  .button {
+          &--google {
+                width: 33rem;
+          }
+        }
+}
+
+@media (max-width: 395px) {
+  .button {
+      &--google {
+        width: 27rem;
+      }
+    }
+}
