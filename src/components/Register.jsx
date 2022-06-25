@@ -46,7 +46,8 @@ const Register = () => {
   };
   return (
     <div className='register'>
-      <h2>Register with your email and password</h2>
+      <h2>I don't have an account</h2>
+      <span>Register with your email and password</span>
       <form onSubmit={handleRegister} className='form'>
         <FormElement
           label='Display Name'
