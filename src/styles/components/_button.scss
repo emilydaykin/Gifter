@@ -29,7 +29,7 @@
 
   &--google {
     margin-top: 4rem;
-    width: 40rem;
+    width: 39rem;
     background-color: $theme-blue-grey;
     border: 1px solid $theme-blue-grey;
     color: $theme-white;
@@ -40,15 +40,6 @@
     }
   }
 }
-
-// @media (max-width: 925px) {
-//   .button {
-//     &--register,
-//     &--log-in {
-//       align-self: center;
-//     }
-//   }
-// }
 
 @media (max-width: 500px) {
   .button {
