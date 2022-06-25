@@ -9,12 +9,14 @@ import FormElement from './FormElement';
 const Register = () => {
   const blankForm = {
     displayName: '',
-    email: '',
-    password: '',
+    registerEmail: '',
+    registerPassword: '',
     passwordConfirmation: ''
   };
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
+
+  console.log('HIT');
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -25,14 +27,14 @@ const Register = () => {
     event.preventDefault();
     console.log('register clicked');
 
-    if (formData.password !== formData.passwordConfirmation) {
+    if (formData.registerPassword !== formData.passwordConfirmation) {
       setErrorMessage('Passwords do not match.');
       return;
     } else {
       try {
         const response = await createAuthUserWithEmailAndPassword(
-          formData.email,
-          formData.password
+          formData.registerEmail,
+          formData.registerPassword
         );
         // console.log('reSPONSE', response);
         await createUserDocumentFromAuth(response.user, { displayName: formData.displayName });
@@ -75,18 +77,18 @@ const Register = () => {
         <FormElement
           label='Email'
           type='email'
-          id='email'
+          id='registerEmail'
           placeholder='Email'
-          value={formData.email}
+          value={formData.registerEmail}
           onChange={handleInputChange}
           required
         />
         <FormElement
           label='Password'
           type='password'
-          id='password'
+          id='registerPassword'
           placeholder='Password'
-          value={formData.password}
+          value={formData.registerPassword}
           onChange={handleInputChange}
           required
         />

@@ -9,8 +9,8 @@ import FormElement from './FormElement';
 
 const LogIn = () => {
   const blankForm = {
-    email: '',
-    password: ''
+    logInEmail: '',
+    logInPassword: ''
   };
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
@@ -26,7 +26,10 @@ const LogIn = () => {
     console.log('login clicked');
 
     try {
-      const { user } = await signUserInWithEmailAndPassword(formData.email, formData.password);
+      const { user } = await signUserInWithEmailAndPassword(
+        formData.logInEmail,
+        formData.logInPassword
+      );
       setCurrentUser(user);
       setFormData(blankForm);
     } catch (err) {
@@ -55,18 +58,18 @@ const LogIn = () => {
         <FormElement
           label='Email'
           type='email'
-          id='email'
+          id='logInEmail'
           placeholder='Email'
-          value={formData.email}
+          value={formData.logInEmail}
           onChange={handleInputChange}
           required
         />
         <FormElement
           label='Password'
           type='password'
-          id='password'
+          id='logInPassword'
           placeholder='Password'
-          value={formData.password}
+          value={formData.logInPassword}
           onChange={handleInputChange}
           required
         />
