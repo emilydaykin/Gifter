@@ -6,7 +6,8 @@ import {
   // signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
 } from 'firebase/auth'; // to create an auth instance
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
 // TODO: Add SDKs for Firebase products that you want to use
@@ -36,6 +37,10 @@ provider.setCustomParameters({
 
 export const auth = getAuth(); // singleton
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signUserInWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+  return await signInWithEmailAndPassword(auth, email, password);
+};
 
 // --------------------------- Storage --------------------------- //
 export const db = getFirestore();
