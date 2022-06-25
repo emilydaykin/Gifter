@@ -9,6 +9,7 @@
   &__element {
     display: flex;
     flex-direction: column;
+    // position: relative;
   }
 
   &__label {
@@ -17,6 +18,8 @@
     color: $theme-grey-light;
     font-size: 1.4rem;
     transition: all .5s;
+    // position: absolute;
+    // top: -2rem;
   }
 
   &__input {

@@ -3,10 +3,7 @@ const FormInput = ({ label, ...inputProps }) => {
     <div className='form__element'>
       <input className='form__input' {...inputProps} />
       {label && (
-        <label
-          htmlFor='displayName'
-          className={`form__label ${inputProps.value.length ? '' : 'form__label--hide'}`}
-        >
+        <label htmlFor='displayName' className='form__label'>
           {label}
         </label>
       )}
