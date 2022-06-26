@@ -17,11 +17,7 @@ const Register = () => {
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // const val = useContext(UserContext); // this component will rerun when UserContext changes
-
-  // console.log('HIT');
-
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext); // this component will rerun when UserContext changes
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -41,7 +37,6 @@ const Register = () => {
           formData.registerEmail,
           formData.registerPassword
         );
-        setCurrentUser(user);
         await createUserDocumentFromAuth(user, { displayName: formData.displayName });
         setFormData(blankForm);
       } catch (err) {

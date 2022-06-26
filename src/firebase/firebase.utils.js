@@ -8,7 +8,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from 'firebase/auth'; // to create an auth instance
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
 // TODO: Add SDKs for Firebase products that you want to use
@@ -77,3 +78,6 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 };
 
 export const signOutUser = async () => await signOut(auth);
+
+// Helper function (observable listener) - a permanently open listener (so must unmount it to avoid memory leaks):
+export const onAuthStateChangeListener = (callback) => onAuthStateChanged(auth, callback);

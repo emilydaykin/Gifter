@@ -1,10 +1,6 @@
 import { useState, useContext } from 'react';
 import { UserContext } from '../contexts/user.context';
-import {
-  signInWithGooglePopup,
-  createUserDocumentFromAuth,
-  signUserInWithEmailAndPassword
-} from '../firebase/firebase.utils';
+import { signInWithGooglePopup, signUserInWithEmailAndPassword } from '../firebase/firebase.utils';
 import FormElement from './FormElement';
 
 const LogIn = () => {
@@ -14,11 +10,16 @@ const LogIn = () => {
   };
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
   const handleInputChange = (event) => {
     setErrorMessage('');
     setFormData({ ...formData, [event.target.id]: event.target.value });
+  };
+
+  const logInWithGoogle = async () => {
+    setErrorMessage('');
+    await signInWithGooglePopup();
   };
 
   const handleLogIn = async (event) => {
@@ -26,11 +27,7 @@ const LogIn = () => {
     console.log('login clicked');
 
     try {
-      const { user } = await signUserInWithEmailAndPassword(
-        formData.logInEmail,
-        formData.logInPassword
-      );
-      setCurrentUser(user);
+      await signUserInWithEmailAndPassword(formData.logInEmail, formData.logInPassword);
       setFormData(blankForm);
     } catch (err) {
       if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
@@ -40,12 +37,6 @@ const LogIn = () => {
         setErrorMessage('Error logging in.');
       }
     }
-  };
-
-  const logInWithGoogle = async () => {
-    setErrorMessage('');
-    const response = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(response.user);
   };
 
   return (
