@@ -11,6 +11,10 @@
   }
 
   &__links {
+    display: flex;
+    // border: 2px solid green;
+    align-items: center;
+
     .navbar__link:not(:last-child) {
       margin-right: 5rem;
     }

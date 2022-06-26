@@ -6,5 +6,9 @@
     font-weight: 500;
     margin-bottom: 2.5rem;
     // letter-spacing: .1rem;
+
+    &:not(:first-of-type) {
+      margin-top: 2rem;
+    }
   }
 }

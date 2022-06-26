@@ -1,0 +1,16 @@
+.cart-icon {
+  // border: 2px solid orange;
+  position: relative;
+
+  &__image {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-left: -1rem;
+  }
+
+  &__item-count {
+    position: absolute;
+    top: 27%;
+    left: 7%;
+  }
+}

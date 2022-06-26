@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 import { UserContext } from '../contexts/user.context';
 import { signOutUser } from '../firebase/firebase.utils';
+import CartIcon from './CartIcon';
 
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
@@ -30,6 +31,9 @@ const Navbar = () => {
               Sign In
             </Link>
           )}
+          <span className='navbar__link'>
+            <CartIcon />
+          </span>
         </div>
       </div>
       <Outlet /> {/* Everything else will be rendered below the nav bar now! */}

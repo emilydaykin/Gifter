@@ -14,6 +14,12 @@ const Shop = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <h1 className='shop__category'>Christmas Gifts</h1>
+      <div className='product-group'>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </div>
   );
 };
