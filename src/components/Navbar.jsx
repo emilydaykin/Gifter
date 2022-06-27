@@ -2,12 +2,16 @@ import { useContext } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 import { UserContext } from '../contexts/user.context';
+import { CartContext } from '../contexts/cart.context';
 import { signOutUser } from '../firebase/firebase.utils';
 import CartIcon from './CartIcon';
 import CartDropdown from './CartDropdown';
 
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+
+  const toggleShowHideCart = () => setIsCartOpen(!isCartOpen);
 
   return (
     <>
@@ -32,12 +36,12 @@ const Navbar = () => {
               Sign In
             </Link>
           )}
-          <span className='navbar__link navbar__link--cart'>
+          <span className='navbar__link navbar__link--cart' onClick={toggleShowHideCart}>
             <CartIcon />
           </span>
         </div>
       </div>
-      <CartDropdown />
+      {isCartOpen && <CartDropdown />}
       <Outlet /> {/* Everything else will be rendered below the nav bar now! */}
     </>
   );
