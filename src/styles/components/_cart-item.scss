@@ -1,0 +1,27 @@
+.cart-item {
+  // border: 2px solid purple;
+  display: flex;
+  align-items: center;
+
+  &:not(:first-of-type) {
+    margin-top: 1rem;
+  }
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+  // justify-content: flex-start;
+
+  &__image {
+    height: 10rem;
+    width: 8rem;
+    object-fit: cover;
+    object-position: center;
+    margin-right: 2rem;
+  }
+
+  &__name {
+    font-size: $default-font-size;
+    font-weight: 400;
+    margin-bottom: .5rem;
+  }
+}
