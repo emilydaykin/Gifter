@@ -1,0 +1,45 @@
+.about {
+  display: grid;
+  width: 80%;
+  margin: 3rem auto;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__description, &__contact, &__created-with {
+    border: 1px solid $theme-grey-light;
+    border-radius: $default-border-radius;
+    padding: 1rem 2rem;
+  }
+
+  &__description {
+    margin-right: 1rem;
+  }
+
+  &__contact {
+    margin-left: 1rem;
+  }
+
+  &__heading {
+    font-weight: 500;
+    font-size: 2.5rem;
+  }
+
+  &__link {
+    height: 4rem;
+  }
+
+  &__icons {
+    padding: 2rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  &__icon {
+    height: 6rem;
+    margin: 0 .5rem;
+  }
+
+  &__created-with {
+    grid-column: span 2;
+    margin-top: 2rem;
+  }
+}
