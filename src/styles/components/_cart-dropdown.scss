@@ -1,0 +1,25 @@
+.cart-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $theme-grey-dark;
+  background-color: $theme-white;
+  width: 25rem;
+  position: absolute;
+  top: 8rem;
+  right: 3rem;
+  padding: 2.3rem;
+  z-index: 3;
+  
+  &__cart-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid orange;
+  }
+
+  &__button {
+    background-color: $theme-grey-dark;
+    color: $theme-white;
+  }
+}

@@ -4,6 +4,7 @@ import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 import { UserContext } from '../contexts/user.context';
 import { signOutUser } from '../firebase/firebase.utils';
 import CartIcon from './CartIcon';
+import CartDropdown from './CartDropdown';
 
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
@@ -31,11 +32,12 @@ const Navbar = () => {
               Sign In
             </Link>
           )}
-          <span className='navbar__link'>
+          <span className='navbar__link navbar__link--cart'>
             <CartIcon />
           </span>
         </div>
       </div>
+      <CartDropdown />
       <Outlet /> {/* Everything else will be rendered below the nav bar now! */}
     </>
   );

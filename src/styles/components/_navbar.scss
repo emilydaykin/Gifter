@@ -36,6 +36,10 @@
     &:hover {
       cursor: pointer;
     }
+
+    &--cart {
+      position: relative; // cart-dropdown is absolute relative to this
+    }
   }
 
   &__heading {
