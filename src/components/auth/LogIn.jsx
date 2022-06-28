@@ -1,7 +1,10 @@
 import { useState, useContext } from 'react';
-import { UserContext } from '../contexts/user.context';
-import { signInWithGooglePopup, signUserInWithEmailAndPassword } from '../firebase/firebase.utils';
-import FormElement from './FormElement';
+import { UserContext } from '../../contexts/user.context';
+import {
+  signInWithGooglePopup,
+  signUserInWithEmailAndPassword
+} from '../../firebase/firebase.utils';
+import FormElement from '../FormElement';
 
 const LogIn = () => {
   const blankForm = {

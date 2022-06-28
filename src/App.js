@@ -3,7 +3,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Shop from './components/Shop';
-import SignIn from './components/SignIn';
+import SignIn from './components/auth/SignIn';
 
 const App = () => {
   return (

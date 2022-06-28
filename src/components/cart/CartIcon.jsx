@@ -1,4 +1,4 @@
-import { ReactComponent as CartSvg } from '../assets/shopping_bag.svg';
+import { ReactComponent as CartSvg } from '../../assets/shopping_bag.svg';
 
 const CartIcon = () => {
   return (

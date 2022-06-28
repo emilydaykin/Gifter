@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
-import { UserContext } from '../contexts/user.context';
+import { UserContext } from '../../contexts/user.context';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth
-} from '../firebase/firebase.utils';
+} from '../../firebase/firebase.utils';
 
-import FormElement from './FormElement';
+import FormElement from '../FormElement';
 
 const Register = () => {
   const blankForm = {

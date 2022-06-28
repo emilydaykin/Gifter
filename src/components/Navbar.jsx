@@ -4,8 +4,8 @@ import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 import { UserContext } from '../contexts/user.context';
 import { CartContext } from '../contexts/cart.context';
 import { signOutUser } from '../firebase/firebase.utils';
-import CartIcon from './CartIcon';
-import CartDropdown from './CartDropdown';
+import CartIcon from './cart/CartIcon';
+import CartDropdown from './cart/CartDropdown';
 
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
