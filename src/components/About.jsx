@@ -18,14 +18,19 @@ const About = () => {
         </p>
       </div>
       <div className='about__contact'>
-        <h1 className='about__heading'>Get In Touch</h1>
-        <p>Emily</p>
-        <a href='https://github.com/emilydaykin'>
-          <img className='about__link' src={githubLogo} alt='GitHub' />
-        </a>
-        <a href='https://www.linkedin.com/in/emily-daykin/'>
-          <img className='about__link' src={linkedinLogo} alt='LinkedIn' />
-        </a>
+        <h1 className='about__heading'>Contact</h1>
+        <p>
+          This site was designed and created by <strong>Emily Daykin</strong>. Get in touch to leave
+          any feedback, collaborate, or to say hello!
+        </p>
+        <div className='about__contact-links'>
+          <a href='https://github.com/emilydaykin'>
+            <img className='about__link' src={githubLogo} alt='GitHub' />
+          </a>
+          <a href='https://www.linkedin.com/in/emily-daykin/'>
+            <img className='about__link' src={linkedinLogo} alt='LinkedIn' />
+          </a>
+        </div>
       </div>
       <div className='about__created-with'>
         <h1 className='about__heading'>Created With</h1>
@@ -37,14 +42,32 @@ const About = () => {
             <img className='about__icon' src={sassLogo} alt='Sass' />
           </a>
           <a href='https://redux.js.org/'>
-            ??
             <img className='about__icon' src={reduxLogo} alt='Redux' />
           </a>
+          {/* <a href='#'>
+            <img className='about__icon' src={reduxSagaLogo} alt='Redux Saga' />
+          </a> */}
+          {/* <a href='#'>
+            <img className='about__icon' src={jestLogo} alt='Jest' />
+          </a> */}
           <a href='https://firebase.google.com/'>
             <img className='about__icon' src={firebaseLogo} alt='Firebase' />
           </a>
+          {/* <a href='#'>
+            <img className='about__icon' src={stripeLogo} alt='Stripe' />
+          </a>
+          <a href='#'>
+            <img className='about__icon' src={apolloLogo} alt='Apollo' />
+          </a>
+          <a href='#'>
+            <img className='about__icon' src={graphQLLogo} alt='GraphQL' />
+          </a>
+          <a href='#'>
+            <img className='about__icon' src={stripeLogo} alt='Stripe' />
+          </a> */}
         </div>
       </div>
+      <footer>copyright</footer>
     </div>
   );
 };
