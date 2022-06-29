@@ -1,16 +1,19 @@
 .cart-icon {
-  // border: 2px solid orange;
+  display: flex;
   position: relative;
-
+  
   &__image {
     width: 3.5rem;
     height: 3.5rem;
     margin-left: -1rem;
+    margin-top: -.5rem;
   }
 
   &__item-count {
     position: absolute;
-    top: 27%;
-    left: 7%;
+    top: 29%;
+    left: 34%;
+    transform: translate(-50%);
+    font-size: 1.5rem;
   }
 }
