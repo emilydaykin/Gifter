@@ -19,7 +19,10 @@ export const CartProvider = ({ children }) => {
       setCartItems([...cartItems, { ...productToAdd, quantity: 1 }]);
     } else {
       // item already in cart
-      setCartItems([...cartItems, cartItems[matchingItemIndex].quantity++]);
+      const updatedCartItems = cartItems.map((item) => {
+        return item.id === productToAdd.id ? { ...item, quantity: item.quantity + 1 } : item;
+      });
+      setCartItems(updatedCartItems);
     }
   };
 
