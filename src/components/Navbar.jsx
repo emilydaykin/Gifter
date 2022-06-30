@@ -39,6 +39,9 @@ const Navbar = () => {
           <span className='navbar__link navbar__link--cart' onClick={toggleShowHideCart}>
             <CartIcon />
           </span>
+          <Link className='navbar__link' to='/checkout'>
+            Checkout-TEMP
+          </Link>
         </div>
       </div>
       {isCartOpen && <CartDropdown />}
