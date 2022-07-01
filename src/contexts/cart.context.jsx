@@ -5,7 +5,8 @@ export const CartContext = createContext({
   setIsCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
-  getCartItemCount: () => {}
+  getCartItemCount: () => {},
+  getCartTotalPrice: () => {}
 });
 
 export const CartProvider = ({ children }) => {
@@ -31,7 +32,18 @@ export const CartProvider = ({ children }) => {
     return cartItems.reduce((prev, curr) => prev + curr.quantity, 0);
   };
 
-  const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, getCartItemCount };
+  const getCartTotalPrice = () => {
+    return cartItems.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
+  };
+
+  const value = {
+    isCartOpen,
+    setIsCartOpen,
+    addItemToCart,
+    cartItems,
+    getCartItemCount,
+    getCartTotalPrice
+  };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
