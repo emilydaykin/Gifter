@@ -5,6 +5,8 @@ export const CartContext = createContext({
   setIsCartOpen: () => {},
   cartItems: [],
   addItemToCart: () => {},
+  removeItemFromCart: () => {},
+  reduceItemQuantityInCart: () => {},
   getCartItemCount: () => {},
   getCartTotalPrice: () => {}
 });
@@ -28,6 +30,24 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  const removeItemFromCart = (productToRemove) => {
+    const updatedCartItems = cartItems.filter((item) => item.id !== productToRemove.id);
+    setCartItems(updatedCartItems);
+  };
+
+  const reduceItemQuantityInCart = (productToReduce) => {
+    const quantityOfItem = productToReduce.quantity;
+    console.log('quantityOfItem', quantityOfItem);
+
+    const reduceQuantity = cartItems.map((item) => {
+      return item.id === productToReduce.id ? { ...item, quantity: item.quantity - 1 } : item;
+    });
+
+    const removeItem = cartItems.filter((item) => item.id !== productToReduce.id);
+
+    setCartItems(quantityOfItem > 1 ? reduceQuantity : removeItem);
+  };
+
   const getCartItemCount = () => {
     return cartItems.reduce((prev, curr) => prev + curr.quantity, 0);
   };
@@ -40,6 +60,8 @@ export const CartProvider = ({ children }) => {
     isCartOpen,
     setIsCartOpen,
     addItemToCart,
+    removeItemFromCart,
+    reduceItemQuantityInCart,
     cartItems,
     getCartItemCount,
     getCartTotalPrice
