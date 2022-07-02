@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { CartContext } from '../contexts/cart.context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 
 const CheckoutItem = ({ checkoutItem }) => {
+  const { addItemToCart, removeItemFromCart, reduceItemQuantityInCart } = useContext(CartContext);
+
   return (
     <div className='checkout-item'>
       <div className='checkout-item__image-container'>
@@ -9,14 +13,24 @@ const CheckoutItem = ({ checkoutItem }) => {
       </div>
       <div className='checkout-item__description'>{checkoutItem.name}</div>
       <div className='checkout-item__quantity'>
-        <FontAwesomeIcon className='checkout-item__quantity-icon' icon={faCaretLeft} />
-        &ensp;
-        <span>{checkoutItem.quantity}</span>
-        &ensp;
-        <FontAwesomeIcon className='checkout-item__quantity-icon' icon={faCaretRight} />
+        <FontAwesomeIcon
+          className='checkout-item__quantity-icon'
+          icon={faCaretLeft}
+          onClick={() => reduceItemQuantityInCart(checkoutItem)}
+        />
+        &nbsp;
+        <span className='checkout-item__quantity-value'>{checkoutItem.quantity}</span>
+        &nbsp;
+        <FontAwesomeIcon
+          className='checkout-item__quantity-icon'
+          icon={faCaretRight}
+          onClick={() => addItemToCart(checkoutItem)}
+        />
       </div>
       <div className='checkout-item__price'>{checkoutItem.price}</div>
-      <div className='checkout-item__remove'>&times;</div>
+      <div className='checkout-item__remove' onClick={() => removeItemFromCart(checkoutItem)}>
+        <span>&times;</span>
+      </div>
     </div>
   );
 };

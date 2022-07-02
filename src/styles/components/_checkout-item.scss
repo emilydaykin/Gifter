@@ -13,7 +13,7 @@
     &:nth-of-type(3),
     &:nth-of-type(4),
     &:nth-of-type(5) {
-      padding-left: .5rem;
+      padding-left: 1rem;
     }
   }
 
@@ -45,6 +45,7 @@
   &__quantity-icon {
     font-size: 2rem;
     color: $theme-grey-light;
+    // border: 2px solid orange;
 
     &:hover {
       color: $theme-grey-dark;
@@ -52,8 +53,21 @@
     }
   }
 
+  &__quantity-value {
+    // border: 2px solid orangered;
+    // padding: 0 .5rem;
+    width: 3rem;
+    text-align: center;
+  }
+
   &__remove {
     font-size: 3.5rem;
     font-weight: 200;
+    
+    span:hover {
+      cursor: pointer;
+      color: $error-red;  
+    }
+    
   }
 }
