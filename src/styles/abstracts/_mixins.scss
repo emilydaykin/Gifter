@@ -1,0 +1,18 @@
+@mixin set-checkout-column-widths {
+  width: 20%;
+  
+  // Product Image Column
+  &:first-of-type {
+    width: 30%;
+  }
+
+  // Product Description Column
+  &:nth-of-type(2) {
+    width: 25%;
+  }
+
+  // Remove Product Column
+  &:last-of-type {
+    width: 12%;
+  }
+}
