@@ -11,12 +11,12 @@
   }
   // justify-content: flex-start;
 
-  &__image {
+  &__image img {
+    margin-right: 2rem;
     height: 10rem;
     width: 8rem;
     object-fit: cover;
     object-position: center;
-    margin-right: 2rem;
   }
 
   &__name {
