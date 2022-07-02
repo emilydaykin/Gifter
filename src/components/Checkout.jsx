@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CartContext } from '../contexts/cart.context';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+
+import CheckoutItem from './CheckoutItem';
 
 const Checkout = () => {
   const { cartItems, getCartTotalPrice } = useContext(CartContext);
@@ -20,21 +20,7 @@ const Checkout = () => {
             <p className='checkout__heading checkout__heading--remove'>Remove</p>
           </div>
           {cartItems.map((item) => (
-            <div key={item.id} className='checkout__item'>
-              <div className='checkout__item-image-container'>
-                <img className='checkout__item-image' src={item.imageUrl} alt={item.name} />
-              </div>
-              <div className='checkout__item-description'>{item.name}</div>
-              <div className='checkout__item-quantity'>
-                <FontAwesomeIcon className='checkout__item-quantity-icon' icon={faCaretLeft} />
-                &ensp;
-                <span>{item.quantity}</span>
-                &ensp;
-                <FontAwesomeIcon className='checkout__item-quantity-icon' icon={faCaretRight} />
-              </div>
-              <div className='checkout__item-price'>{item.price}</div>
-              <div className='checkout__item-remove'>&times;</div>
-            </div>
+            <CheckoutItem key={item.id} checkoutItem={item} />
           ))}
           <div className='checkout__total'>
             Total: &euro;<span>{getCartTotalPrice()}</span>
