@@ -13,18 +13,27 @@ const Navbar = () => {
 
   const toggleShowHideCart = () => setIsCartOpen(!isCartOpen);
 
+  const hideCartWhenNavigatingAway = () => {
+    if (isCartOpen) {
+      setIsCartOpen(!isCartOpen);
+    }
+  };
   return (
     <>
       <div className='navbar'>
-        <Link className='navbar__link navbar__link--main' to='/'>
+        <Link
+          className='navbar__link navbar__link--main'
+          to='/'
+          onClick={hideCartWhenNavigatingAway}
+        >
           <GiftLogo className='navbar__logo' />
           <h1 className='navbar__heading'>Gifter</h1>
         </Link>
         <div className='navbar__links'>
-          <Link className='navbar__link' to='/shop'>
+          <Link className='navbar__link' to='/shop' onClick={hideCartWhenNavigatingAway}>
             Shop
           </Link>
-          <Link className='navbar__link' to='/about'>
+          <Link className='navbar__link' to='/about' onClick={hideCartWhenNavigatingAway}>
             About
           </Link>
           {currentUser ? (
@@ -32,16 +41,13 @@ const Navbar = () => {
               Sign Out
             </span>
           ) : (
-            <Link className='navbar__link' to='/auth'>
+            <Link className='navbar__link' to='/auth' onClick={hideCartWhenNavigatingAway}>
               Sign In
             </Link>
           )}
           <span className='navbar__link navbar__link--cart' onClick={toggleShowHideCart}>
             <CartIcon />
           </span>
-          <Link className='navbar__link' to='/checkout'>
-            Checkout-TEMP
-          </Link>
         </div>
       </div>
       {isCartOpen && <CartDropdown />}
