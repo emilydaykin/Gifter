@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
     <div className='product-card'>
       <img className='product-card__image' src={product.imageUrl} alt={product.name} />
       <button className='button product-card__button' onClick={addProductToCart}>
-        Add to Card
+        Add to Cart
       </button>
       <div className='product-card__product-info'>
         <h3 className='product-card__product-name'>{product.name}</h3>

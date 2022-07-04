@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  width: 30rem;
 
   &:not(:first-of-type) {
     margin-left: 1.5rem;
@@ -14,8 +15,8 @@
   }
 
   &__image {
-    width: 32rem;
-    height: 37rem;
+    width: 30rem;
+    height: 35rem;
     object-fit: cover;
     object-position: center;
   }
@@ -26,12 +27,14 @@
     width: 100%;
     margin: .5rem 0;
     padding: 0 .5rem;
+    // border: 2px solid green;
   }
   
   &__product-name {
     font-weight: 500;
     font-size: $default-font-size;
     max-width: 80%;
+    // border: 2px solid pink;
   }
   
   &__product-price {
@@ -50,6 +53,7 @@
     bottom: 20%;
     background-color: rgba($theme-white, .85);
     opacity: 0;
+    // width: 15rem;
 
     &:hover {
       background-color: rgba($theme-grey-dark, .9);
@@ -68,8 +72,16 @@
   .product-card {
 
     &__image {
-      width: 28rem;
-      height: 33rem;
+      width: 23rem;
+      height: 26rem;
+      // border: 2px solid orange;
+    }
+
+    &__button {
+      width: 17rem;
+      font-size: 1.25rem;
+      bottom: 24%;
+      padding: 1.5rem 2rem;
     }
   }
 }
