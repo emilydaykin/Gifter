@@ -11,7 +11,7 @@ import {
   signOut,
   onAuthStateChanged
 } from 'firebase/auth'; // to create an auth instance
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -46,6 +46,12 @@ export const signUserInWithEmailAndPassword = async (email, password) => {
 
 // --------------------------- Storage --------------------------- //
 export const db = getFirestore();
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  // create the collection
+  const collectionRef = collection(db, collectionKey);
+};
+
 export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) => {
   if (!userAuth) return;
 
