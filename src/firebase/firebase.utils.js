@@ -50,6 +50,16 @@ export const db = getFirestore();
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   // create the collection
   const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db); // writes, deletes sets etc
+
+  // map through each of the categories (christmas / bday etc)
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object); // firebase will give us back a document reference even if it doesn't exist yet - will just point to that place. Set that object in that docRef
+  });
+
+  await batch.commit(); // this begins firing it off
+  console.log('done batching!');
 };
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) => {
