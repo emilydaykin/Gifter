@@ -1,9 +1,5 @@
 const shopData = [
   {
-    title: 'Mugs',
-    items: []
-  },
-  {
     title: 'Christmas',
     items: [
       {
@@ -261,5 +257,7 @@ const shopData = [
     ]
   }
 ];
+
+// clothes, bags, hats/caps, sunglasses, watches, seeds(to plant)
 
 export default shopData;
