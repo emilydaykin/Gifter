@@ -159,31 +159,31 @@ const shopData = [
     items: [
       {
         id: 1,
+        name: '18-Piece Chocolate Assortment & Body Lotion',
+        imageUrl:
+          'https://images.unsplash.com/photo-1653725440988-349d319d985d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ym94JTIwb2YlMjBzd2VldHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 30
+      },
+      {
+        id: 2,
         name: 'Handmade Soap Bar Set',
         imageUrl:
           'https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNvYXAlMjBiYXJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         price: 18
       },
       {
-        id: 2,
+        id: 3,
         name: 'Faux Flower Bouquet',
         imageUrl:
           'https://images.unsplash.com/photo-1602747301683-a4cc7c0a8622?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmF1eCUyMGZsb3dlcnMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         price: 17
       },
       {
-        id: 3,
+        id: 4,
         name: 'Inspirational Coastal Mugs',
         imageUrl:
           'https://images.unsplash.com/photo-1614940403522-a8c829e7eb82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
         price: 15
-      },
-      {
-        id: 4,
-        name: '18-Piece Chocolate Assortment & Body Lotion',
-        imageUrl:
-          'https://images.unsplash.com/photo-1653725440988-349d319d985d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ym94JTIwb2YlMjBzd2VldHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 30
       },
       {
         id: 5,
