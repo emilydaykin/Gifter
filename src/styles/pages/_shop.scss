@@ -5,10 +5,22 @@
   &__category {
     font-weight: 500;
     margin-bottom: 2.5rem;
+    text-transform: capitalize;
     // letter-spacing: .1rem;
 
     &:not(:first-of-type) {
       margin-top: 2rem;
+    }
+
+    span {
+      color: $theme-grey-light;
+      font-weight: normal;
+
+      &:hover {
+        cursor: pointer;
+        color: $theme-grey-dark;
+        
+      }
     }
   }
 }
