@@ -1,9 +1,14 @@
 // import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Category = ({ category }) => {
   const { title, imageURL, key } = category;
+  const navigate = useNavigate();
+
+  const redirectToCategory = (category) => navigate(`/${category}`);
+
   return (
-    <div className={`category category--${key}`}>
+    <div className={`category category--${key}`} onClick={() => redirectToCategory(category.key)}>
       <div
         className='category__image'
         style={{

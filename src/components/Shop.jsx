@@ -1,12 +1,14 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CategoriesContext } from '../contexts/categories.context';
 import ProductCard from './ProductCard';
 
 const Shop = () => {
   const { categoriesMap } = useContext(CategoriesContext);
+  const navigate = useNavigate();
 
   const redirectToCategory = (category) => {
-    console.log(`${category} category clicked!`);
+    category === 'thank you' ? navigate('/thank-you') : navigate(`/${category}`);
   };
 
   return (
