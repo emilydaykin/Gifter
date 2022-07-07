@@ -53,7 +53,9 @@ export const CartProvider = ({ children }) => {
   };
 
   const getCartTotalPrice = () => {
-    return cartItems.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
+    const total = cartItems.reduce((prev, curr) => prev + curr.price * curr.quantity, 0);
+    // currency rounding:
+    return total % 1 > 0 ? total.toFixed(2) : total;
   };
 
   const value = {
