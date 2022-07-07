@@ -11,17 +11,17 @@ const shopData = [
       },
       {
         id: 2,
-        name: 'Polar Bear Mug',
-        imageUrl:
-          'https://images.unsplash.com/photo-1544274040-f0f66aef3b6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hyaXN0bWFzJTIwbXVnfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 9
-      },
-      {
-        id: 3,
         name: 'Box of 6 Vanilla-Mousse-filled Chocolates',
         imageUrl:
           'https://images.unsplash.com/photo-1553452118-621e1f860f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGhvdCUyMGNob2NvbGF0ZSUyMG1ha2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         price: 3.5
+      },
+      {
+        id: 3,
+        name: 'Polar Bear Mug',
+        imageUrl:
+          'https://images.unsplash.com/photo-1544274040-f0f66aef3b6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hyaXN0bWFzJTIwbXVnfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 9
       },
       {
         id: 4,
@@ -111,6 +111,20 @@ const shopData = [
         imageUrl:
           'https://images.unsplash.com/photo-1637029874508-378226bffac8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG9tZSUyMGNvZmZlZSUyMG1hY2hpbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: 87
+      },
+      {
+        id: 8,
+        name: 'UV400 Sunglasses',
+        imageUrl:
+          'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VuZ2xhc3Nlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 42
+      },
+      {
+        id: 9,
+        name: 'Water Bottles x2 (750ml)',
+        imageUrl:
+          'https://images.unsplash.com/photo-1532471940687-6067d9cac167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2F0ZXJib3R0bGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 25
       }
     ]
   },
@@ -133,11 +147,12 @@ const shopData = [
       },
       {
         id: 3,
-        name: 'Scented Bath Bombs',
+        name: 'Paint Kit with 5 Water Colours & 5 Paint Brushes',
         imageUrl:
-          'https://images.unsplash.com/photo-1578426720323-6d3b67133446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmF0aCUyMGJvbWJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 21
+          'https://images.unsplash.com/photo-1510832842230-87253f48d74f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFpbnRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 12
       },
+
       {
         id: 4,
         name: 'Instant Polaroid Camera (Light Yellow)',
@@ -147,10 +162,31 @@ const shopData = [
       },
       {
         id: 5,
-        name: '2-Piece Mug Set',
+        name: 'Inspirational Coastal Mugs',
         imageUrl:
-          'https://images.unsplash.com/photo-1542556398-95fb5b9f9b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 10
+          'https://images.unsplash.com/photo-1614940403522-a8c829e7eb82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 15
+      },
+      {
+        id: 6,
+        name: 'Scented Bath Bombs',
+        imageUrl:
+          'https://images.unsplash.com/photo-1578426720323-6d3b67133446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmF0aCUyMGJvbWJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 21
+      },
+      {
+        id: 7,
+        name: 'Yoga Kit: Mat, Block, Microfibre Towel and 2kg Dumbbells',
+        imageUrl:
+          'https://images.unsplash.com/photo-1591291621164-2c6367723315?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMG1hdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 21
+      },
+      {
+        id: 8,
+        name: 'Vegan Brownie Mix (500g)',
+        imageUrl:
+          'https://images.unsplash.com/photo-1511382091779-4dedcc34e19b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YnJvd25pZSUyMG1peHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 21
       }
     ]
   },
@@ -180,17 +216,45 @@ const shopData = [
       },
       {
         id: 4,
-        name: 'Inspirational Coastal Mugs',
+        name: '2-Piece Mug Set',
         imageUrl:
-          'https://images.unsplash.com/photo-1614940403522-a8c829e7eb82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 15
+          'https://images.unsplash.com/photo-1542556398-95fb5b9f9b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 12
       },
       {
         id: 5,
         name: 'Box of 20 Chocolates: Dark, Milk and White',
         imageUrl:
           'https://images.unsplash.com/photo-1526081347589-7fa3cb41b4b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Ym94JTIwb2YlMjBzd2VldHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 10
+        price: 8
+      },
+      {
+        id: 6,
+        name: 'Bath & Shower Gel Kit',
+        imageUrl:
+          'https://images.unsplash.com/photo-1556229181-695df2bf2d6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c29hcCUyMGdlbHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 15
+      },
+      {
+        id: 7,
+        name: '6-Piece Tea Towel Set in 3 Sizes',
+        imageUrl:
+          'https://images.unsplash.com/photo-1603873932226-5d1d21826bb9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fHRpc3N1ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 13
+      },
+      {
+        id: 8,
+        name: 'Multi-purpose jars with suction lids',
+        imageUrl:
+          'https://images.unsplash.com/photo-1570649857669-4ad9f896435d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJveCUyMHRpc3N1ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 22
+      },
+      {
+        id: 9,
+        name: '2-Set Shot Glasses',
+        imageUrl:
+          'https://images.unsplash.com/photo-1614708114684-83b1e3e7c2e9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2hvdCUyMGdsYXNzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 11
       }
     ]
   },
@@ -242,13 +306,20 @@ const shopData = [
       },
       {
         id: 7,
+        name: '100 Baking Sheets with Design',
+        imageUrl:
+          'https://images.unsplash.com/photo-1624715188184-506e76b47537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb3duaWUlMjBtaXh8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 0
+      },
+      {
+        id: 8,
         name: 'Faux Plants, Bowls and Mug Set',
         imageUrl:
           'https://images.unsplash.com/photo-1551893948-d31ec1f58bce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
         price: 35
       },
       {
-        id: 8,
+        id: 9,
         name: 'High Powered Food Blender',
         imageUrl:
           'https://images.unsplash.com/photo-1585237672814-8f85a8118bf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxlbmRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
