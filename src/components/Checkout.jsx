@@ -10,6 +10,7 @@ const Checkout = () => {
 
   return (
     <>
+      <h1 className='heading'>Checkout</h1>
       <div className='checkout'>
         <div className='checkout__table'>
           <div className='checkout__heading-row'>
