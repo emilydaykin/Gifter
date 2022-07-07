@@ -68,7 +68,7 @@ const shopData = [
         name: '2-Hour Spa & Sauna Session',
         imageUrl:
           'https://images.unsplash.com/photo-1583416750470-965b2707b355?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHNwYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 0
+        price: 85
       },
       {
         id: 2,
@@ -266,7 +266,7 @@ const shopData = [
         name: 'Silver-Rimmed Picture Frame',
         imageUrl:
           'https://images.unsplash.com/photo-1530634962287-1aa57a5e70fe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHdhbGwlMjBmcmFtZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 0
+        price: 25
       },
       {
         id: 2,
@@ -302,14 +302,14 @@ const shopData = [
         name: 'Red & Blue Towel Set',
         imageUrl:
           'https://images.unsplash.com/photo-1639298109207-5a9ccc254481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHRvd2Vsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 0
+        price: 35
       },
       {
         id: 7,
         name: '100 Baking Sheets with Design',
         imageUrl:
           'https://images.unsplash.com/photo-1624715188184-506e76b47537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGJyb3duaWUlMjBtaXh8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 0
+        price: 6
       },
       {
         id: 8,
