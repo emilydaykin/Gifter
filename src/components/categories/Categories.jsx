@@ -1,5 +1,5 @@
 // import React from 'react';
-import Category from './Category';
+import CategoryPoster from './CategoryPoster';
 
 const Categories = () => {
   const categories = [
@@ -26,7 +26,7 @@ const Categories = () => {
     },
     {
       id: 4,
-      key: 'thank-you',
+      key: 'thank you',
       title: 'Thank You',
       imageURL:
         'https://images.unsplash.com/photo-1499744937866-d7e566a20a61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHRoYW5rJTIweW91fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=600'
@@ -43,7 +43,7 @@ const Categories = () => {
   return (
     <div className='categories'>
       {categories.map((category) => (
-        <Category key={category.id} category={category} />
+        <CategoryPoster key={category.id} category={category} />
       ))}
     </div>
   );
