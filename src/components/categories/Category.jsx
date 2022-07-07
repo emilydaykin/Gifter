@@ -17,14 +17,14 @@ const Category = () => {
   return (
     <div className='shop'>
       <div className='shop__section'>
-        <h1 className='shop__category'>{category} gifts</h1>
+        <h1 className='shop__category shop__category--individual'>{category} gifts</h1>
         <div className='product-group product-group--individual'>
           {products ? (
             products.map((product) => (
               <ProductCard product={product} key={product.id} preview={false} />
             ))
           ) : (
-            <></>
+            <p>Loading Products...</p>
           )}
         </div>
       </div>
