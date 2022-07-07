@@ -9,9 +9,24 @@ const CategoriesPreview = () => {
 
   const redirectToCategory = (category) => {
     console.log(`${category} category clicked`);
-    // category === 'thank you' ? navigate('/shop/thank-you') : navigate(`/shop/${category}`);
     navigate(`/shop/${category}`);
   };
+
+  const randomItemsIndex = (maxIndex = 7) => {
+    const randomIndices = [];
+    let randomIndex;
+    for (let i = 0; i < 4; i++) {
+      randomIndex = Math.floor(Math.random() * maxIndex);
+      while (randomIndices.includes(randomIndex)) {
+        randomIndex = Math.floor(Math.random() * maxIndex);
+      }
+      randomIndices.push(randomIndex);
+    }
+    console.log('randomIndices', randomIndices);
+    return randomIndices;
+  };
+
+  const randomIndices = randomItemsIndex();
 
   return (
     <div className='shop'>
@@ -21,13 +36,11 @@ const CategoriesPreview = () => {
             {title} gifts <span onClick={() => redirectToCategory(title)}>&rarr;</span>
           </h1>
           <div className='product-group'>
-            {categoriesMap[title].map((product) => {
-              return product.id <= 4 ? (
+            {categoriesMap[title]
+              .filter((_, idx) => randomIndices.includes(idx))
+              .map((product) => (
                 <ProductCard key={product.id} product={product} preview={true} />
-              ) : (
-                <p key={product.id}></p>
-              );
-            })}
+              ))}
           </div>
         </div>
       ))}
