@@ -1,14 +1,11 @@
 .product-group {
-  // border: 2px solid blueviolet;
   display: flex;
   margin-bottom: 3rem;
-  // overflow-x: scroll;
-  // &::-webkit-scrollbar {
-  //   height: 1rem;
-  // }
 
-  // &::-webkit-scrollbar-thumb {
-  //   border-radius: 1rem;
-  //   background-color: rgba($theme-grey-light, .6);
-  // }
+  &--individual {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
 }
+
