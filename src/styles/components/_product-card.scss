@@ -21,6 +21,7 @@
     height: 35rem;
     object-fit: cover;
     object-position: center;
+    border-radius: $default-border-radius;
   }
 
   &__product-info {
