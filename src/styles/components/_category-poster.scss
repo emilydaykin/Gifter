@@ -1,4 +1,4 @@
-.category {
+.category-poster {
   // border: 1px solid $theme-grey-light;
   height: 50vh;
   margin: 1.5rem;
@@ -33,13 +33,13 @@
   &:hover {
     cursor: pointer;
 
-    & .category__body {
+    & .category-poster__body {
       background-color: rgba($theme-white, 0.93);
       transform: scale(0.9);
       transition: transform 1.5s cubic-bezier(.1, .87, .81, .42);
     }
 
-    & .category__image {
+    & .category-poster__image {
       transform: scale(1.1);
       transition: all 1.5s cubic-bezier(.1, .87, .81, .42);
     }
@@ -51,7 +51,7 @@
 }
 
 @media (max-width: 1270px) {
-  .category {
+  .category-poster {
     &--birthday,
     &--christmas, 
     &--thank-you, 
@@ -62,13 +62,13 @@
 }
 
 @media (max-width: 700px) {
-  .category {
+  .category-poster {
     grid-column: span 2;
   }
 }
 
 @media (max-width: 400px) {
-  .category {
+  .category-poster {
     grid-column: span 2;
 
     &__body {

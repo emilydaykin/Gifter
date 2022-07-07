@@ -1,26 +1,31 @@
-// import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// Displays all gifts for each category in DB
+// path is `/shop/:category` for each category in DB
+import { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { CategoriesContext } from '../../contexts/categories.context';
+import ProductCard from '../ProductCard';
 
-const Category = ({ category }) => {
-  const { title, imageURL, key } = category;
-  const navigate = useNavigate();
+const Category = () => {
+  const { category } = useParams();
+  const { categoriesMap } = useContext(CategoriesContext);
+  const [products, setProducts] = useState([]);
 
-  const redirectToCategory = (category) => navigate(`/${category}`);
+  useEffect(() => {
+    setProducts(categoriesMap[category]);
+  }, [category, categoriesMap]);
 
   return (
-    <div className={`category category--${key}`} onClick={() => redirectToCategory(category.key)}>
-      <div
-        className='category__image'
-        style={{
-          backgroundImage: `url(${imageURL})`,
-          backgroundPosition: `${
-            key === 'anniversary' ? 'center 60%' : key === 'thank-you' ? 'center 20%' : 'center'
-          }`
-        }}
-      >
-        <div className='category__body'>
-          <h2>{title}</h2>
-          <p>Browse Now</p>
+    <div className='shop'>
+      <div className='shop__section'>
+        <h1 className='shop__category'>{category} gifts</h1>
+        <div className='product-group product-group--individual'>
+          {products ? (
+            products.map((product) => (
+              <ProductCard product={product} key={product.id} preview={false} />
+            ))
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>
