@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 import { UserContext } from '../contexts/user.context';
 import { CartContext } from '../contexts/cart.context';
@@ -10,8 +10,10 @@ import CartDropdown from './cart/CartDropdown';
 const Navbar = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
-
   const toggleShowHideCart = () => setIsCartOpen(!isCartOpen);
+  const location = useLocation();
+
+  console.log('location', location);
 
   const hideCartWhenNavigatingAway = () => {
     if (isCartOpen) {
@@ -30,10 +32,26 @@ const Navbar = () => {
           <h1 className='navbar__heading'>Gifter</h1>
         </Link>
         <div className='navbar__links'>
-          <Link className='navbar__link' to='/shop' onClick={hideCartWhenNavigatingAway}>
+          <Link
+            className={
+              location.pathname.split('/')[1] === 'shop'
+                ? 'navbar__link navbar__link--highlighted'
+                : 'navbar__link'
+            }
+            to='/shop'
+            onClick={hideCartWhenNavigatingAway}
+          >
             Shop
           </Link>
-          <Link className='navbar__link' to='/about' onClick={hideCartWhenNavigatingAway}>
+          <Link
+            className={
+              location.pathname.split('/')[1] === 'about'
+                ? 'navbar__link navbar__link--highlighted'
+                : 'navbar__link'
+            }
+            to='/about'
+            onClick={hideCartWhenNavigatingAway}
+          >
             About
           </Link>
           {currentUser ? (
@@ -41,11 +59,19 @@ const Navbar = () => {
               Sign Out
             </span>
           ) : (
-            <Link className='navbar__link' to='/auth' onClick={hideCartWhenNavigatingAway}>
+            <Link
+              className={
+                location.pathname.split('/')[1] === 'auth'
+                  ? 'navbar__link navbar__link--highlighted'
+                  : 'navbar__link'
+              }
+              to='/auth'
+              onClick={hideCartWhenNavigatingAway}
+            >
               Sign In
             </Link>
           )}
-          <span className='navbar__link navbar__link--cart' onClick={toggleShowHideCart}>
+          <span className='navbar__link' onClick={toggleShowHideCart}>
             <CartIcon />
           </span>
         </div>

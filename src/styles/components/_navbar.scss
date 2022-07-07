@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
+  padding: 1.5rem 3rem .5rem 3rem;
 
   &__logo {
     filter: opacity(50%);
@@ -27,11 +28,17 @@
     font-size: 1.75rem;
     letter-spacing: .2rem;
     transition: transform .3 linear;
+    padding-bottom: 1rem;
 
     &--main {
       display: flex;
       // border: 2px solid orange;
       align-items: center;
+    }
+
+    &--highlighted {
+      border-bottom: 1px solid $theme-grey-light;
+      // margin-left: -1rem;
     }
 
     &:hover {
