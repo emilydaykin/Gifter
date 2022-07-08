@@ -14,7 +14,9 @@ const ProductCard = ({ product, preview }) => {
       </button>
       <div className='product-card__product-info'>
         <h3 className='product-card__product-name'>{product.name}</h3>
-        <p className='product-card__product-price'>&euro;{product.price}</p>
+        <p className='product-card__product-price'>
+          &euro;{product.price % 1 > 0 ? product.price.toFixed(2) : product.price}
+        </p>
       </div>
     </div>
   );

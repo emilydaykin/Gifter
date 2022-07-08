@@ -7,7 +7,8 @@ const CartItem = ({ cartItem }) => {
       <div className='cart-item__text'>
         <h2 className='cart-item__name'>{cartItem.name}</h2>
         <span>
-          {cartItem.quantity} x &euro;{cartItem.price}
+          {cartItem.quantity} x &euro;
+          {cartItem.price % 1 > 0 ? cartItem.price.toFixed(2) : cartItem.price}
         </span>
       </div>
     </div>
