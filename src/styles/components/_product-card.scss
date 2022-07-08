@@ -53,7 +53,7 @@
   
   &__button {
     position: absolute;
-    bottom: 20%;
+    top: 27rem;  // image-height minus 8
     background-color: rgba($theme-white, .85);
     opacity: 0;
     // width: 15rem;
@@ -81,8 +81,14 @@
     &__button {
       width: 19rem;
       font-size: 1.25rem;
-      bottom: 25%;
+      top: 21rem; // image-height minus 8
       padding: 1.5rem 2rem;
     }
+  }
+}
+
+@media (max-width: 335px) {
+  .product-card__button {
+    width: 15rem;
   }
 }

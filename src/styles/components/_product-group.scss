@@ -24,7 +24,6 @@
   &__fade-overlay {
     position: absolute;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     // border: 2px solid green;
     width: 100%;
@@ -48,13 +47,10 @@
 
   &__fade-left {
     background: linear-gradient(to left, transparent, rgba($theme-white, .7) 55%, rgba($theme-white, 1));
-    // border: 2px solid blue;
   }
   
   &__fade-right {
     background: linear-gradient(to right, transparent, $theme-white 60%, $theme-white);
-    // border: 2px solid red;
-    right: 0;
   }
 }
 
