@@ -40,6 +40,9 @@ const Navbar = () => {
             onClick={hideCartWhenNavigatingAway}
           >
             Shop
+            <span className='navbar__sub-link'>
+              {location.pathname.split('/').length === 3 && location.pathname.split('/')[2]}
+            </span>
           </Link>
           <Link
             className={

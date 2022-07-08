@@ -29,6 +29,7 @@
     transition: transform .3 linear;
     padding-bottom: 1rem;
     text-align: center;
+    position: relative;
 
     &--main {
       display: flex;
@@ -48,6 +49,15 @@
     &:active {
       transform: scale(.95);
     }
+  }
+
+  &__sub-link {
+    color: $theme-grey-light;
+    font-size: 1rem;
+    position: absolute;
+    bottom: -1.75rem;
+    left: 51%;
+    transform: translateX(-50%);
   }
 
   &__heading {
@@ -109,6 +119,21 @@
           margin-left: 1.1rem;
         }
       }
+    }
+
+    &__link {
+      padding: .5rem .75rem;
+    }
+
+    &__sub-link {
+      bottom: -.5rem;
+      right: -1.2rem;
+    }
+
+
+    &__link--highlighted {
+      border-bottom: none;
+      border-left: 1px solid $theme-grey-light;
     }
   }
 }
