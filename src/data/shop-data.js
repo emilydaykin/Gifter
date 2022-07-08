@@ -284,7 +284,7 @@ const shopData = [
       },
       {
         id: 44,
-        name: 'Instant Polaroid Camera (Light Yellow)',
+        name: 'Polaroid Camera with Instant Printing (Light Yellow)',
         imageUrl:
           'https://images.unsplash.com/photo-1560141343-966cb5212777?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cG9sYXJvaWQlMjBjYW1lcmF8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: 45
@@ -634,7 +634,7 @@ const shopData = [
       },
       {
         id: 97,
-        name: 'Flavoured Syrups',
+        name: 'Flavoured Syrups For Drinks or Baked Foods',
         imageUrl:
           'https://images.unsplash.com/photo-1647081139506-630b83cbed05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDh8fGZsYXZvdXJlZCUyMHN5cnVwc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
         price: 55

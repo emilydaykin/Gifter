@@ -2,6 +2,10 @@
   // border: 2px solid orange;
   margin: 3rem 4rem;
 
+  &__section:not(:last-child) {
+    margin-bottom: 7rem;
+  }
+
   &__category {
     font-weight: 500;
     margin-bottom: 2.5rem;
@@ -25,6 +29,7 @@
 
     &--individual {
       text-align: center;
+      margin-bottom: 4.5rem;
     }
   }
 }
