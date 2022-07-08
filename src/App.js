@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Shop from './components/Shop';
 import SignIn from './components/auth/SignIn';
-import Checkout from './components/Checkout';
+import Checkout from './components/checkout/Checkout';
 
 const App = () => {
   return (
