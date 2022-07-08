@@ -13,8 +13,6 @@ const Navbar = () => {
   const toggleShowHideCart = () => setIsCartOpen(!isCartOpen);
   const location = useLocation();
 
-  console.log('location', location);
-
   const hideCartWhenNavigatingAway = () => {
     if (isCartOpen) {
       setIsCartOpen(!isCartOpen);
