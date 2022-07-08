@@ -22,7 +22,7 @@ const shopData = [
         name: 'Polar Bear Mug',
         imageUrl:
           'https://images.unsplash.com/photo-1544274040-f0f66aef3b6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hyaXN0bWFzJTIwbXVnfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 9
+        price: 9.25
       },
       {
         id: 4,
@@ -36,28 +36,28 @@ const shopData = [
         name: 'Tube of 20 Chocolate Truffles',
         imageUrl:
           'https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdCUyMGNob2NvbGF0ZSUyMG1ha2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 5
+        price: 5.99
       },
       {
         id: 6,
         name: 'Dark Grey Beanie with Pom Pom',
         imageUrl:
           'https://images.unsplash.com/photo-1576861048192-fa56cf0a8161?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhbmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 7
+        price: 7.5
       },
       {
         id: 7,
         name: '7-Piece Scented Candle Set',
         imageUrl:
           'https://images.unsplash.com/photo-1532592068623-db1978e40df5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNhbmRsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 40
+        price: 39.99
       },
       {
         id: 8,
         name: '2-Set Fuzzy Sock Collection',
         imageUrl:
           'https://images.unsplash.com/photo-1513885332241-c2799e2e7609?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZ1enp5JTIwc29ja3N8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 40
+        price: 9.5
       }
     ]
   },
@@ -77,7 +77,7 @@ const shopData = [
         name: 'PlayStation, Fifa & Console Set',
         imageUrl:
           'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxheXN0YXRpb258ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 500
+        price: 499.5
       },
       {
         id: 18,
@@ -98,7 +98,7 @@ const shopData = [
         name: 'Garden Book Shelf Box',
         imageUrl:
           'https://images.unsplash.com/photo-1591492654773-6756035bef6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VsZWN0aW9uJTIwbm9uJTIwZmljdGlvbiUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 87
+        price: 87.5
       },
       {
         id: 21,
@@ -112,14 +112,14 @@ const shopData = [
         name: 'Vintage Coffee Machine Mini',
         imageUrl:
           'https://images.unsplash.com/photo-1637029874508-378226bffac8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG9tZSUyMGNvZmZlZSUyMG1hY2hpbmV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 87
+        price: 85.99
       },
       {
         id: 23,
         name: 'UV400 Sunglasses',
         imageUrl:
           'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3VuZ2xhc3Nlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 42
+        price: 42.5
       },
       {
         id: 24,
@@ -139,21 +139,21 @@ const shopData = [
         name: 'At-Home Pamper Kit with Bath Salts, Candles & Scented Flowers',
         imageUrl:
           'https://images.unsplash.com/photo-1554167838-07aa5723df3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFtcGVyJTIwYmF0aHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 45
+        price: 35.75
       },
       {
         id: 32,
-        name: '2x Disneyland Entrance Tickets',
+        name: '2x Disneyland Entrance Tickets + Lunch',
         imageUrl:
           'https://images.unsplash.com/photo-1605713635131-60df11253e9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGlzbmV5bGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 80
+        price: 94.99
       },
       {
         id: 33,
         name: 'Paint Kit with 5 Water Colours & 5 Paint Brushes',
         imageUrl:
           'https://images.unsplash.com/photo-1510832842230-87253f48d74f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGFpbnRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 12
+        price: 12.5
       },
 
       {
@@ -168,28 +168,28 @@ const shopData = [
         name: 'Inspirational Coastal Mugs',
         imageUrl:
           'https://images.unsplash.com/photo-1614940403522-a8c829e7eb82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 15
+        price: 14.5
       },
       {
         id: 36,
         name: 'Scented Bath Bombs',
         imageUrl:
           'https://images.unsplash.com/photo-1578426720323-6d3b67133446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmF0aCUyMGJvbWJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 21
+        price: 19.99
       },
       {
         id: 37,
         name: 'Yoga Kit: Mat, Block, Microfibre Towel and 2kg Dumbbells',
         imageUrl:
           'https://images.unsplash.com/photo-1591291621164-2c6367723315?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8eW9nYSUyMG1hdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 21
+        price: 24.5
       },
       {
         id: 38,
         name: 'Vegan Brownie Mix (500g)',
         imageUrl:
           'https://images.unsplash.com/photo-1511382091779-4dedcc34e19b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YnJvd25pZSUyMG1peHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 21
+        price: 12.99
       }
     ]
   },
@@ -202,7 +202,7 @@ const shopData = [
         name: '18-Piece Chocolate Assortment & Body Lotion',
         imageUrl:
           'https://images.unsplash.com/photo-1653725440988-349d319d985d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ym94JTIwb2YlMjBzd2VldHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 30
+        price: 15.5
       },
       {
         id: 47,
@@ -216,28 +216,28 @@ const shopData = [
         name: 'Faux Flower Bouquet',
         imageUrl:
           'https://images.unsplash.com/photo-1602747301683-a4cc7c0a8622?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmF1eCUyMGZsb3dlcnMlMjBib3VxdWV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 17
+        price: 17.99
       },
       {
         id: 49,
         name: '2-Piece Mug Set',
         imageUrl:
           'https://images.unsplash.com/photo-1542556398-95fb5b9f9b48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 12
+        price: 9.99
       },
       {
         id: 50,
         name: 'Box of 20 Chocolates: Dark, Milk and White',
         imageUrl:
           'https://images.unsplash.com/photo-1526081347589-7fa3cb41b4b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Ym94JTIwb2YlMjBzd2VldHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 8
+        price: 8.5
       },
       {
         id: 51,
         name: 'Bath & Shower Gel Kit',
         imageUrl:
           'https://images.unsplash.com/photo-1556229181-695df2bf2d6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c29hcCUyMGdlbHN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 15
+        price: 15.75
       },
       {
         id: 52,
@@ -251,7 +251,7 @@ const shopData = [
         name: 'Multi-purpose jars with suction lids',
         imageUrl:
           'https://images.unsplash.com/photo-1570649857669-4ad9f896435d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGJveCUyMHRpc3N1ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 22
+        price: 22.5
       },
       {
         id: 54,
@@ -278,14 +278,14 @@ const shopData = [
         name: 'Mr & Mrs Mug Set',
         imageUrl:
           'https://images.unsplash.com/photo-1618124436088-0d7e0da9df34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG11Z3N8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 14
+        price: 13.5
       },
       {
         id: 63,
         name: 'Red Wine and Glass Set',
         imageUrl:
           'https://images.unsplash.com/photo-1582673937754-8d0cfed5dcc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8d2luZSUyMGJvdHRsZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 70
+        price: 69.99
       },
 
       {
@@ -300,14 +300,14 @@ const shopData = [
         name: '12-Piece Vintage Mug Set',
         imageUrl:
           'https://images.unsplash.com/photo-1523367118146-091f762cd8ea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fG11Z3N8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 40
+        price: 55.9
       },
       {
         id: 66,
         name: 'Red & Blue Towel Set',
         imageUrl:
           'https://images.unsplash.com/photo-1639298109207-5a9ccc254481?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHRvd2Vsc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 35
+        price: 34.5
       },
       {
         id: 67,
@@ -321,14 +321,14 @@ const shopData = [
         name: 'Faux Plants, Bowls and Mug Set',
         imageUrl:
           'https://images.unsplash.com/photo-1551893948-d31ec1f58bce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bXVnc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 35
+        price: 49.9
       },
       {
         id: 69,
         name: 'High Powered Food Blender',
         imageUrl:
           'https://images.unsplash.com/photo-1585237672814-8f85a8118bf6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmxlbmRlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 30
+        price: 32.5
       }
     ]
   }
