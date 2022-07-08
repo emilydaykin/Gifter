@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CategoriesContext } from '../../contexts/categories.context';
-import ProductCard from '../ProductCard';
+import CategoryCarousel from './CategoryCarousel';
 
 const CategoriesPreview = () => {
   const { categoriesMap } = useContext(CategoriesContext);
@@ -12,22 +12,6 @@ const CategoriesPreview = () => {
     navigate(`/shop/${category}`);
   };
 
-  const randomItemsIndex = (maxIndex = 7) => {
-    const randomIndices = [];
-    let randomIndex;
-    for (let i = 0; i < 4; i++) {
-      randomIndex = Math.floor(Math.random() * maxIndex);
-      while (randomIndices.includes(randomIndex)) {
-        randomIndex = Math.floor(Math.random() * maxIndex);
-      }
-      randomIndices.push(randomIndex);
-    }
-    console.log('randomIndices', randomIndices);
-    return randomIndices;
-  };
-
-  const randomIndices = randomItemsIndex();
-
   return (
     <div className='shop'>
       {Object.keys(categoriesMap).map((title) => (
@@ -35,13 +19,7 @@ const CategoriesPreview = () => {
           <h1 className='shop__category'>
             {title} gifts <span onClick={() => redirectToCategory(title)}>&rarr;</span>
           </h1>
-          <div className='product-group'>
-            {categoriesMap[title]
-              .filter((_, idx) => randomIndices.includes(idx))
-              .map((product) => (
-                <ProductCard key={product.id} product={product} preview={true} />
-              ))}
-          </div>
+          <CategoryCarousel categoriesMap={categoriesMap} title={title} />
         </div>
       ))}
     </div>
