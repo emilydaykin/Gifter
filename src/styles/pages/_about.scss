@@ -1,6 +1,7 @@
 .about {
   display: grid;
   width: 80%;
+  max-width: 90rem;
   margin: 3rem auto;
   grid-template-columns: repeat(2, 1fr);
 
