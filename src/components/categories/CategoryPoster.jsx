@@ -17,7 +17,7 @@ const CategoryPoster = ({ category }) => {
         style={{
           backgroundImage: `url(${imageURL})`,
           backgroundPosition: `${
-            key === 'anniversary' ? 'center 60%' : key === 'thank-you' ? 'center 20%' : 'center'
+            key === 'anniversary' ? 'center 60%' : key === 'thank you' ? 'center 20%' : 'center'
           }`
         }}
       >
