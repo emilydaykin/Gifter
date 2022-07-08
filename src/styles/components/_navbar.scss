@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
   padding: 1.5rem 3rem .5rem 3rem;
 
   &__logo {
@@ -29,6 +28,7 @@
     letter-spacing: .2rem;
     transition: transform .3 linear;
     padding-bottom: 1rem;
+    text-align: center;
 
     &--main {
       display: flex;
@@ -57,7 +57,19 @@
   }
 }
 
-@media (max-width: 645px) {
+@media (max-width: 720px) {
+  .navbar {
+
+    &__links {
+  
+      .navbar__link:not(:last-child) {
+        margin-right: 3.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
   .navbar {
     flex-direction: column;
 
@@ -67,40 +79,37 @@
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 445px) {
   .navbar {
     
     &__links {
       margin-top: 2rem;
-
-      .navbar__link:not(:last-child) {
-        margin-right: 3.5rem;
-      }
-    }
-
-    &__link {
-      letter-spacing: .1rem;
     }
   }
 }
 
-@media (max-width: 355px) {
+@media (max-width: 410px) {
   .navbar {
     
     &__links {
       display: flex;
       flex-direction: column;
       text-align: center;
-      justify-content: center;
       // border: 2px solid orange;
+      
+      .navbar__link {  
+        &:not(:last-child) {
+          // border: 2px solid red;
+          width: 100%;
+          margin-bottom: 1rem;
+          margin-right: 0;
+        }
 
-      .navbar__link:not(:last-child) {  
-        // border: 2px solid red;
-        width: 100%;
-        margin-bottom: 1rem;
+        &:last-child {
+          margin-left: 1.1rem;
+        }
       }
     }
-
   }
 }
 
