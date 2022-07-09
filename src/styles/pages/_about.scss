@@ -67,7 +67,27 @@
   &__created-with {
     grid-column: span 2;
     margin-top: 3rem;
-    // border: 1px solid rgba($theme-grey-light, .1);
-    // background-color: white;
+  }
+}
+
+@media (max-width: 500px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    
+    &__description,
+    &__contact,
+    &__created-with {
+      margin: 1rem 0;
+    }    
+    
+    &__contact-links {
+      margin-top: 1.5rem;
+    }
+
+    &__icons {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }
