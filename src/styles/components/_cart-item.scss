@@ -16,6 +16,7 @@
     width: 8rem;
     object-fit: cover;
     object-position: center;
+    border-radius: $small-border-radius;
   }
 
   &__name {
