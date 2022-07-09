@@ -39,7 +39,6 @@
 
     &--highlighted {
       border-bottom: 1px solid $theme-grey-light;
-      // margin-left: -1rem;
     }
 
     &:hover {
@@ -67,14 +66,19 @@
   }
 }
 
-@media (max-width: 720px) {
-  .navbar {
+@media (max-width: 750px) {
+  .navbar__links {
+    .navbar__link:not(:last-child) {
+      margin-right: 3.25rem;
+    }
+  }
+}
 
-    &__links {
-  
-      .navbar__link:not(:last-child) {
-        margin-right: 3.25rem;
-      }
+@media (max-width: 680px) {
+  .navbar__links {
+    .navbar__link:not(:last-child) {
+      margin-right: 2.75rem;
+      font-size: 1.7rem;
     }
   }
 }
@@ -90,10 +94,11 @@
 }
 
 @media (max-width: 445px) {
-  .navbar {
-    
-    &__links {
-      margin-top: 2rem;
+  .navbar__links {
+    margin-top: 2rem;
+
+    .navbar__link:not(:last-child) {
+      font-size: $default-font-size;
     }
   }
 }
@@ -103,7 +108,6 @@
 
     &__links {
       margin-top: 1rem;
-      // margin-bottom: 1rem;
 
       .navbar__link {
         &:not(:last-child) {
@@ -127,12 +131,17 @@
   }
 }
 
-@media (max-width: 335px) {
-  .navbar__links .navbar__link:not(:last-child) { font-size: 1.3rem }
+@media (max-width: 351px) {
+  .navbar__links {
+    .navbar__link:not(:last-child) { font-size: 1.3rem }
+  }
 }
-@media (max-width: 320px) {
-  .navbar__links .navbar__link:not(:last-child) { 
-    font-size: 1.25rem;
-    margin-right: 1rem;
+
+@media (max-width: 335px) {
+  .navbar__links {
+    .navbar__link:not(:last-child) { 
+      font-size: 1.25rem;
+      margin-right: 1rem;
+    }
   }
 }
