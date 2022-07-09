@@ -16,6 +16,7 @@ const Checkout = () => {
           <div className='checkout__heading-row'>
             <p className='checkout__heading checkout__heading--product'>Product</p>
             <p className='checkout__heading checkout__heading--description'>Description</p>
+
             <p className='checkout__heading checkout__heading--quantity'>Quanity</p>
             <p className='checkout__heading checkout__heading--price'>Price (&euro;)</p>
             <p className='checkout__heading checkout__heading--remove'>Remove</p>

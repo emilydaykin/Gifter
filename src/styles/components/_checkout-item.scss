@@ -5,41 +5,72 @@
   padding: 1.75rem 0;
   border-bottom: 1px solid $theme-grey-light;
 
-  div {
+  &__left, &__right {
     display: flex;
-    align-items: center;
-    @include set-checkout-column-widths;
-
-    &:nth-of-type(3),
-    &:nth-of-type(4),
-    &:nth-of-type(5) {
-      padding-left: 1rem;
+  }
+  
+  &__left {
+    width: 52%;
+    // border: 5px solid orange;
+    
+    & div {
+      width: 50%;
+    }
+  }
+  
+  &__right {
+    width: 47%;
+    // border: 1px solid pink;
+    & div {
+      width: 45%;
+      &:last-of-type {
+        width: 25%;
+      }
     }
   }
 
-  &__image-container {
-    display: flex;
-    // justify-content: center;
-  }
-
-  &__image {
-    height: 16rem;
-    width: 85%;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  &__description {
-    // border: 2px solid orange;
+  &__column {
     display: flex;
     align-items: center;
-    padding-right: 3rem;
-    // box-sizing: border-box;
-  }
+    // border: 1px solid yellow;
+    padding-left: 1rem;
+    
+    &--image-container {
+      display: flex;
+      // border: 2px solid red;
+      padding-left: 0;
+      // width: 50%;
+    }
+    &--image {
+      padding-left: 0;
+      height: 16rem;
+      // border: 2px solid green;
+      width: 90%;
+      object-fit: cover;
+      object-position: center;
+    }
+    &--description {
+      // border: 2px solid blue;
+      // border: 2px solid orange;
+      display: flex;
+      align-items: center;
+      padding-right: 3rem;
+      // box-sizing: border-box;
+    }
+    &--quantity,
+    &--price {
+      font-size: 1.75rem;
+    }
 
-  &__quantity,
-  &__price {
-    font-size: 1.75rem;
+    &--remove {
+      font-size: 3.5rem;
+      font-weight: 200;
+
+      span:hover {
+        cursor: pointer;
+        color: $error-red;
+      }
+    }
   }
 
   &__quantity-icon {
@@ -55,19 +86,23 @@
 
   &__quantity-value {
     // border: 2px solid orangered;
-    // padding: 0 .5rem;
     width: 3rem;
     text-align: center;
   }
 
-  &__remove {
-    font-size: 3.5rem;
-    font-weight: 200;
-    
-    span:hover {
-      cursor: pointer;
-      color: $error-red;  
-    }
+ 
+}
+
+@media (max-width: 500px) {
+  .checkout-item {
+    flex-direction: column;
+    align-items: center;
+
+    &__left, &__right {
+      & > div {
+        width: 100%;
+      }
+    } 
     
   }
 }
