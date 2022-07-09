@@ -1,0 +1,28 @@
+.footer {
+  text-align: center;
+  margin: 5rem 0 1rem 0;
+  // position: absolute;
+  // bottom: 0;
+  // left: 50%;
+  // transform: translateX(-50%);
+
+  &__text {
+    color: rgba($theme-grey-light, .6);
+    font-size: $default-font-size;
+  }
+  
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 460px) {
+  .footer {
+    padding: 0 1.5rem;
+    &__text {
+      font-size: 1.5rem;
+    }
+  }
+}

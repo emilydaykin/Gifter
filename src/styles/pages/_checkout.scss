@@ -2,6 +2,7 @@
   // border: 2px solid pink;
   display: flex;
   justify-content: center;
+  min-height: 72vh;
 
   &__table {
     // border: 1px solid red;
@@ -33,7 +34,7 @@
 
   &__total {
     font-size: 3rem;
-    margin: 4rem 0;
+    margin: 4rem 0 1rem 0;
     text-align: end;
     text-transform: uppercase;
   }
