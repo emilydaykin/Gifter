@@ -39,3 +39,18 @@
     margin-top: 2rem;
   }
 }
+
+@media (max-width: 500px) {
+  .cart-dropdown {
+    width: 25rem;
+    top: 29rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &__button {
+      padding: 1.75rem 1rem;
+      width: 19rem;
+      margin-top: 1rem;
+    }
+  }
+}
