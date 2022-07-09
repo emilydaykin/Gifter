@@ -9,19 +9,17 @@ const CheckoutItem = ({ checkoutItem }) => {
   return (
     <div className='checkout-item'>
       <div className='checkout-item__left'>
-        <div className='checkout-item__column checkout-item__column--image-container'>
+        <div className='checkout-item__image-container'>
           <img
-            className='checkout-item__column checkout-item__column--image'
+            className='checkout-item__image'
             src={checkoutItem.imageUrl}
             alt={checkoutItem.name}
           />
         </div>
-        <div className='checkout-item__column checkout-item__column--description'>
-          {checkoutItem.name}
-        </div>
+        <div className='checkout-item__description'>{checkoutItem.name}</div>
       </div>
       <div className='checkout-item__right'>
-        <div className='checkout-item__column checkout-item__column--quantity'>
+        <div className='checkout-item__quantity'>
           <FontAwesomeIcon
             className='checkout-item__quantity-icon'
             icon={faCaretLeft}
@@ -36,13 +34,8 @@ const CheckoutItem = ({ checkoutItem }) => {
             onClick={() => addItemToCart(checkoutItem)}
           />
         </div>
-        <div className='checkout-item__column checkout-item__column--price'>
-          {checkoutItem.price.toFixed(2)}
-        </div>
-        <div
-          className='checkout-item__column checkout-item__column--remove'
-          onClick={() => removeItemFromCart(checkoutItem)}
-        >
+        <div className='checkout-item__price'>&euro;{checkoutItem.price.toFixed(2)}</div>
+        <div className='checkout-item__remove' onClick={() => removeItemFromCart(checkoutItem)}>
           <span>&times;</span>
         </div>
       </div>

@@ -1,14 +1,14 @@
-@mixin set-checkout-column-widths-heading {
-  width: 20%;
+// @mixin set-checkout-column-widths-heading {
+//   width: 20%;
   
-  // First 2 cols: Product Image & Description Columns
-  &:nth-of-type(-n+2) {
-    width: 30%;
-  }
+//   // First 2 cols: Product Image & Description Columns
+//   &:nth-of-type(-n+2) {
+//     width: 30%;
+//   }
 
-  // Remove Product Column
-  &:last-of-type {
-    width: 12%;
-  }
-}
+//   // Remove Product Column
+//   &:last-of-type {
+//     width: 10%;
+//   }
+// }
 

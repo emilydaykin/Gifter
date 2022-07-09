@@ -7,76 +7,61 @@
 
   &__left, &__right {
     display: flex;
+    // border: 1px solid red;
+
+    & div {
+      display: flex;
+      align-items: center;
+    }
   }
   
   &__left {
     width: 52%;
-    // border: 5px solid orange;
-    
+
     & div {
       width: 50%;
+
+      &:last-of-type {
+        padding-left: 1rem;
+      }
     }
   }
   
   &__right {
     width: 47%;
-    // border: 1px solid pink;
+
     & div {
       width: 45%;
+      padding-left: 1rem;
+
       &:last-of-type {
         width: 25%;
       }
     }
   }
 
-  &__column {
+  &__image {
+    padding-left: 0;
+    height: 16rem;
+    width: 90%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__description {
     display: flex;
     align-items: center;
-    // border: 1px solid yellow;
-    padding-left: 1rem;
-    
-    &--image-container {
-      display: flex;
-      // border: 2px solid red;
-      padding-left: 0;
-      // width: 50%;
-    }
-    &--image {
-      padding-left: 0;
-      height: 16rem;
-      // border: 2px solid green;
-      width: 90%;
-      object-fit: cover;
-      object-position: center;
-    }
-    &--description {
-      // border: 2px solid blue;
-      // border: 2px solid orange;
-      display: flex;
-      align-items: center;
-      padding-right: 3rem;
-      // box-sizing: border-box;
-    }
-    &--quantity,
-    &--price {
-      font-size: 1.75rem;
-    }
+    padding-right: 3rem;
+  }
 
-    &--remove {
-      font-size: 3.5rem;
-      font-weight: 200;
-
-      span:hover {
-        cursor: pointer;
-        color: $error-red;
-      }
-    }
+  &__quantity,
+  &__price {
+    font-size: 1.75rem;
   }
 
   &__quantity-icon {
     font-size: 2rem;
     color: $theme-grey-light;
-    // border: 2px solid orange;
 
     &:hover {
       color: $theme-grey-dark;
@@ -85,24 +70,46 @@
   }
 
   &__quantity-value {
-    // border: 2px solid orangered;
     width: 3rem;
     text-align: center;
   }
 
- 
+  &__remove {
+    font-size: 3.5rem;
+    font-weight: 200;
+
+    span:hover {
+      cursor: pointer;
+      color: $error-red;
+    }
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 645px) {
+  .checkout-item__right div { padding: 0 }
+}
+
+@media (max-width: 600px) {
   .checkout-item {
+    margin-top: 1rem;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid rgba($theme-grey-light, .7);
 
     &__left, &__right {
-      & > div {
-        width: 100%;
+      width: 90%;
+      margin-top: 1rem;
+    }
+
+    &__right div {    
+      // border: 2px solid blue;
+      width: 35%;
+      display: flex;
+      justify-content: center;
+
+      &:first-of-type {
+        width: 50%;
       }
-    } 
-    
+    }
   }
 }

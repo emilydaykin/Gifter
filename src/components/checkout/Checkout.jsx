@@ -18,7 +18,7 @@ const Checkout = () => {
             <p className='checkout__heading checkout__heading--description'>Description</p>
 
             <p className='checkout__heading checkout__heading--quantity'>Quanity</p>
-            <p className='checkout__heading checkout__heading--price'>Price (&euro;)</p>
+            <p className='checkout__heading checkout__heading--price'>Price</p>
             <p className='checkout__heading checkout__heading--remove'>Remove</p>
           </div>
           {cartItems.map((item) => (
