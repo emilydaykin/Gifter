@@ -102,6 +102,9 @@
   .navbar {
 
     &__links {
+      margin-top: 1rem;
+      // margin-bottom: 1rem;
+
       .navbar__link {
         &:not(:last-child) {
           margin-right: 1.5rem;
@@ -116,6 +119,10 @@
 
     &__link {
       padding: .5rem .1rem;
+    }
+
+    &__sub-link {
+      font-size: .85rem;
     }
   }
 }
