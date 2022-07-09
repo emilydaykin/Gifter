@@ -105,7 +105,7 @@
       .navbar__link {
         &:not(:last-child) {
           margin-right: 1.5rem;
-          font-size: 1.3rem;
+          font-size: 1.45rem;
         }
 
         &:last-child {
@@ -117,5 +117,15 @@
     &__link {
       padding: .5rem .1rem;
     }
+  }
+}
+
+@media (max-width: 335px) {
+  .navbar__links .navbar__link:not(:last-child) { font-size: 1.3rem }
+}
+@media (max-width: 320px) {
+  .navbar__links .navbar__link:not(:last-child) { 
+    font-size: 1.25rem;
+    margin-right: 1rem;
   }
 }
