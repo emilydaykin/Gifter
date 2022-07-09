@@ -46,11 +46,20 @@
     top: 29rem;
     left: 50%;
     transform: translateX(-50%);
+    padding: 1.9rem;
 
     &__button {
       padding: 1.75rem 1rem;
       width: 19rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    &__cart-items {
+      padding: 0;
+
+      &::-webkit-scrollbar {
+        width: .6rem;
+      }
     }
   }
 }

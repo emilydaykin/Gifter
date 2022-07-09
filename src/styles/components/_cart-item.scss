@@ -9,7 +9,6 @@
   &:not(:last-of-type) {
     margin-bottom: 1rem;
   }
-  // justify-content: flex-start;
 
   &__image img {
     margin-right: 2rem;
@@ -23,5 +22,19 @@
     font-size: $default-font-size;
     font-weight: 400;
     margin-bottom: .5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .cart-item {
+    &__name, &__text span {
+      font-size: 1.4rem;
+    }
+
+    &__image img {
+      margin-right: 1.5rem;
+      height: 9rem;
+      width: 7rem;
+    }
   }
 }
