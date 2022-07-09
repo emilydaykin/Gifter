@@ -56,7 +56,7 @@
     top: 27rem;  // image-height minus 8
     background-color: rgba($theme-white, .85);
     opacity: 0;
-    // width: 15rem;
+    color: inherit; // font is blue on mobile otherwise...
 
     &:hover {
       background-color: rgba($theme-grey-dark, .9);
@@ -87,8 +87,25 @@
   }
 }
 
+@media (max-width: 500px) {
+  .product-card {
+
+    &--preview {
+      min-width: 20rem;
+    }
+
+    &__image {
+      height: 23rem;
+    }
+    
+  }
+}
+
 @media (max-width: 335px) {
-  .product-card__button {
-    width: 15rem;
+  .product-card {
+
+    &__button {
+      width: 15rem;
+    }
   }
 }

@@ -72,6 +72,15 @@
 }
 
 @media (max-width: 575px) {
-  .product-group--individual { grid-template-columns: 1fr }
+  .product-group {
+    &--individual {
+      grid-template-columns: 1fr;
+    }
+
+    &__fade-right,
+    &__fade-left {
+      width: 3rem;
+    }
+  }
 }
 

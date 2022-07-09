@@ -33,3 +33,11 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .shop {
+    &__category {
+      font-size: 2.75rem;
+    }
+  }
+}
