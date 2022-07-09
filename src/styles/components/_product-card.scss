@@ -97,6 +97,11 @@
     &__image {
       height: 23rem;
     }
+
+    &__button {
+      top: 16rem; // image-height minus ~8
+      width: 15rem;
+    }
     
   }
 }
