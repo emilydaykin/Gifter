@@ -17,3 +17,18 @@
     font-size: 1.5rem;
   }
 }
+
+@media (max-width: 410px) {
+  .cart-icon {
+    &__image {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &__item-count {
+      font-size: 1.3rem;
+      top: 26%;
+      left: 30%;
+    }
+  }
+}
