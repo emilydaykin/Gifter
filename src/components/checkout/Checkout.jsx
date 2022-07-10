@@ -4,9 +4,9 @@ import CheckoutItem from './CheckoutItem';
 import Footer from '../Footer';
 
 const Checkout = () => {
-  const { cartItems, getCartTotalPrice } = useContext(CartContext);
+  const { cartItems, cartTotalPrice } = useContext(CartContext);
 
-  console.log('cartItems', cartItems);
+  // console.log('cartItems', cartItems);
 
   return (
     <>
@@ -25,7 +25,7 @@ const Checkout = () => {
             <CheckoutItem key={item.id} checkoutItem={item} />
           ))}
           <div className='checkout__total'>
-            Total: &euro;<span>{getCartTotalPrice()}</span>
+            Total: &euro;<span>{cartTotalPrice}</span>
           </div>
         </div>
       </div>
