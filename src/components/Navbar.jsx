@@ -18,6 +18,14 @@ const Navbar = () => {
       setIsCartOpen(!isCartOpen);
     }
   };
+
+  const getSubText = () => {
+    const pathElements = location.pathname.split('/');
+    if (pathElements.length === 3) {
+      return pathElements[2].toLowerCase().includes('thank') ? 'Thank You' : pathElements[2];
+    }
+  };
+
   return (
     <>
       <div className='navbar'>
@@ -40,9 +48,7 @@ const Navbar = () => {
             onClick={hideCartWhenNavigatingAway}
           >
             Shop
-            <span className='navbar__sub-link'>
-              {location.pathname.split('/').length === 3 && location.pathname.split('/')[2]}
-            </span>
+            <span className='navbar__sub-link'>{getSubText()}</span>
           </Link>
           <Link
             className={
