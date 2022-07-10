@@ -7,13 +7,17 @@ export const UserContext = createContext({
   setCurrentUser: () => null
 });
 
+const INITIAL_STATE = {
+  currentUser: null
+};
+
 export const USER_ACTION_TYPES = {
   SET_CURRENT_USER: 'SET_CURRENT_USER'
 };
 
 const userReducer = (state, action) => {
-  console.log('dispatched!');
-  console.log('action', action);
+  // console.log('dispatched (user)!');
+  // console.log('action (user):', action);
   const { type, payload } = action;
 
   switch (type) {
@@ -27,17 +31,13 @@ const userReducer = (state, action) => {
   }
 };
 
-const INITIAL_STATE = {
-  currentUser: null
-};
-
 // The .provider = the actual component that will wrap around the component that needs the context
 export const UserProvider = ({ children }) => {
   // const [currentUser, setCurrentUser] = useState(null);
   const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
 
   const { currentUser } = state;
-  console.log('currentUser', currentUser);
+  // console.log('currentUser', currentUser);
 
   const setCurrentUser = (user) => {
     dispatch({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
