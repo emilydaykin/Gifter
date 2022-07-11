@@ -1,5 +1,7 @@
-import { useState, useContext } from 'react';
-import { UserContext } from '../../contexts/user.context';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 import {
   signInWithGooglePopup,
   signUserInWithEmailAndPassword
@@ -13,7 +15,8 @@ const LogIn = () => {
   };
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -23,6 +26,7 @@ const LogIn = () => {
   const logInWithGoogle = async () => {
     setErrorMessage('');
     await signInWithGooglePopup();
+    navigate('/');
   };
 
   const handleLogIn = async (event) => {
@@ -32,6 +36,7 @@ const LogIn = () => {
     try {
       await signUserInWithEmailAndPassword(formData.logInEmail, formData.logInPassword);
       setFormData(blankForm);
+      navigate('/');
     } catch (err) {
       if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
         setErrorMessage('Incorrect email and/or password.');

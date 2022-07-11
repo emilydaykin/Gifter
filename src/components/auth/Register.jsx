@@ -1,5 +1,6 @@
-import { useState, useContext } from 'react';
-import { UserContext } from '../../contexts/user.context';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth
@@ -17,7 +18,7 @@ const Register = () => {
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const { currentUser } = useContext(UserContext); // this component will rerun when UserContext changes
+  const currentUser = useSelector(selectCurrentUser);
 
   const handleInputChange = (event) => {
     setErrorMessage('');
