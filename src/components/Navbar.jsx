@@ -1,14 +1,15 @@
 import { useContext } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../store/user/user.selector';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
-import { UserContext } from '../contexts/user.context';
 import { CartContext } from '../contexts/cart.context';
 import { signOutUser } from '../firebase/firebase.utils';
 import CartIcon from './cart/CartIcon';
 import CartDropdown from './cart/CartDropdown';
 
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen, setIsCartOpen } = useContext(CartContext);
   const toggleShowHideCart = () => setIsCartOpen(!isCartOpen);
   const location = useLocation();
