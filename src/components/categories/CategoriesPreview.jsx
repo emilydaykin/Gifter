@@ -1,11 +1,11 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CategoriesContext } from '../../contexts/categories.context';
+import { useSelector } from 'react-redux';
+import { selectCategoriesMap } from '../../store/categories/category.selector';
 import CategoryCarousel from './CategoryCarousel';
 import Footer from '../Footer';
 
 const CategoriesPreview = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const categoriesMap = useSelector(selectCategoriesMap);
   const navigate = useNavigate();
 
   const redirectToCategory = (category) => {
