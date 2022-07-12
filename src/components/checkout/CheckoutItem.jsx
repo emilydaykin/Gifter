@@ -34,7 +34,9 @@ const CheckoutItem = ({ checkoutItem }) => {
             onClick={() => addItemToCart(checkoutItem)}
           />
         </div>
-        <div className='checkout-item__price'>&euro;{checkoutItem.price.toFixed(2)}</div>
+        <div className='checkout-item__price'>
+          &euro;{checkoutItem.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+        </div>
         <div className='checkout-item__remove' onClick={() => removeItemFromCart(checkoutItem)}>
           <span>&times;</span>
         </div>

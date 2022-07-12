@@ -63,7 +63,10 @@ export const CartProvider = ({ children }) => {
       (prev, curr) => prev + curr.price * curr.quantity,
       0
     );
-    const finalPriceRounded = finalPrice % 1 > 0 ? finalPrice.toFixed(2) : finalPrice;
+    const finalPriceRounded =
+      finalPrice % 1 > 0
+        ? finalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 })
+        : finalPrice.toLocaleString();
 
     // Dispatch new action with payload with 3 items:
     dispatch({
