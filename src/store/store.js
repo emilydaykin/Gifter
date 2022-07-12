@@ -2,22 +2,8 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // this will be by default local storage in most web browsers
 import { rootReducer } from './root-reducer';
-// import logger from 'redux-logger';
-
-// currying:
-const loggerMiddleware = (store) => (next) => (action) => {
-  // accounting for actions without types on them (i.e. not passed from us, e.g. via redux thunk)
-  if (!action.type) {
-    return next(action);
-  }
-  console.log('type:', action.type);
-  console.log('payload:', action.payload);
-  console.log('currentState:', store.getState());
-
-  next(action);
-
-  console.log('next state: ', store.getState());
-};
+import logger from 'redux-logger';
+// import { loggerMiddleware } from './middleware/logger';
 
 const persistConfig = {
   key: 'root',
@@ -27,10 +13,18 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// const middlewares = [logger]; // enhance our store
-const middlewares = [loggerMiddleware]; // enhance our store
+// Only show logs in dev, not prod!
+const middlewares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean); // enhance our store
+// const middlewares = [process.env.NODE_ENV === 'development' && loggerMiddleware].filter(Boolean); // enhance our store
 
-const composedEnhancers = compose(applyMiddleware(...middlewares));
+// Allowing Chrome to use Redux Dev Tools if Chrome extension is installed, otherwise use Redux's compose:
+const composeEnhancer =
+  (process.env.NODE_ENV !== 'production' &&
+    window &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
+const composedEnhancers = composeEnhancer(applyMiddleware(...middlewares));
 
 // root-reducer
 export const store = createStore(persistedReducer, undefined, composedEnhancers);
