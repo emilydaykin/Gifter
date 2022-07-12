@@ -1,10 +1,9 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCartItemCount } from '../../store/cart/cart.selector';
 import { ReactComponent as CartSvg } from '../../assets/shopping_bag.svg';
 
-import { CartContext } from '../../contexts/cart.context';
-
 const CartIcon = () => {
-  const { cartItemCount } = useContext(CartContext);
+  const cartItemCount = useSelector(selectCartItemCount);
 
   return (
     <div className='cart-icon'>

@@ -1,22 +1,24 @@
-import { useContext } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/user/user.selector';
-import { ReactComponent as GiftLogo } from '../assets/logo.svg';
-import { CartContext } from '../contexts/cart.context';
+import { selectIsCartOpen } from '../store/cart/cart.selector';
+import { setIsCartOpen } from '../store/cart/cart.action';
 import { signOutUser } from '../firebase/firebase.utils';
 import CartIcon from './cart/CartIcon';
 import CartDropdown from './cart/CartDropdown';
+import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
-  const toggleShowHideCart = () => setIsCartOpen(!isCartOpen);
+  const isCartOpen = useSelector(selectIsCartOpen);
+
+  const toggleShowHideCart = () => dispatch(setIsCartOpen(!isCartOpen));
   const location = useLocation();
 
   const hideCartWhenNavigatingAway = () => {
     if (isCartOpen) {
-      setIsCartOpen(!isCartOpen);
+      dispatch(setIsCartOpen(!isCartOpen));
     }
   };
 

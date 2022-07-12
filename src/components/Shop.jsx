@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { getCategoriesAndDocuments } from '../firebase/firebase.utils';
+import { useDispatch } from 'react-redux';
 import { setCategories } from '../store/categories/category.action';
+import { getCategoriesAndDocuments } from '../firebase/firebase.utils';
 import CategoriesPreview from './categories/CategoriesPreview';
 import Category from './categories/Category';
 // UNCOMMENT to add items to DB:

@@ -1,10 +1,16 @@
-import { useContext } from 'react';
-import { CartContext } from '../../contexts/cart.context';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addItemToCart,
+  removeItemFromCart,
+  reduceItemQuantityInCart
+} from '../../store/cart/cart.action';
+import { selectCartItems } from '../../store/cart/cart.selector';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 
 const CheckoutItem = ({ checkoutItem }) => {
-  const { addItemToCart, removeItemFromCart, reduceItemQuantityInCart } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
 
   return (
     <div className='checkout-item'>
@@ -23,7 +29,7 @@ const CheckoutItem = ({ checkoutItem }) => {
           <FontAwesomeIcon
             className='checkout-item__quantity-icon'
             icon={faCaretLeft}
-            onClick={() => reduceItemQuantityInCart(checkoutItem)}
+            onClick={() => dispatch(reduceItemQuantityInCart(cartItems, checkoutItem))}
           />
           &nbsp;
           <span className='checkout-item__quantity-value'>{checkoutItem.quantity}</span>
@@ -31,13 +37,16 @@ const CheckoutItem = ({ checkoutItem }) => {
           <FontAwesomeIcon
             className='checkout-item__quantity-icon'
             icon={faCaretRight}
-            onClick={() => addItemToCart(checkoutItem)}
+            onClick={() => dispatch(addItemToCart(cartItems, checkoutItem))}
           />
         </div>
         <div className='checkout-item__price'>
           &euro;{checkoutItem.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
         </div>
-        <div className='checkout-item__remove' onClick={() => removeItemFromCart(checkoutItem)}>
+        <div
+          className='checkout-item__remove'
+          onClick={() => dispatch(removeItemFromCart(cartItems, checkoutItem))}
+        >
           <span>&times;</span>
         </div>
       </div>
