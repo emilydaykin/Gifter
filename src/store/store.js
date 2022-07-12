@@ -1,4 +1,6 @@
 import { compose, createStore, applyMiddleware } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // this will be by default local storage in most web browsers
 import logger from 'redux-logger';
 
 import { rootReducer } from './root-reducer';
@@ -18,10 +20,20 @@ import { rootReducer } from './root-reducer';
 //   console.log('next state: ', store.getState());
 // };
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['user'] // blacklist the user reducer (since it comes from the auth state listener anyway)
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const middlewares = [logger]; // enhance our store
 // const middlewares = [loggerMiddleware]; // enhance our store
 
 const composedEnhancers = compose(applyMiddleware(...middlewares));
 
 // root-reducer
-export const store = createStore(rootReducer, undefined, composedEnhancers);
+export const store = createStore(persistedReducer, undefined, composedEnhancers);
+
+export const persistor = persistStore(store);
