@@ -40,10 +40,10 @@ const shopData = [
       },
       {
         id: 6,
-        name: 'Dark Grey Beanie with Pom Pom',
+        name: 'Lion King themed Monopoly',
         imageUrl:
-          'https://images.unsplash.com/photo-1576861048192-fa56cf0a8161?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhbmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 7.5
+          'https://images.unsplash.com/photo-1589988557834-5d203c39d167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTV8fGJvYXJkJTIwZ2FtZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 24.99
       },
       {
         id: 7,
@@ -110,17 +110,17 @@ const shopData = [
       },
       {
         id: 16,
-        name: 'Ginger Bread Baking Kit With Mix and Shaped Trays',
-        imageUrl:
-          'https://images.unsplash.com/photo-1610562275255-03b7fa0d4655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2luZ2VyYnJlYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 30
-      },
-      {
-        id: 17,
         name: 'Sunset City Skyline 2000-Piece Jigsaw Puzzle',
         imageUrl:
           'https://images.unsplash.com/photo-1590146757941-486a0c8385ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGppZ3Nhd3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
         price: 25.5
+      },
+      {
+        id: 17,
+        name: 'Ginger Bread Baking Kit With Mix and Shaped Trays',
+        imageUrl:
+          'https://images.unsplash.com/photo-1610562275255-03b7fa0d4655?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2luZ2VyYnJlYWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 30
       },
       {
         id: 18,
@@ -128,6 +128,20 @@ const shopData = [
         imageUrl:
           'https://images.unsplash.com/photo-1604450653975-45cc34388b8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGppZ3Nhd3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
         price: 9.5
+      },
+      {
+        id: 19,
+        name: 'Dark Grey Beanie with Pom Pom',
+        imageUrl:
+          'https://images.unsplash.com/photo-1576861048192-fa56cf0a8161?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhbmllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 7.5
+      },
+      {
+        id: 20,
+        name: 'Desk Organiser',
+        imageUrl:
+          'https://images.unsplash.com/photo-1496128959656-addf33ffc2d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8b3JnYW5pc2VyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 15
       }
     ]
   },
@@ -194,10 +208,10 @@ const shopData = [
       },
       {
         id: 29,
-        name: '25-Item Multi-Purpose Accessories Set',
+        name: 'Brush Holder',
         imageUrl:
-          'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 33
+          'https://images.unsplash.com/photo-1617220376311-1b90accbb9e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2tpbiUyMGNhcmUlMjBraXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 23
       },
       {
         id: 30,
@@ -215,31 +229,31 @@ const shopData = [
       },
       {
         id: 32,
-        name: '2-Pack Inspirational Notebook Set with Gold Pen',
-        imageUrl:
-          'https://images.unsplash.com/photo-1528938102132-4a9276b8e320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bm90ZWJvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 15.5
-      },
-      {
-        id: 33,
         name: 'Catan Board Game',
         imageUrl:
           'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9hcmQlMjBnYW1lc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
         price: 20
       },
       {
-        id: 34,
-        name: 'Brush Holder',
+        id: 33,
+        name: '2-Pack Inspirational Notebook Set with Gold Pen',
         imageUrl:
-          'https://images.unsplash.com/photo-1617220376311-1b90accbb9e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c2tpbiUyMGNhcmUlMjBraXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
-        price: 23
+          'https://images.unsplash.com/photo-1528938102132-4a9276b8e320?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bm90ZWJvb2t8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 15.5
       },
       {
-        id: 35,
+        id: 34,
         name: 'Water Bottles x2 (750ml)',
         imageUrl:
           'https://images.unsplash.com/photo-1532471940687-6067d9cac167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d2F0ZXJib3R0bGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: 25
+      },
+      {
+        id: 35,
+        name: 'Smart Watch - Track your steps, calories, sleep and more',
+        imageUrl:
+          'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 105
       },
       {
         id: 36,
@@ -254,6 +268,27 @@ const shopData = [
         imageUrl:
           'https://images.unsplash.com/photo-1618944847828-82e943c3bdb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aGFycnklMjBwb3R0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: 99.99
+      },
+      {
+        id: 38,
+        name: '25-Item Multi-Purpose Accessories Set',
+        imageUrl:
+          'https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWNjZXNzb3JpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 33
+      },
+      {
+        id: 39,
+        name: 'Wooden Train Set',
+        imageUrl:
+          'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dG95c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 25.5
+      },
+      {
+        id: 40,
+        name: 'Wireless Headphones',
+        imageUrl:
+          'https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGhlYWRwaG9uZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 120
       }
     ]
   },
@@ -263,10 +298,10 @@ const shopData = [
     items: [
       {
         id: 41,
-        name: 'At-Home Pamper Kit with Bath Salts, Candles & Scented Flowers',
+        name: 'Scented Bath Bombs',
         imageUrl:
-          'https://images.unsplash.com/photo-1554167838-07aa5723df3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFtcGVyJTIwYmF0aHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-        price: 35.75
+          'https://images.unsplash.com/photo-1578426720323-6d3b67133446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmF0aCUyMGJvbWJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 19.99
       },
       {
         id: 42,
@@ -305,10 +340,10 @@ const shopData = [
       },
       {
         id: 47,
-        name: 'Scented Bath Bombs',
+        name: 'At-Home Pamper Kit with Bath Salts, Candles & Scented Flowers',
         imageUrl:
-          'https://images.unsplash.com/photo-1578426720323-6d3b67133446?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YmF0aCUyMGJvbWJzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
-        price: 19.99
+          'https://images.unsplash.com/photo-1554167838-07aa5723df3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFtcGVyJTIwYmF0aHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 35.75
       },
       {
         id: 48,
@@ -386,6 +421,20 @@ const shopData = [
         imageUrl:
           'https://images.unsplash.com/photo-1641584495089-5914d85d9bcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d2hpdGUlMjB3YXRlciUyMHJhZnRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: 35
+      },
+      {
+        id: 59,
+        name: 'Sunset Safari Ride',
+        imageUrl:
+          'https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2FmYXJpfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 89.99
+      },
+      {
+        id: 60,
+        name: 'Vintage Record Player',
+        imageUrl:
+          'https://images.unsplash.com/photo-1518401543587-7bf7a1f74e66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fHJlY29yZCUyMHBsYXllcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+        price: 47
       }
     ]
   },
@@ -508,10 +557,31 @@ const shopData = [
       },
       {
         id: 77,
+        name: 'Taster Pack: 8 Powder Coffee Mixes',
+        imageUrl:
+          'https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y29mZmVlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 30
+      },
+      {
+        id: 78,
         name: '1-Year Amazon Prime Subscription',
         imageUrl:
           'https://images.unsplash.com/photo-1591270551371-3401a1a9382f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8YW1hem9uJTIwcHJpbWV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
         price: 80.5
+      },
+      {
+        id: 79,
+        name: 'Simple Wall Calendar',
+        imageUrl:
+          'https://images.unsplash.com/photo-1578625155481-7bc40a6481b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2FsZW5kYXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+        price: 15.99
+      },
+      {
+        id: 80,
+        name: 'Essential Oils Kit',
+        imageUrl:
+          'https://images.unsplash.com/photo-1624454002302-36b824d7bd0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZXNzZW50aWFsJTIwb2lsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        price: 12.5
       }
     ]
   },
@@ -667,3 +737,11 @@ const shopData = [
 // clothes, bags, hats/caps, sunglasses, watches, seeds(to plant)
 
 export default shopData;
+
+// thank you
+
+// birthday
+
+// christmas
+
+//anniversary
