@@ -4,7 +4,9 @@ import storage from 'redux-persist/lib/storage'; // this will be by default loca
 import { rootReducer } from './root-reducer';
 import logger from 'redux-logger';
 // import { loggerMiddleware } from './middleware/logger';
-import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+import { rootSaga } from './root-saga';
 
 const persistConfig = {
   key: 'root',
@@ -13,10 +15,14 @@ const persistConfig = {
   whitelist: ['cart']
 };
 
+const sagaMiddleware = createSagaMiddleware();
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Only show logs in dev, not prod!
-const middlewares = [process.env.NODE_ENV !== 'production' && logger, thunk].filter(Boolean); // enhance our store
+const middlewares = [process.env.NODE_ENV !== 'production' && logger, sagaMiddleware].filter(
+  Boolean
+); // enhance our store
 // const middlewares = [process.env.NODE_ENV === 'development' && loggerMiddleware].filter(Boolean); // enhance our store
 
 // Allowing Chrome to use Redux Dev Tools if Chrome extension is installed, otherwise use Redux's compose:
@@ -30,5 +36,7 @@ const composedEnhancers = composeEnhancer(applyMiddleware(...middlewares));
 
 // root-reducer
 export const store = createStore(persistedReducer, undefined, composedEnhancers);
+
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);

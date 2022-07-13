@@ -14,13 +14,13 @@ export const fetchCategoriesFailure = (error) => {
 };
 
 // Thunk:
-export const fetchCategoriesAsync = () => async (dispatch) => {
-  dispatch(fetchCategoriesStart());
-  try {
-    const categoryArray = await getCategoriesAndDocuments('categories');
-    dispatch(fetchCategoriesSuccess(categoryArray));
-  } catch (err) {
-    console.log(`ERROR: ${err}`);
-    dispatch(fetchCategoriesFailure(err));
-  }
-};
+// export const fetchCategoriesAsync = () => async (dispatch) => {
+//   dispatch(fetchCategoriesStart());
+//   try {
+//     const categoryArray = await getCategoriesAndDocuments('categories');
+//     dispatch(fetchCategoriesSuccess(categoryArray));
+//   } catch (err) {
+//     console.log(`ERROR: ${err}`);
+//     dispatch(fetchCategoriesFailure(err));
+//   }
+// };
