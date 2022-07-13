@@ -1,0 +1,23 @@
+.loader {
+  width: 7.5rem;
+  height: 7.5rem;
+  border: 3px solid rgba($theme-grey-light, .4);
+  border-radius: 50%;
+  border-top-color: rgba($theme-grey-dark, .8);
+  animation: spin 1s ease-in-out infinite;
+
+  &__overlay {
+    height: 35vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

@@ -18,3 +18,8 @@ export const selectCategoriesMap = createSelector(
     }, {})
   // initial instance: empty object
 );
+
+export const selectCategoriesIsLoading = createSelector(
+  [selectCategoryReducer],
+  (categoriesSlice) => categoriesSlice.isLoading
+);

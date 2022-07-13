@@ -1,12 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectCategoriesMap } from '../../store/categories/category.selector';
+import {
+  selectCategoriesMap,
+  selectCategoriesIsLoading
+} from '../../store/categories/category.selector';
 import CategoryCarousel from './CategoryCarousel';
+import Loader from '../Loader';
 import Footer from '../Footer';
 
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const navigate = useNavigate();
+  const isLoading = useSelector(selectCategoriesIsLoading);
 
   const redirectToCategory = (category) => {
     console.log(`${category} category clicked`);
@@ -16,14 +21,18 @@ const CategoriesPreview = () => {
   return (
     <>
       <div className='shop'>
-        {Object.keys(categoriesMap).map((title) => (
-          <div key={title} className='shop__section'>
-            <h1 className='shop__category'>
-              {title} gifts <span onClick={() => redirectToCategory(title)}>&rarr;</span>
-            </h1>
-            <CategoryCarousel categoriesMap={categoriesMap} title={title} />
-          </div>
-        ))}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          Object.keys(categoriesMap).map((title) => (
+            <div key={title} className='shop__section'>
+              <h1 className='shop__category'>
+                {title} gifts <span onClick={() => redirectToCategory(title)}>&rarr;</span>
+              </h1>
+              <CategoryCarousel categoriesMap={categoriesMap} title={title} />
+            </div>
+          ))
+        )}
       </div>
       <Footer />
     </>
