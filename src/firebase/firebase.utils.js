@@ -115,3 +115,22 @@ export const signOutUser = async () => await signOut(auth);
 
 // Helper function (observable listener) - a permanently open listener (so must unmount it to avoid memory leaks):
 export const onAuthStateChangeListener = (callback) => onAuthStateChanged(auth, callback);
+
+// --------------------------- For Redux Saga --------------------------- //
+
+// Converting from an observable listener into a promise-based function call
+// (since this is a permanently open listener, we must unmount it...
+// ... (via unsubscribe) to avoid memory leaks:
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    // unsubscribe the moment we get a value
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe(); // to avoid memory leaks
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
