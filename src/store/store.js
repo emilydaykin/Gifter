@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage'; // this will be by default loca
 import { rootReducer } from './root-reducer';
 import logger from 'redux-logger';
 // import { loggerMiddleware } from './middleware/logger';
+import thunk from 'redux-thunk';
 
 const persistConfig = {
   key: 'root',
@@ -14,7 +15,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // Only show logs in dev, not prod!
-const middlewares = [process.env.NODE_ENV !== 'production' && logger].filter(Boolean); // enhance our store
+const middlewares = [process.env.NODE_ENV !== 'production' && logger, thunk].filter(Boolean); // enhance our store
 // const middlewares = [process.env.NODE_ENV === 'development' && loggerMiddleware].filter(Boolean); // enhance our store
 
 // Allowing Chrome to use Redux Dev Tools if Chrome extension is installed, otherwise use Redux's compose:

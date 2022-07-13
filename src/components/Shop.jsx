@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setCategories } from '../store/categories/category.action';
-import { getCategoriesAndDocuments } from '../firebase/firebase.utils';
+import { fetchCategoriesAsync } from '../store/categories/category.action';
 import CategoriesPreview from './categories/CategoriesPreview';
 import Category from './categories/Category';
 // UNCOMMENT to add items to DB:
@@ -16,11 +15,7 @@ const Shop = () => {
     // UNCOMMENT to add items to DB:
     // addCollectionAndDocuments('categories', allProducts); // setting name of collection to 'categories'
 
-    const getCategoriesMap = async () => {
-      const categoryArray = await getCategoriesAndDocuments('categories');
-      dispatch(setCategories(categoryArray));
-    };
-    getCategoriesMap();
+    dispatch(fetchCategoriesAsync());
   }, []);
 
   return (
