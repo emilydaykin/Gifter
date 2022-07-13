@@ -9,7 +9,8 @@ import thunk from 'redux-thunk';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['user'] // blacklist the user reducer (since it comes from the auth state listener anyway)
+  // blacklist: ['user'] // blacklist the user reducer (since it comes from the auth state listener anyway)
+  whitelist: ['cart']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
