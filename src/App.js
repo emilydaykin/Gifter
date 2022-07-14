@@ -13,7 +13,6 @@ const App = () => {
   const dispatch = useDispatch(); // this will never change, so no need to pass it as a dependency array into the useEffect (but can do)
 
   useEffect(() => {
-    // getCurrentUser().then((user) => console.log('user', user));
     dispatch(checkUserSession());
   }, []);
 

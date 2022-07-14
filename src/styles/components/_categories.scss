@@ -1,11 +1,7 @@
 .categories {
-  // display: flex;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   width: 90%;
-  // border: 2px solid blue;
-  // justify-content: center;
-  // align-items: center;
   margin: 3rem auto;
 }
 

@@ -23,17 +23,14 @@ const LogIn = () => {
 
   const logInWithGoogle = async () => {
     setErrorMessage('');
-    // await signInWithGooglePopup();
     dispatch(googleSignInStart());
     navigate('/');
   };
 
   const handleLogIn = async (event) => {
     event.preventDefault();
-    console.log('login clicked');
 
     try {
-      // await signUserInWithEmailAndPassword(formData.logInEmail, formData.logInPassword);
       dispatch(emailSignInStart(formData.logInEmail, formData.logInPassword));
       setFormData(blankForm);
       navigate('/');

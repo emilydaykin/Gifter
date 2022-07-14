@@ -16,7 +16,6 @@
   }
 
   &__description, &__contact, &__created-with {
-    // border: 1px solid $theme-grey-light;
     border-radius: $default-border-radius;
     padding: 1.5rem 2rem;
     background-color: rgba($theme-grey-light, .05);
@@ -24,7 +23,6 @@
 
   &__description {
     margin-right: 1.5rem;
-    // grid-column: span 2;
   }
 
   &__contact {
@@ -34,7 +32,6 @@
   }
 
   &__contact-links {
-    // border: 2px solid orange;
     flex-grow: 1;
     display: flex;
     justify-content: center;

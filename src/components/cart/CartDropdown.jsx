@@ -8,7 +8,6 @@ const CartDropdown = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const isCartOpen = useSelector(selectIsCartOpen);
-  console.log('------cartItems', cartItems);
 
   const navigate = useNavigate();
 

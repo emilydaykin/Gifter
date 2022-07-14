@@ -14,7 +14,6 @@ const CategoriesPreview = () => {
   const isLoading = useSelector(selectCategoriesIsLoading);
 
   const redirectToCategory = (category) => {
-    console.log(`${category} category clicked`);
     navigate(`/shop/${category}`);
   };
 

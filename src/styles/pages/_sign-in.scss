@@ -1,5 +1,4 @@
 .signInPage {
-  // border: 2px solid green;
   display: flex;
   width: 90%;
   max-width: 145rem;
@@ -31,6 +30,5 @@
 @media (max-width: 925px) {
   .signInPage {
     flex-direction: column;
-    // text-align: center;
   }
 }

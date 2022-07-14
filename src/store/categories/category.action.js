@@ -12,15 +12,3 @@ export const fetchCategoriesSuccess = (categories) => {
 export const fetchCategoriesFailure = (error) => {
   return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILURE, payload: error };
 };
-
-// Thunk:
-// export const fetchCategoriesAsync = () => async (dispatch) => {
-//   dispatch(fetchCategoriesStart());
-//   try {
-//     const categoryArray = await getCategoriesAndDocuments('categories');
-//     dispatch(fetchCategoriesSuccess(categoryArray));
-//   } catch (error) {
-//     console.log(`ERROR: ${error}`);
-//     dispatch(fetchCategoriesFailure(error));
-//   }
-// };

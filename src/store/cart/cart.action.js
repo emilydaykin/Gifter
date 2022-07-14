@@ -30,7 +30,6 @@ export const removeItemFromCart = (cartItems, productToRemove) => {
 
 export const reduceItemQuantityInCart = (cartItems, productToReduce) => {
   const quantityOfItem = productToReduce.quantity;
-  console.log('quantityOfItem', quantityOfItem);
 
   const reduceQuantity = cartItems.map((item) => {
     return item.id === productToReduce.id ? { ...item, quantity: item.quantity - 1 } : item;

@@ -1,5 +1,4 @@
 .checkout-item {
-  // border: 2px solid green;
   display: flex;
   justify-content: space-between;
   padding: 1.75rem 0;
@@ -7,7 +6,6 @@
 
   &__left, &__right {
     display: flex;
-    // border: 1px solid red;
 
     & div {
       display: flex;
@@ -103,7 +101,6 @@
     }
 
     &__right div {    
-      // border: 2px solid blue;
       width: 35%;
       display: flex;
       justify-content: center;

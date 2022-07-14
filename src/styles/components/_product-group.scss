@@ -1,7 +1,6 @@
 .product-group {
   display: flex;
   margin-bottom: 3rem;
-  // border: 2px solid orange;
   overflow-x: scroll;
   &::-webkit-scrollbar {
     height: .75rem;
@@ -25,7 +24,6 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-    // border: 2px solid green;
     width: 100%;
     height: 100%;
     z-index: 3;

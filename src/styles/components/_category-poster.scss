@@ -1,5 +1,4 @@
 .category-poster {
-  // border: 1px solid $theme-grey-light;
   height: 50vh;
   margin: 1.5rem;
   border-radius: $default-border-radius;
@@ -12,14 +11,12 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    // border: 2px solid black;
     background-repeat: no-repeat;
     background-size: cover;
   }
   
   &__body {
     padding: 3.25rem 5rem;
-    // border: 1px solid $theme-grey-light;
     background-color: rgba($theme-white, 0.75);
     border-radius: $default-border-radius;
     text-align: center;
