@@ -1,12 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import {
-  onAuthStateChangeListener,
-  createUserDocumentFromAuth,
-  getCurrentUser
-} from './firebase/firebase.utils';
-import { setCurrentUser } from './store/user/user.action';
+import { checkUserSession } from './store/user/user.action';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -18,7 +13,8 @@ const App = () => {
   const dispatch = useDispatch(); // this will never change, so no need to pass it as a dependency array into the useEffect (but can do)
 
   useEffect(() => {
-    getCurrentUser().then((user) => console.log('user', user));
+    // getCurrentUser().then((user) => console.log('user', user));
+    dispatch(checkUserSession());
   }, []);
 
   return (

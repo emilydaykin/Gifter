@@ -103,7 +103,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) 
     }
   }
   // if user data exists, return userDocRef
-  return userDocRef;
+  // return userDocRef;
+  return userSnapshot; // we want the snapshot (not the docref pointer) now for redux saga
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -125,6 +126,7 @@ export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
     // unsubscribe the moment we get a value
     const unsubscribe = onAuthStateChanged(
+      // user is passed through this function ^ whenever they sign in, sign out or sign in with google
       auth,
       (userAuth) => {
         unsubscribe(); // to avoid memory leaks
