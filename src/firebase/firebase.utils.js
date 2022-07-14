@@ -3,8 +3,8 @@ import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import {
   getAuth,
-  // signInWithRedirect,
-  signInWithPopup,
+  // signInWithRedirect,  // google
+  signInWithPopup, // google
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

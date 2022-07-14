@@ -23,3 +23,15 @@ export const signInSuccess = (user) => {
 export const signInFailure = (error) => {
   return { type: USER_ACTION_TYPES.SIGN_IN_FAILURE, payload: error };
 };
+
+export const registerStart = (email, password, displayName) => {
+  return { type: USER_ACTION_TYPES.REGISTER_START, payload: { email, password, displayName } };
+};
+
+export const registerSuccess = (user, additionalDetails) => {
+  return { type: USER_ACTION_TYPES.REGISTER_SUCCESS, payload: { user, additionalDetails } };
+};
+
+export const registerFailure = (error) => {
+  return { type: USER_ACTION_TYPES.REGISTER_FAILURE, payload: error };
+};

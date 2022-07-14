@@ -1,14 +1,11 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth
-} from '../../firebase/firebase.utils';
-
+import { registerStart } from '../../store/user/user.action';
 import FormElement from '../FormElement';
 
 const Register = () => {
+  const dispatch = useDispatch();
   const blankForm = {
     displayName: '',
     registerEmail: '',
@@ -34,11 +31,9 @@ const Register = () => {
       return;
     } else {
       try {
-        const { user } = await createAuthUserWithEmailAndPassword(
-          formData.registerEmail,
-          formData.registerPassword
+        dispatch(
+          registerStart(formData.registerEmail, formData.registerPassword, formData.displayName)
         );
-        await createUserDocumentFromAuth(user, { displayName: formData.displayName });
         setFormData(blankForm);
       } catch (error) {
         switch (error.code) {
