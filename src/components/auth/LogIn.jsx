@@ -37,11 +37,11 @@ const LogIn = () => {
       await signUserInWithEmailAndPassword(formData.logInEmail, formData.logInPassword);
       setFormData(blankForm);
       navigate('/');
-    } catch (err) {
-      if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
+    } catch (error) {
+      if (error.code === 'auth/wrong-password' || 'auth/user-not-found') {
         setErrorMessage('Incorrect email and/or password.');
       } else {
-        console.error(`Log In error: ${err}`);
+        console.error(`Log In error: ${error}`);
         setErrorMessage('Error logging in.');
       }
     }

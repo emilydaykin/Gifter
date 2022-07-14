@@ -40,8 +40,8 @@ const Register = () => {
         );
         await createUserDocumentFromAuth(user, { displayName: formData.displayName });
         setFormData(blankForm);
-      } catch (err) {
-        switch (err.code) {
+      } catch (error) {
+        switch (error.code) {
           case 'auth/email-already-in-use':
             setErrorMessage('Email already registered.');
             break;
@@ -53,7 +53,7 @@ const Register = () => {
             break;
           default:
             setErrorMessage('Error registering.');
-            console.error(`Register error: ${err}`);
+            console.error(`Register error: ${error}`);
         }
       }
     }

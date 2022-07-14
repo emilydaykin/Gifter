@@ -98,8 +98,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) 
         createdAt,
         ...additionalInfo
       });
-    } catch (err) {
-      console.log(`Error creating user: ${err.message}`);
+    } catch (error) {
+      console.log(`Error creating user: ${error.message}`);
     }
   }
   // if user data exists, return userDocRef

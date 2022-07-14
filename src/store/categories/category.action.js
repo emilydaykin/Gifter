@@ -19,8 +19,8 @@ export const fetchCategoriesFailure = (error) => {
 //   try {
 //     const categoryArray = await getCategoriesAndDocuments('categories');
 //     dispatch(fetchCategoriesSuccess(categoryArray));
-//   } catch (err) {
-//     console.log(`ERROR: ${err}`);
-//     dispatch(fetchCategoriesFailure(err));
+//   } catch (error) {
+//     console.log(`ERROR: ${error}`);
+//     dispatch(fetchCategoriesFailure(error));
 //   }
 // };
