@@ -35,3 +35,15 @@ export const registerSuccess = (user, additionalDetails) => {
 export const registerFailure = (error) => {
   return { type: USER_ACTION_TYPES.REGISTER_FAILURE, payload: error };
 };
+
+export const signOutStart = () => {
+  return { type: USER_ACTION_TYPES.SIGN_OUT_START };
+};
+
+export const signOutSuccess = () => {
+  return { type: USER_ACTION_TYPES.SIGN_OUT_SUCCESS };
+};
+
+export const signOutFailure = (error) => {
+  return { type: USER_ACTION_TYPES.SIGN_OUT_FAILURE, payload: error };
+};

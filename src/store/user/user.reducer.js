@@ -15,7 +15,14 @@ export const userReducer = (state = USER_INITIAL_STATE, action) => {
         ...state, // always load the previous state first!
         currentUser: payload
       };
+    case USER_ACTION_TYPES.SIGN_OUT_SUCCESS:
+      return {
+        ...state,
+        currentUser: null
+      };
     case USER_ACTION_TYPES.SIGN_IN_FAILURE:
+    case USER_ACTION_TYPES.SIGN_OUT_FAILURE:
+    case USER_ACTION_TYPES.REGISTER_FAILURE:
       return {
         ...state,
         error: payload

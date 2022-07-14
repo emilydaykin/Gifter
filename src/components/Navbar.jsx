@@ -1,9 +1,9 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/user/user.selector';
+import { signOutStart } from '../store/user/user.action';
 import { selectIsCartOpen } from '../store/cart/cart.selector';
 import { setIsCartOpen } from '../store/cart/cart.action';
-import { signOutUser } from '../firebase/firebase.utils';
 import CartIcon from './cart/CartIcon';
 import CartDropdown from './cart/CartDropdown';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
@@ -12,6 +12,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const signOutUser = () => dispatch(signOutStart());
 
   const toggleShowHideCart = () => dispatch(setIsCartOpen(!isCartOpen));
   const location = useLocation();
