@@ -1,16 +1,38 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { USER_ACTION_TYPES } from './user.types';
 import { signInSuccess, signInFailure } from './user.action';
-import { getCurrentUser, createUserDocumentFromAuth } from '../../firebase/firebase.utils';
+import {
+  getCurrentUser,
+  createUserDocumentFromAuth,
+  signInWithGooglePopup,
+  signUserInWithEmailAndPassword
+} from '../../firebase/firebase.utils';
 
 // Generators
 
+// Hardest one:
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
   try {
     const userSnapshot = yield call(createUserDocumentFromAuth, userAuth, additionalDetails);
-    // console.log('userSnapshot (from saga generator)', userSnapshot);
-    // console.log('userSnapshot.data (from saga generator)', userSnapshot.data());
     yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+  } catch (error) {
+    yield put(signInFailure(error));
+  }
+}
+
+export function* signInWithGoogle() {
+  try {
+    const { user } = yield call(signInWithGooglePopup);
+    yield call(getSnapshotFromUserAuth, user);
+  } catch (error) {
+    yield put(signInFailure(error));
+  }
+}
+
+export function* signInWithEmail({ payload: { email, password } }) {
+  try {
+    const { user } = yield call(signUserInWithEmailAndPassword, email, password);
+    yield call(getSnapshotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailure(error));
   }
@@ -26,10 +48,18 @@ export function* isUserAuthenticated() {
   }
 }
 
+export function* onGoogleSignInStart() {
+  yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
+}
+
 export function* onCheckUserSession() {
   yield takeLatest(USER_ACTION_TYPES.CHECK_USER_SESSION, isUserAuthenticated);
 }
 
 export function* userSaga() {
-  yield all([call(onCheckUserSession)]);
+  yield all([call(onCheckUserSession), call(onGoogleSignInStart), call(onEmailSignInStart)]);
 }

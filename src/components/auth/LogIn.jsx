@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
-import {
-  signInWithGooglePopup,
-  signUserInWithEmailAndPassword
-} from '../../firebase/firebase.utils';
+import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
 import FormElement from '../FormElement';
 
 const LogIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const blankForm = {
     logInEmail: '',
     logInPassword: ''
@@ -16,7 +15,6 @@ const LogIn = () => {
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
   const currentUser = useSelector(selectCurrentUser);
-  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setErrorMessage('');
@@ -25,7 +23,8 @@ const LogIn = () => {
 
   const logInWithGoogle = async () => {
     setErrorMessage('');
-    await signInWithGooglePopup();
+    // await signInWithGooglePopup();
+    dispatch(googleSignInStart());
     navigate('/');
   };
 
@@ -34,7 +33,8 @@ const LogIn = () => {
     console.log('login clicked');
 
     try {
-      await signUserInWithEmailAndPassword(formData.logInEmail, formData.logInPassword);
+      // await signUserInWithEmailAndPassword(formData.logInEmail, formData.logInPassword);
+      dispatch(emailSignInStart(formData.logInEmail, formData.logInPassword));
       setFormData(blankForm);
       navigate('/');
     } catch (error) {
