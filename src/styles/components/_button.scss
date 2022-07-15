@@ -55,6 +55,17 @@
       transform: none;
     }
   }
+
+  &--payment {
+    border: 1px solid $theme-blue-grey;
+    color: $theme-white;
+    background-color: $theme-blue-grey;
+    
+    &:hover {
+      background-color: $theme-white;
+      color: $theme-blue-grey;
+    }
+  }
 }
 
 @media (max-width: 500px) {

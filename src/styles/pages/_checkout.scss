@@ -50,6 +50,12 @@
     text-align: end;
     text-transform: uppercase;
   }
+
+  &__payment-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+  }
 }
 
 @media (max-width: 800px) {
