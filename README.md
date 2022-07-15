@@ -75,7 +75,7 @@ This project went though a few refactors and improvements as I learnt new librar
 #### React Context: useContext hook and CartContext and UserContext in the Navbar &rarr; later refactored to Redux.
 
 <details>
-  <summary>View Code</summary>
+  <summary>View Code (Navbar)</summary>
   
   ```javascript
   // $src/components/Navbar.jsx
@@ -100,7 +100,10 @@ This project went though a few refactors and improvements as I learnt new librar
   ```
 </details>
 
-  ```
+<details>
+  <summary>View Code (User Context)</summary>
+  
+  ```javascript
   // $src/contexts/user.context.jsx
 
   export const UserContext = createContext({
@@ -125,7 +128,12 @@ This project went though a few refactors and improvements as I learnt new librar
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
   };
   ```
-  ```
+</details>
+
+<details>
+  <summary>View Code (Cart Context)</summary>
+  
+  ```javascript
   // $src/contexts/cart.context.jsx
   
   export const CartContext = createContext({
@@ -185,8 +193,14 @@ This project went though a few refactors and improvements as I learnt new librar
     ...
   }
   ```
+</details>
+
+
 #### Redux Thunk for Categories
-  ```
+<details>
+  <summary>View Code</summary>
+  
+  ```javascript
   import { CATEGORIES_ACTION_TYPES } from './category.types';
   import { getCategoriesAndDocuments } from '../../firebase/firebase.utils';
 
@@ -214,6 +228,15 @@ This project went though a few refactors and improvements as I learnt new librar
     }
   };
   ```
+</details>
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  ```javascript
+  
+  ```
+</details>
 - observer listener/design pattern
 
 
