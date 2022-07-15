@@ -1,14 +1,14 @@
-// @mixin set-checkout-column-widths-heading {
-//   width: 20%;
-  
-//   // First 2 cols: Product Image & Description Columns
-//   &:nth-of-type(-n+2) {
-//     width: 30%;
-//   }
+@mixin loading-spinner($diameter) {
+  width: $diameter;
+  height: $diameter;
+  border: 3px solid rgba($theme-grey-light, .4);
+  border-radius: 50%;
+  border-top-color: rgba($theme-grey-dark, .8);
+  animation: spin 1s ease-in-out infinite;
+}
 
-//   // Remove Product Column
-//   &:last-of-type {
-//     width: 10%;
-//   }
-// }
-
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
