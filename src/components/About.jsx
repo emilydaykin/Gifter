@@ -1,8 +1,12 @@
 import githubLogo from '../assets/github-logo.png';
 import linkedinLogo from '../assets/linkedin-logo.png';
+import javascriptLogo from '../assets/js-logo.png';
+import typescriptLogo from '../assets/ts-logo.png';
 import reactLogo from '../assets/react-logo.png';
 import sassLogo from '../assets/sass-logo.png';
 import reduxLogo from '../assets/redux-logo.png';
+import reduxSagaLogo from '../assets/redux-saga-logo.png';
+import stripeLogo from '../assets/stripe-logo.png';
 import firebaseLogo from '../assets/firebase-logo.png';
 import Footer from './Footer';
 
@@ -14,10 +18,10 @@ const About = () => {
           <div className='about__description'>
             <h1 className='about__heading'>About</h1>
             <p className='about__text'>
-              Unsure of what to get your friends, family or loved ones for a special occasion? Use
+              Unsure of what to get your friends, family or colleagues for a special occasion? Use
               Gifter to find the right present for Christmas, their birthday, wedding day, your
-              anniversary or simply as a thank you token. Browse inspiring gifts for him, for her or
-              for them, any time of year!
+              anniversary or simply as a thank you token. Browse inspiring gifts for your loved
+              ones, any time of year!
             </p>
           </div>
           <div className='about__contact'>
@@ -38,11 +42,11 @@ const About = () => {
           <div className='about__created-with'>
             <h1 className='about__heading'>Created With</h1>
             <div className='about__icons'>
-              {/* <a href='#'>
-                <img className='about__icon' src={javascript} alt='JavaScript' />
-              </a> */}
-              {/* <a href='#'>
-                <img className='about__icon' src={typescript} alt='TypeScript' />
+              <a href='https://www.javascript.com/'>
+                <img className='about__icon' src={javascriptLogo} alt='JavaScript' />
+              </a>
+              {/* <a href='https://www.typescriptlang.org/'>
+                <img className='about__icon' src={typescriptLogo} alt='TypeScript' />
               </a> */}
               <a href='https://reactjs.org/'>
                 <img className='about__icon' src={reactLogo} alt='React' />
@@ -50,30 +54,27 @@ const About = () => {
               <a href='https://sass-lang.com/'>
                 <img className='about__icon' src={sassLogo} alt='Sass' />
               </a>
-              <a href='https://redux.js.org/'>
-                <img className='about__icon' src={reduxLogo} alt='Redux' />
-              </a>
-              {/* <a href='#'>
-            <img className='about__icon' src={reduxSagaLogo} alt='Redux Saga' />
-          </a> */}
-              {/* <a href='#'>
-            <img className='about__icon' src={jestLogo} alt='Jest' />
-          </a> */}
               <a href='https://firebase.google.com/'>
                 <img className='about__icon' src={firebaseLogo} alt='Firebase' />
               </a>
+              <a href='https://redux.js.org/'>
+                <img className='about__icon' src={reduxLogo} alt='Redux' />
+              </a>
+              <a href='https://redux-saga.js.org/'>
+                <img className='about__icon' src={reduxSagaLogo} alt='Redux Saga' />
+              </a>
+              <a href='https://stripe.com/'>
+                <img className='about__icon' src={stripeLogo} alt='Stripe' />
+              </a>
               {/* <a href='#'>
-            <img className='about__icon' src={stripeLogo} alt='Stripe' />
-          </a>
-          <a href='#'>
-            <img className='about__icon' src={apolloLogo} alt='Apollo' />
-          </a>
-          <a href='#'>
-            <img className='about__icon' src={graphQLLogo} alt='GraphQL' />
-          </a>
-          <a href='#'>
-            <img className='about__icon' src={stripeLogo} alt='Stripe' />
-          </a> */}
+                <img className='about__icon' src={jestLogo} alt='Jest' />
+              </a> */}
+              {/*<a href='#'>
+                <img className='about__icon' src={apolloLogo} alt='Apollo' />
+              </a>*/}
+              {/*<a href='#'>
+                <img className='about__icon' src={graphQLLogo} alt='GraphQL' />
+              </a>*/}
             </div>
           </div>
         </div>
