@@ -54,11 +54,12 @@
     padding: 2rem 1rem 1rem 1rem;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
   
   &__icon {
     height: 6rem;
-    margin: 0 .5rem;
+    margin: .5rem .75rem;
   }
 
   &__created-with {
@@ -80,11 +81,6 @@
     
     &__contact-links {
       margin-top: 1.5rem;
-    }
-
-    &__icons {
-      display: flex;
-      flex-wrap: wrap;
     }
   }
 }
