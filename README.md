@@ -49,20 +49,20 @@ CHALLENGE: make this site have LIGHT MODE and DARK MODE?
 ## Milestones:
 This project went though a few refactors and improvements as I learnt new libraries, frameworks and languages to incorporate. Using `git tag -a <version> -m "<version comments>"` to mark each of these in the code history ([see all tags](https://github.com/emilydaykin/Gifter/tags)), the state of Gifter at each milestone was as follows:
 
-### v4
+### v4 [NOT DONE YET!]
 - PWA: progressive web app?
+- Testing (Jest)???
 - GatsbyJS???
-### v3
+### v3 [NOT DONE YET!]
 - typescript?
-- redux store
 - graphQL
 - apollo
 - security?
-### v2
-- Redux and Stripe integration?
-- Redux (including Redux-Thunk and Redux-Saga)
-- Serverless Functions + Stripe
-### v1 [DONE!]
+### v2 
+- Redux (Redux Saga & Generator functions) and Stripe integration
+- Serverless Function that creates a payment intent for Stripe. It is hosted on Netlify and uses AWS' Lambda function under the hood.
+- Users can now pay for their selected gifts using a test credit card number, which will be handled by Stripe.
+### v1
 - Fully working and responsive app in web, tablet and mobile, powered by React, including useContexts and useReducer Hooks. 
 - Styling done in pure Sass using the BEM methodology and without the help of any frameworks. 
 - Users can browse and add to, edit and remove items from their cart, but can't yet pay.
