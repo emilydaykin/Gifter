@@ -73,7 +73,11 @@ This project went though a few refactors and improvements as I learnt new librar
 #### Generator Function & Redux Saga 
 
 #### React Context: useContext hook and CartContext and UserContext in the Navbar &rarr; later refactored to Redux.
-  ```
+
+<details>
+  <summary>View Code</summary>
+  
+  ```javascript
   // $src/components/Navbar.jsx
 
   import { useContext } from 'react';
@@ -94,6 +98,8 @@ This project went though a few refactors and improvements as I learnt new librar
     ...
   }
   ```
+</details>
+
   ```
   // $src/contexts/user.context.jsx
 
