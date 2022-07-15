@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotalPrice } from '../../store/cart/cart.selector';
 import CheckoutItem from './CheckoutItem';
+import Payment from '../Payment';
 import Footer from '../Footer';
 
 const Checkout = () => {
@@ -33,11 +34,12 @@ const Checkout = () => {
           <div className='checkout__total'>
             Total: &euro;<span>{cartTotalPrice}</span>
           </div>
-          <div className='checkout__payment-button-wrapper'>
+          {/* <div className='checkout__payment-button-wrapper'>
             <button className='button button--payment' onClick={goToPayment}>
               Go To Payment
             </button>
-          </div>
+          </div> */}
+          <Payment />
         </div>
       </div>
       <Footer />

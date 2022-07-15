@@ -55,7 +55,7 @@ const Payment = () => {
 
   return (
     <div className='payment'>
-      <h1>Payment Form</h1>
+      <h1 className='payment__heading'>Payment Details</h1>
       <form className='payment__form' onSubmit={handlePayment}>
         <CardElement />
         <button disabled={isProcessingPayment} className='button payment__button'>
