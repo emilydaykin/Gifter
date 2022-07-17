@@ -1,5 +1,8 @@
+import { Middleware } from 'redux';
+import { RootState } from '../store';
+
 // Currying:
-export const loggerMiddleware = (store) => (next) => (action) => {
+export const loggerMiddleware: Middleware<{}, RootState> = (store) => (next) => (action) => {
   // accounting for actions without types on them (i.e. not passed from us, e.g. via redux thunk)
   if (!action.type) {
     return next(action);
