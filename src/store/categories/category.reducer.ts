@@ -20,7 +20,7 @@ export const CATEGORIES_INITIAL_STATE: CategoriesState = {
 
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
-  action = {} as AnyAction // no longer the discriminatory union `CategoryAction`
+  action: AnyAction // no longer the discriminatory union `CategoryAction`
 ): CategoriesState => {
   // const { type, payload } = action;
 
