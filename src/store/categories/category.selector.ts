@@ -1,6 +1,9 @@
 import { createSelector } from 'reselect'; // memoises selectors for you!
+import { CategoriesState } from './category.reducer';
+import { CategoryMap } from './category.types';
 
-const selectCategoryReducer = (state) => state.categories;
+const selectCategoryReducer = (state): CategoriesState => state.categories;
+
 // memoised selector:
 export const selectCategories = createSelector(
   [selectCategoryReducer],
@@ -10,12 +13,12 @@ export const selectCategories = createSelector(
 // Helper callback memoised
 export const selectCategoriesMap = createSelector(
   [selectCategories],
-  (categories) =>
+  (categories): CategoryMap =>
     categories.reduce((acc, category) => {
       const { title, items } = category;
       acc[title.toLowerCase()] = items;
       return acc;
-    }, {})
+    }, {} as CategoryMap)
   // initial instance: empty object
 );
 
