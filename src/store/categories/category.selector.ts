@@ -1,8 +1,9 @@
 import { createSelector } from 'reselect'; // memoises selectors for you!
 import { CategoriesState } from './category.reducer';
 import { CategoryMap } from './category.types';
+import { RootState } from '../store';
 
-const selectCategoryReducer = (state): CategoriesState => state.categories;
+const selectCategoryReducer = (state: RootState): CategoriesState => state.categories;
 
 // memoised selector:
 export const selectCategories = createSelector(
