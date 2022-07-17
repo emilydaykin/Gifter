@@ -9,7 +9,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  NextOrObserver,
+  User
 } from 'firebase/auth'; // to create an auth instance
 import {
   getFirestore,
@@ -19,8 +21,11 @@ import {
   collection,
   writeBatch,
   query,
-  getDocs
+  getDocs,
+  QueryDocumentSnapshot
 } from 'firebase/firestore'; // doc = retrieve document _instance_ inside db, getDoc/setDoc: get/set doc _data_
+import { Category } from '../store/categories/category.types';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -48,7 +53,7 @@ provider.setCustomParameters({
 
 export const auth = getAuth(); // singleton
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-export const signUserInWithEmailAndPassword = async (email, password) => {
+export const signUserInWithEmailAndPassword = async (email: string, password: string) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
 };
@@ -56,7 +61,14 @@ export const signUserInWithEmailAndPassword = async (email, password) => {
 // --------------------------- Storage --------------------------- //
 export const db = getFirestore();
 
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+export type ObjectToAdd = {
+  title: string;
+};
+
+export const addCollectionAndDocuments = async <T extends ObjectToAdd>(
+  collectionKey: string,
+  objectsToAdd: T[]
+): Promise<void> => {
   // create the collection
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db); // writes, deletes sets etc
@@ -71,16 +83,29 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   console.log('done batching!');
 };
 
-export const getCategoriesAndDocuments = async () => {
+export const getCategoriesAndDocuments = async (): Promise<Category[]> => {
   const collectionRef = collection(db, 'categories');
 
   const targetQuery = query(collectionRef);
 
   const querySnapshot = await getDocs(targetQuery); // returns an array
-  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data() as Category);
 };
 
-export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) => {
+export type AdditionalInfo = {
+  displayName?: string;
+};
+
+export type UserData = {
+  createdAt: Date;
+  displayName: string;
+  email: string;
+};
+
+export const createUserDocumentFromAuth = async (
+  userAuth: User,
+  additionalInfo = {} as AdditionalInfo
+): Promise<void | QueryDocumentSnapshot<UserData>> => {
   if (!userAuth) return;
 
   const userDocRef = doc(db, 'users', userAuth.uid); // args: db, collection, identifier (created by google)
@@ -99,15 +124,15 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInfo = {}) 
         ...additionalInfo
       });
     } catch (error) {
-      console.log(`Error creating user: ${error.message}`);
+      console.log(`Error creating user: ${error}`);
     }
   }
   // if user data exists, return userDocRef
   // return userDocRef;
-  return userSnapshot; // we want the snapshot (not the docref pointer) now for redux saga
+  return userSnapshot as QueryDocumentSnapshot<UserData>; // we want the snapshot (not the docref pointer) now for redux saga
 };
 
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
+export const createAuthUserWithEmailAndPassword = async (email: string, password: string) => {
   if (!email || !password) return;
   return await createUserWithEmailAndPassword(auth, email, password);
 };
@@ -115,14 +140,15 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 export const signOutUser = async () => await signOut(auth);
 
 // Helper function (observable listener) - a permanently open listener (so must unmount it to avoid memory leaks):
-export const onAuthStateChangeListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangeListener = (callback: NextOrObserver<User>) =>
+  onAuthStateChanged(auth, callback);
 
 // --------------------------- For Redux Saga --------------------------- //
 
 // Converting from an observable listener into a promise-based function call
 // (since this is a permanently open listener, we must unmount it...
 // ... (via unsubscribe) to avoid memory leaks:
-export const getCurrentUser = () => {
+export const getCurrentUser = (): Promise<User | null> => {
   return new Promise((resolve, reject) => {
     // unsubscribe the moment we get a value
     const unsubscribe = onAuthStateChanged(
