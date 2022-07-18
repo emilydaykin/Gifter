@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import LogIn from './LogIn';
 import Register from './Register';
 import Footer from '../Footer';
 
-const SignIn = () => {
+const SignIn: FC = () => {
   return (
     <>
       <div className='signInPage'>
