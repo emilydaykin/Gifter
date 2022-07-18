@@ -1,4 +1,10 @@
-const FormInput = ({ label, ...inputProps }) => {
+import { FC, InputHTMLAttributes } from 'react';
+
+type FormElementProps = {
+  label: string;
+} & InputHTMLAttributes<HTMLInputElement>;
+
+const FormElement: FC<FormElementProps> = ({ label, ...inputProps }) => {
   return (
     <div className='form__element'>
       <input className='form__input' {...inputProps} />
@@ -11,4 +17,4 @@ const FormInput = ({ label, ...inputProps }) => {
   );
 };
 
-export default FormInput;
+export default FormElement;
