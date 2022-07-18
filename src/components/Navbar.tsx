@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../store/user/user.selector';
@@ -8,7 +9,7 @@ import CartIcon from './cart/CartIcon';
 import CartDropdown from './cart/CartDropdown';
 import { ReactComponent as GiftLogo } from '../assets/logo.svg';
 
-const Navbar = () => {
+const Navbar: FC = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
