@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchCategoriesStart } from '../store/categories/category.action';
@@ -8,7 +8,7 @@ import Category from './categories/Category';
 // import allProducts from '../data/shop-data.js';
 // import { addCollectionAndDocuments } from '../firebase/firebase.utils';
 
-const Shop = () => {
+const Shop: FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {

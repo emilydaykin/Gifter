@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-const Footer = () => {
+const Footer: FC = () => {
   const location = useLocation();
 
   return (

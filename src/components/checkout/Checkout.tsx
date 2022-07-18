@@ -1,19 +1,20 @@
-import { useNavigate } from 'react-router-dom';
+import { FC } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotalPrice } from '../../store/cart/cart.selector';
 import CheckoutItem from './CheckoutItem';
 import Payment from '../Payment';
 import Footer from '../Footer';
 
-const Checkout = () => {
-  const navigate = useNavigate();
+const Checkout: FC = () => {
+  // const navigate = useNavigate();
   const cartItems = useSelector(selectCartItems);
   const cartTotalPrice = useSelector(selectCartTotalPrice);
 
-  const goToPayment = () => {
-    console.log('"go to payment" clicked!');
-    navigate('/payment');
-  };
+  // const goToPayment = () => {
+  //   console.log('"go to payment" clicked!');
+  //   navigate('/payment');
+  // };
 
   return (
     <>

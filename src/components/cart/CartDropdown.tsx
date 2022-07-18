@@ -1,10 +1,11 @@
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems, selectIsCartOpen } from '../../store/cart/cart.selector';
 import { setIsCartOpen } from '../../store/cart/cart.action';
 import CartItem from './CartItem';
 
-const CartDropdown = () => {
+const CartDropdown: FC = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const isCartOpen = useSelector(selectIsCartOpen);
