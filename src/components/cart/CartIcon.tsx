@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCartItemCount } from '../../store/cart/cart.selector';
 import { ReactComponent as CartSvg } from '../../assets/shopping_bag.svg';
 
-const CartIcon = () => {
+const CartIcon: FC = () => {
   const cartItemCount = useSelector(selectCartItemCount);
 
   return (
