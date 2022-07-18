@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { FC, useEffect } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectCurrentUser, selectUserReducer } from '../../store/user/user.selector';
 import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
 import FormElement from '../FormElement';
 
-const LogIn = () => {
+const LogIn: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const blankForm = {
@@ -15,8 +17,29 @@ const LogIn = () => {
   const [formData, setFormData] = useState(blankForm);
   const [errorMessage, setErrorMessage] = useState('');
   const currentUser = useSelector(selectCurrentUser);
+  const userState = useSelector(selectUserReducer);
 
-  const handleInputChange = (event) => {
+  useEffect(() => {
+    if (!userState.error || currentUser !== null) {
+      setErrorMessage('');
+      setFormData(blankForm);
+      // navigate('/');
+      console.log('--NO ERROR--');
+    } else {
+      if (
+        (userState.error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD ||
+        AuthErrorCodes.USER_DELETED
+      ) {
+        console.error(`Log In error: ${userState.error}`);
+        setErrorMessage('Incorrect email and/or password.');
+      } else {
+        console.error(`Log In error: ${userState.error}`);
+        setErrorMessage('Error logging in.');
+      }
+    }
+  }, [userState]);
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setErrorMessage('');
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
@@ -24,24 +47,12 @@ const LogIn = () => {
   const logInWithGoogle = async () => {
     setErrorMessage('');
     dispatch(googleSignInStart());
-    navigate('/');
+    // navigate('/');
   };
 
-  const handleLogIn = async (event) => {
+  const handleLogIn = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    try {
-      dispatch(emailSignInStart(formData.logInEmail, formData.logInPassword));
-      setFormData(blankForm);
-      navigate('/');
-    } catch (error) {
-      if (error.code === 'auth/wrong-password' || 'auth/user-not-found') {
-        setErrorMessage('Incorrect email and/or password.');
-      } else {
-        console.error(`Log In error: ${error}`);
-        setErrorMessage('Error logging in.');
-      }
-    }
+    dispatch(emailSignInStart(formData.logInEmail, formData.logInPassword));
   };
 
   return (
