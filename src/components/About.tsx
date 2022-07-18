@@ -42,12 +42,12 @@ const About = () => {
           <div className='about__created-with'>
             <h1 className='about__heading'>Created With</h1>
             <div className='about__icons'>
+              <a href='https://www.typescriptlang.org/'>
+                <img className='about__icon' src={typescriptLogo} alt='TypeScript' />
+              </a>
               <a href='https://www.javascript.com/'>
                 <img className='about__icon' src={javascriptLogo} alt='JavaScript' />
               </a>
-              {/* <a href='https://www.typescriptlang.org/'>
-                <img className='about__icon' src={typescriptLogo} alt='TypeScript' />
-              </a> */}
               <a href='https://reactjs.org/'>
                 <img className='about__icon' src={reactLogo} alt='React' />
               </a>
