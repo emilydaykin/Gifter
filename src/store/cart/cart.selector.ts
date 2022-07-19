@@ -22,5 +22,5 @@ export const selectCartTotalPrice = createSelector([selectCartItems], (cartItems
 
   const finalPriceRounded = finalPrice.toLocaleString(undefined, { minimumFractionDigits: 2 });
 
-  return parseFloat(finalPriceRounded);
+  return finalPriceRounded;
 });
