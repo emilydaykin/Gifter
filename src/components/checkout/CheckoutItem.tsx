@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addItemToCart,
@@ -7,8 +8,13 @@ import {
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretRight, faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import { CartItem } from '../../store/cart/cart.types';
 
-const CheckoutItem = ({ checkoutItem }) => {
+type CheckoutItemProps = {
+  checkoutItem: CartItem;
+};
+
+const CheckoutItem: FC<CheckoutItemProps> = ({ checkoutItem }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
