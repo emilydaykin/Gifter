@@ -1,15 +1,12 @@
-import { FC, useEffect } from 'react';
-import { useState, FormEvent, ChangeEvent } from 'react';
-import { AuthError, AuthErrorCodes } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { FC, useEffect, useState, FormEvent, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { selectCurrentUser, selectUserReducer } from '../../store/user/user.selector';
 import { googleSignInStart, emailSignInStart } from '../../store/user/user.action';
 import FormElement from '../FormElement';
 
 const LogIn: FC = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const blankForm = {
     logInEmail: '',
     logInPassword: ''
@@ -19,22 +16,34 @@ const LogIn: FC = () => {
   const currentUser = useSelector(selectCurrentUser);
   const userState = useSelector(selectUserReducer);
 
+  console.log('form data from log in:', formData);
   useEffect(() => {
-    if (!userState.error || currentUser !== null) {
+    if (!userState.error || currentUser !== null || formData === blankForm) {
       setErrorMessage('');
       setFormData(blankForm);
-      // navigate('/');
       console.log('--NO ERROR--');
     } else {
-      if (
-        (userState.error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD ||
-        AuthErrorCodes.USER_DELETED
-      ) {
-        console.error(`Log In error: ${userState.error}`);
-        setErrorMessage('Incorrect email and/or password.');
-      } else {
-        console.error(`Log In error: ${userState.error}`);
-        setErrorMessage('Error logging in.');
+      switch ((userState.error as AuthError).code) {
+        case AuthErrorCodes.INVALID_PASSWORD:
+          setErrorMessage('Wrong password.');
+          break;
+        case AuthErrorCodes.USER_DELETED:
+          setErrorMessage('Email not registered.');
+          break;
+        default:
+          // setErrorMessage('Error logging in.'); // this would show up with register error
+          setErrorMessage('');
+
+        // if (
+        //   (userState.error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD ||
+        //   AuthErrorCodes.USER_DELETED
+        // ) {
+        //   console.error(`Log In error: ${userState.error}`);
+        //   setErrorMessage('Incorrect email and/or password.');
+        // } else {
+        //   console.error(`Log In error: ${userState.error}`);
+        //   setErrorMessage('Error logging in.');
+        // }
       }
     }
   }, [userState]);
@@ -47,7 +56,6 @@ const LogIn: FC = () => {
   const logInWithGoogle = async () => {
     setErrorMessage('');
     dispatch(googleSignInStart());
-    // navigate('/');
   };
 
   const handleLogIn = async (event: FormEvent<HTMLFormElement>) => {

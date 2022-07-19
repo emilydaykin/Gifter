@@ -36,7 +36,8 @@ const Register: FC = () => {
           setErrorMessage('Password should be at least 6 characters long.');
           break;
         default:
-          setErrorMessage('Error registering.');
+          // setErrorMessage('Error registering.'); // this would show up with login error
+          setErrorMessage('');
       }
     }
   }, [userState]);
