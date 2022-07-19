@@ -1,11 +1,17 @@
 // Home Page Category Poster for each of the categories (to redirect to)
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CategoriesType } from './Categories';
 
-const CategoryPoster = ({ category }) => {
+type CategoryPosterProps = {
+  category: CategoriesType;
+};
+
+const CategoryPoster: FC<CategoryPosterProps> = ({ category }) => {
   const { title, imageURL, key } = category;
   const navigate = useNavigate();
 
-  const redirectToCategory = (category) => navigate(`/shop/${category}`);
+  const redirectToCategory = (categoryKey: string) => navigate(`/shop/${categoryKey}`);
 
   return (
     <div

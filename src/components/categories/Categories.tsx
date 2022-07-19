@@ -1,8 +1,15 @@
-// import React from 'react';
+import { FC, Key } from 'react';
 import CategoryPoster from './CategoryPoster';
 
-const Categories = () => {
-  const categories = [
+export type CategoriesType = {
+  id: Key;
+  key: string;
+  title: string;
+  imageURL: string;
+};
+
+const Categories: FC = () => {
+  const categories: CategoriesType[] = [
     {
       id: 1,
       key: 'birthday',

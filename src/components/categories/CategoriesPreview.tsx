@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
@@ -8,12 +9,12 @@ import CategoryCarousel from './CategoryCarousel';
 import Loader from '../Loader';
 import Footer from '../Footer';
 
-const CategoriesPreview = () => {
+const CategoriesPreview: FC = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const navigate = useNavigate();
   const isLoading = useSelector(selectCategoriesIsLoading);
 
-  const redirectToCategory = (category) => {
+  const redirectToCategory = (category: string) => {
     navigate(`/shop/${category}`);
   };
 
