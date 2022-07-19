@@ -8,7 +8,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 const Payment = () => {
   const stripe = useStripe(); // make requests to Stripe
   const elements = useElements();
-  const totalAmount = useSelector(selectCartTotalPrice);
+  const totalAmount = parseFloat(useSelector(selectCartTotalPrice));
   const currentUser = useSelector(selectCurrentUser);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
