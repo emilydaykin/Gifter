@@ -1,6 +1,6 @@
 # Gifter
 
-An e-commerce web and mobile site to browse and buy gifts for loved ones for any occasion. Gifter is built with React, ___, Stripe and Firebase. 
+A full-stack, tested??? & responsive e-commerce web and mobile site to browse and buy gifts for any occasion. Gifter is built with JavaScript, TypeScript, React, Redux, Sass, Stripe and Firebase.
 
 [Live Gifter App](https://giftsbygifter.netlify.app/)
 
@@ -8,7 +8,7 @@ An e-commerce web and mobile site to browse and buy gifts for loved ones for any
 
 ## Tech Stack
 - Front End: 
-  - JavaScript & Typescript???
+  - JavaScript & Typescript
   - React (Hooks: useState, useEffect, useContext, useReducer)
   - Redux (including Redux Thunk & Redux Saga for asynchronous redux side effect handling)
   - Functional Programming Design Patterns: Currying, Memoisation (via Redux's Reselect library)
@@ -16,8 +16,8 @@ An e-commerce web and mobile site to browse and buy gifts for loved ones for any
 - Back End:
   - Authentication: Firebase
   - Server & Storage: Firestore
-  - Serverless Functions???
-  - Payment Gatway: Stripe
+  - Serverless Functions
+  - Payment Gateway: Stripe
 - DevOps:
   - Testing Library (jest-dom, react, user-event)
   - Deployment: Netlify
@@ -25,52 +25,144 @@ An e-commerce web and mobile site to browse and buy gifts for loved ones for any
   - Google Analytics??
   - Yarn
 
-- Asynchronous Redux: (side effects handling)
-  - Redux-Thunk
-  - Redux-Saga
-- TypeScript???
+I also created a [spin-off version of Gifter](https://github.com/emilydaykin/graphql) that leverages GraphQL and Apollo.
+
 - Context API???
-- Serverless Functions???
-- GraphQL???
-- Apollo???
-- Stripe???
 - PWA (Progressive Web App)???
 - Gatsby.js
 
 CHALLENGE: make this site have LIGHT MODE and DARK MODE?
 
 ## Features:
-- Display of 5 gift categories (Birthday, Chirstmas, Thank you etc), 2-3 sub categories (For Her, For Them, Mr. & Mrs. etc..)
-- Authentication by email and password, with Google or with GitHub(???)
+- Display of 5 gift categories (Birthday, Chirstmas, Thank you, Anniversary and Wedding)
+- Authentication by email and password, or with Google
 - Add/Remove item(s) to/from basket with a real time item counter and price total calculator
 - Pay with Stripe
+- Fully responsive for any device size
 
 
 ## Milestones:
 This project went though a few refactors and improvements as I learnt new libraries, frameworks and languages to incorporate. Using `git tag -a <version> -m "<version comments>"` to mark each of these in the code history ([see all tags](https://github.com/emilydaykin/Gifter/tags)), the state of Gifter at each milestone was as follows:
 
-### v4 [NOT DONE YET!]
+### v5 [NOT DONE YET!]
 - PWA: progressive web app?
-- Testing (Jest)???
+- Testing (Jest/Enzyme/Snapshot Testing)???
 - GatsbyJS???
-### v3 [NOT DONE YET!]
-- typescript?
+### v4 [NOT DONE YET!]
 - graphQL
 - apollo
 - security?
+### v3
+- Codebase converted from JavaScript to TypeScript, including React Components, the entire Redux Store (and Sagas), and utility files (for firebase and reducer)
 ### v2 
 - Redux (Redux Saga & Generator functions) and Stripe integration
-- Serverless Function that creates a payment intent for Stripe. It is hosted on Netlify and uses AWS' Lambda function under the hood.
-- Users can now pay for their selected gifts using a test credit card number, which will be handled by Stripe.
+- Serverless Function that creates a payment intent for Stripe. It is hosted on Netlify and uses AWS' Lambda function under the hood. This will help automate any necessary scaling.
+- Currying & Memoisation Design Patterns (via Redux's Reselect library)
+- Session Storage via Redux Persist to retain data between refreshes/sessions.
+- UX: Users can now pay for their selected gifts using a test credit card number, which will be handled by Stripe.
 ### v1
-- Fully working and responsive app in web, tablet and mobile, powered by React, including useContexts and useReducer Hooks. 
-- Styling done in pure Sass using the BEM methodology and without the help of any frameworks. 
-- Users can browse and add to, edit and remove items from their cart, but can't yet pay.
-
+- Fully working and responsive app in web, tablet and mobile, powered by JavaScript and React, including useContext and useReducer Hooks. 
+- Styling done in pure Sass (without the help of any frameworks) using the BEM methodology.
+- Server, Storage and Authentication handled by Firebase (& Firestore).
+- UX: Users can browse gifts across 5 categories, sign in (with email or via Google) and sign out, as well as add to, edit and remove items from their cart; they can also check out, but can't yet pay.
 
 
 ## Code Snippets:
-#### Generator Function & Redux Saga 
+
+<details>
+  <summary>Click to expand!</summary>
+  
+  ```javascript
+  
+  ```
+</details>
+
+
+- observer listener/design pattern
+
+#### TypeScript
+
+#### Generator Functions & Redux Saga for Categories
+<details>
+  <summary>View Code (Root Saga)</summary>
+  
+  ```javascript
+  import { all, call } from 'redux-saga/effects';
+  import { categoriesSaga } from './categories/category.saga';
+  import { userSaga } from './user/user.saga';
+
+  // generator function
+  export function* rootSaga() {
+    yield all([call(categoriesSaga), call(userSaga)]);
+  }
+  ```
+</details>
+
+<details>
+  <summary>View Code (Category Saga)</summary>
+  
+  ```javascript
+  import { takeLatest, all, call, put } from 'redux-saga/effects';
+  import { getCategoriesAndDocuments } from '../../firebase/firebase.utils';
+  import { fetchCategoriesSuccess, fetchCategoriesFailure } from './category.action';
+  import { CATEGORIES_ACTION_TYPES } from './category.types';
+
+  // Generators:
+  export function* fetchCategoriesAsync() {
+    try {
+      // use `call` to turn it into an effect
+      const categoryArray = yield call(getCategoriesAndDocuments, 'categories'); // callable method & its params
+      yield put(fetchCategoriesSuccess(categoryArray)); // put is the dispatch inside a generator
+    } catch (err) {
+      console.log(`ERROR: ${err}`);
+      yield put(fetchCategoriesFailure(err));
+    }
+  }
+
+  export function* onFetchCategories() {
+    // if many actions received, take the latest one
+    yield takeLatest(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START, fetchCategoriesAsync);
+  }
+
+  export function* categoriesSaga() {
+    yield all([call(onFetchCategories)]); // this will pause execution of the below until it finishes
+  }
+  ```
+</details>
+
+#### Redux Thunk for Categories
+<details>
+  <summary>View Code</summary>
+  
+  ```javascript
+  import { CATEGORIES_ACTION_TYPES } from './category.types';
+  import { getCategoriesAndDocuments } from '../../firebase/firebase.utils';
+
+  export const fetchCategoriesStart = () => {
+    return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START };
+  };
+
+  export const fetchCategoriesSuccess = (categories) => {
+    return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS, payload: categories };
+  };
+
+  export const fetchCategoriesFailure = (error) => {
+    return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILURE, payload: error };
+  };
+
+  // Thunk:
+  export const fetchCategoriesAsync = () => async (dispatch) => {
+    dispatch(fetchCategoriesStart());
+    try {
+      const categoryArray = await getCategoriesAndDocuments('categories');
+      dispatch(fetchCategoriesSuccess(categoryArray));
+    } catch (error) {
+      console.log(`ERROR: ${error}`);
+      dispatch(fetchCategoriesFailure(error));
+    }
+  };
+  ```
+</details>
 
 #### React Context: useContext hook and CartContext and UserContext in the Navbar &rarr; later refactored to Redux.
 
@@ -196,55 +288,13 @@ This project went though a few refactors and improvements as I learnt new librar
 </details>
 
 
-#### Redux Thunk for Categories
-<details>
-  <summary>View Code</summary>
-  
-  ```javascript
-  import { CATEGORIES_ACTION_TYPES } from './category.types';
-  import { getCategoriesAndDocuments } from '../../firebase/firebase.utils';
-
-  export const fetchCategoriesStart = () => {
-    return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START };
-  };
-
-  export const fetchCategoriesSuccess = (categories) => {
-    return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS, payload: categories };
-  };
-
-  export const fetchCategoriesFailure = (error) => {
-    return { type: CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILURE, payload: error };
-  };
-
-  // Thunk:
-  export const fetchCategoriesAsync = () => async (dispatch) => {
-    dispatch(fetchCategoriesStart());
-    try {
-      const categoryArray = await getCategoriesAndDocuments('categories');
-      dispatch(fetchCategoriesSuccess(categoryArray));
-    } catch (error) {
-      console.log(`ERROR: ${error}`);
-      dispatch(fetchCategoriesFailure(error));
-    }
-  };
-  ```
-</details>
-
-<details>
-  <summary>Click to expand!</summary>
-  
-  ```javascript
-  
-  ```
-</details>
-- observer listener/design pattern
-
-
 
 ## Challenges, Wins & Key Learning
 
 ### Challenges:
 - Biggest challenge: Redux Saga (a lot of boilerplate set up and config to learn)
+- TypeScript
 
 ### Wins
-First time integrating a payment gateway
+- First time integrating a payment gateway
+- Design (horizontal scroll with fade out effects on the side)
