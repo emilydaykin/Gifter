@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems, selectIsCartOpen } from '../../store/cart/cart.selector';
@@ -12,12 +12,12 @@ const CartDropdown: FC = () => {
 
   const navigate = useNavigate();
 
-  const goToCheckout = () => {
+  const goToCheckout = useCallback(() => {
     if (cartItems.length > 0) {
       navigate('/checkout');
       dispatch(setIsCartOpen(!isCartOpen));
     }
-  };
+  }, [isCartOpen]);
 
   return (
     <div className='cart-dropdown'>

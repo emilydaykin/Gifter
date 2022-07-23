@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
@@ -14,9 +14,9 @@ const CategoriesPreview: FC = () => {
   const navigate = useNavigate();
   const isLoading = useSelector(selectCategoriesIsLoading);
 
-  const redirectToCategory = (category: string) => {
+  const redirectToCategory = useCallback((category: string) => {
     navigate(`/shop/${category}`);
-  };
+  }, []);
 
   return (
     <>
