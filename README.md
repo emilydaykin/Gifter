@@ -9,7 +9,7 @@ A full-stack, tested??? & responsive e-commerce web and mobile site to browse an
 ## Tech Stack
 - Front End: 
   - JavaScript & Typescript
-  - React (Hooks: useState, useEffect, useContext, useReducer)
+  - React (Hooks: useState, useEffect, useContext, useReducer, useCallback)
   - Redux (including Redux Thunk & Redux Saga for asynchronous redux side effect handling)
   - Functional Programming Design Patterns: Currying, Memoisation (via Redux's Reselect library)
   - Sass (BEM)
@@ -80,9 +80,34 @@ This project went though a few refactors and improvements as I learnt new librar
 
 - observer listener/design pattern
 
-#### TypeScript
+### UseCallback hook to optimise performance by memoising functions
+<details>
+  <summary>Go To Checkout Callback</summary>
+  
+  ```javascript
+  const goToCheckout = useCallback(() => {
+    if (cartItems.length > 0) {
+      navigate('/checkout');
+      dispatch(setIsCartOpen(!isCartOpen));
+    }
+  }, [isCartOpen]);
+  ```
+</details>
 
-#### Generator Functions & Redux Saga for Categories
+<details>
+  <summary>Redirecting to target category callback</summary>
+  
+  ```javascript
+  const redirectToCategory = useCallback((category: string) => {
+    navigate(`/shop/${category}`);
+  }, []);
+  ```
+</details>
+
+
+### TypeScript
+
+### Generator Functions & Redux Saga for Categories
 <details>
   <summary>View Code (Root Saga)</summary>
   
@@ -130,7 +155,7 @@ This project went though a few refactors and improvements as I learnt new librar
   ```
 </details>
 
-#### Redux Thunk for Categories
+### Redux Thunk for Categories
 <details>
   <summary>View Code</summary>
   
@@ -164,7 +189,7 @@ This project went though a few refactors and improvements as I learnt new librar
   ```
 </details>
 
-#### React Context: useContext hook and CartContext and UserContext in the Navbar &rarr; later refactored to Redux.
+### React Context: useContext hook and CartContext and UserContext in the Navbar &rarr; later refactored to Redux.
 
 <details>
   <summary>View Code (Navbar)</summary>
