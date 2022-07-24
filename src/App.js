@@ -1,14 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { checkUserSession } from './store/user/user.action';
-import Home from './components/Home';
-import Navbar from './components/Navbar';
-import About from './components/About';
-import Shop from './components/Shop';
-import SignIn from './components/auth/SignIn';
-import Checkout from './components/checkout/Checkout';
-// import Payment from './components/Payment';
+import Loader from './components/Loader';
+
+// Dynamic imports
+const Home = lazy(() => import('./components/Home'));
+const Navbar = lazy(() => import('./components/Navbar'));
+const About = lazy(() => import('./components/About'));
+const Shop = lazy(() => import('./components/Shop'));
+const SignIn = lazy(() => import('./components/auth/SignIn'));
+const Checkout = lazy(() => import('./components/checkout/Checkout'));
 
 const App = () => {
   const dispatch = useDispatch(); // this will never change, so no need to pass it as a dependency array into the useEffect (but can do)
@@ -18,16 +20,17 @@ const App = () => {
   }, []);
 
   return (
-    <Routes>
-      <Route path='/' element={<Navbar />}>
-        <Route index element={<Home />} />
-        <Route path='shop/*' element={<Shop />} />
-        <Route path='about' element={<About />} />
-        <Route path='auth' element={<SignIn />} />
-        <Route path='checkout' element={<Checkout />} />
-      </Route>
-      {/* <Route path='payment' element={<Payment />} /> */}
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        <Route path='/' element={<Navbar />}>
+          <Route index element={<Home />} />
+          <Route path='shop/*' element={<Shop />} />
+          <Route path='about' element={<About />} />
+          <Route path='auth' element={<SignIn />} />
+          <Route path='checkout' element={<Checkout />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 };
 
