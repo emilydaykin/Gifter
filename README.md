@@ -48,9 +48,9 @@ This project went though a few refactors and improvements as I learnt new librar
 - PWA: progressive web app?
 - Testing (Jest/Enzyme/Snapshot Testing)???
 - GatsbyJS???
-### v4 [NOT DONE YET!]
-- performance optimisations (useCallback, react memo, code splitting via react lazy & react suspense)
-- Firebase security rules
+### v4
+- Performance optimisations (useCallback and React memo for function and function output memoisations respectively, and code splitting (the bundle.js) with dynamic imports via React Lazy & React Suspense)
+- Tightening Firebase (Firestore) security rules to read-only for all documents and categories, and allowing write access for users if the id matches the request's.
 ### v3
 - Codebase converted from JavaScript to TypeScript, including React Components, the entire Redux Store (and Sagas), and utility files (for firebase and reducer)
 ### v2 
