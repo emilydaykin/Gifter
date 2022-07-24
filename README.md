@@ -139,7 +139,7 @@ This project went though a few refactors and improvements as I learnt new librar
 
 ### UseCallback hook to optimise performance by memoising functions
 <details>
-  <summary>Go To Checkout Callback</summary>
+  <summary>View Code (Go To Checkout callback)</summary>
   
   ```javascript
   const goToCheckout = useCallback(() => {
@@ -152,7 +152,7 @@ This project went though a few refactors and improvements as I learnt new librar
 </details>
 
 <details>
-  <summary>Redirecting to target category callback</summary>
+  <summary>View Code (Redirecting to Target Category callback)</summary>
   
   ```javascript
   const redirectToCategory = useCallback((category: string) => {
