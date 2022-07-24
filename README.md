@@ -49,9 +49,8 @@ This project went though a few refactors and improvements as I learnt new librar
 - Testing (Jest/Enzyme/Snapshot Testing)???
 - GatsbyJS???
 ### v4 [NOT DONE YET!]
-- graphQL
-- apollo
-- security?
+- performance optimisations (useCallback, react memo, code splitting via react lazy & react suspense)
+- Firebase security rules
 ### v3
 - Codebase converted from JavaScript to TypeScript, including React Components, the entire Redux Store (and Sagas), and utility files (for firebase and reducer)
 ### v2 
