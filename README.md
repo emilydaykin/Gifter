@@ -78,6 +78,64 @@ This project went though a few refactors and improvements as I learnt new librar
 
 
 - observer listener/design pattern
+### Improving Firebase (Firestore) Security Rules
+<details>
+  <summary>View rule</summary>
+  
+  ```
+  rules_version = '2';
+  service cloud.firestore {
+    match /databases/{database}/documents {
+      match /{document=**} {
+        allow read;
+      }
+      
+      match /users/{userId} {
+        allow read, get, create;
+        allow write: if request.auth != null && request.auth.id == userId;
+      }
+      
+      match /categories/{category} {
+        allow read;
+      }
+    }
+  }
+  ```
+</details>
+
+### Dynamic Imports via React Lazy and React Suspense for performance optimisation
+<details>
+  <summary>View Code</summary>
+  
+  ```javascript
+  // $src/App.js
+
+  const Home = lazy(() => import('./components/Home'));
+  const Navbar = lazy(() => import('./components/Navbar'));
+  const About = lazy(() => import('./components/About'));
+  const Shop = lazy(() => import('./components/Shop'));
+  const SignIn = lazy(() => import('./components/auth/SignIn'));
+  const Checkout = lazy(() => import('./components/checkout/Checkout'));
+
+  const App = () => {
+    ...
+
+    return (
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path='/' element={<Navbar />}>
+            <Route index element={<Home />} />
+            <Route path='shop/*' element={<Shop />} />
+            <Route path='about' element={<About />} />
+            <Route path='auth' element={<SignIn />} />
+            <Route path='checkout' element={<Checkout />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    );
+  };
+  ```
+</details>
 
 ### UseCallback hook to optimise performance by memoising functions
 <details>
