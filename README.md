@@ -19,8 +19,12 @@ A full-stack, tested??? & responsive e-commerce web and mobile site to browse an
   - Serverless Functions
   - Payment Gateway: Stripe
 - DevOps:
-  - Testing Library (jest-dom, react, user-event)
   - Deployment: Netlify
+  - Testing 
+    - Testing Library (jest-dom, react, user-event)
+    - Jest
+    - Enzyme
+    - Unit / Int / Automation (end-to-end)
   - CI/CD (Continuous Integration & Continuous Deployment) - Integrating Netlify into Github
   - Google Analytics??
   - Yarn
