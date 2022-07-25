@@ -9,7 +9,7 @@ import { stripePromise } from './stripe/stripe.utils';
 import App from './App';
 import './styles/main.scss';
 import reportWebVitals from './reportWebVitals';
-import * as serviceWorker from './service-worker';
+import * as serviceWorker from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
