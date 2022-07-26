@@ -18,7 +18,6 @@ test('Sign In page (/auth) section rendered correctly', () => {
 
   const expectedButtons = ['log in!', 'register!', 'log in with google'];
   const actualButtons = buttons.map((button) => button.innerHTML.toLowerCase());
-  console.log('actualButtons', actualButtons);
 
   expectedButtons.forEach((button) => {
     expect(actualButtons).toContainEqual(button);
