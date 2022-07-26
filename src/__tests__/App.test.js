@@ -23,9 +23,9 @@ test('Navbar displayed correctly', async () => {
   expect(navbar.length).toEqual(4);
 
   const expectedNavbarLinks = ['about', 'shop', 'auth'];
-  const navbarLinks = navbar.map((navbarItem) => navbarItem.href);
+  const navbarLinks = navbar.map((navbarItem) => navbarItem.href && navbarItem.href.split('/')[3]);
 
   expectedNavbarLinks.forEach((navbarItem) => {
-    navbarLinks.includes(navbarItem);
+    expect(navbarLinks).toContainEqual(navbarItem);
   });
 });
