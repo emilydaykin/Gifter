@@ -49,6 +49,7 @@ const Navbar: FC = () => {
                 ? 'navbar__link navbar__link--highlighted'
                 : 'navbar__link'
             }
+            role='navbar-item'
             to='/shop'
             onClick={hideCartWhenNavigatingAway}
           >
@@ -61,6 +62,7 @@ const Navbar: FC = () => {
                 ? 'navbar__link navbar__link--highlighted'
                 : 'navbar__link'
             }
+            role='navbar-item'
             to='/about'
             onClick={hideCartWhenNavigatingAway}
           >
@@ -77,13 +79,14 @@ const Navbar: FC = () => {
                   ? 'navbar__link navbar__link--highlighted'
                   : 'navbar__link'
               }
+              role='navbar-item'
               to='/auth'
               onClick={hideCartWhenNavigatingAway}
             >
               Sign In
             </Link>
           )}
-          <span className='navbar__link' onClick={toggleShowHideCart}>
+          <span className='navbar__link' role='navbar-item' onClick={toggleShowHideCart}>
             <CartIcon />
           </span>
         </div>
