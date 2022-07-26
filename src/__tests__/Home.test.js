@@ -3,20 +3,33 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Home from '../components/Home';
 
-test('Assert Home Page category posters are displayed', async () => {
+test('Gift categories are rendered', async () => {
   render(
     <BrowserRouter>
       <Home />
     </BrowserRouter>
   );
 
-  // await waitFor(() => {
-  const xmasCategory = screen.getByText(/christmas/i);
-  expect(xmasCategory).toBeInTheDocument();
-  // });
+  // waitFor better than wrapping the render with act()
+  await waitFor(() => {
+    const xmasCategory = screen.getByText(/christmas/i);
+    expect(xmasCategory).toBeInTheDocument();
+  });
 
-  const footer = screen.getByText(/copyright/i);
-  expect(footer).toBeInTheDocument();
+  await waitFor(() => {
+    const bdayCategory = screen.getByText(/birthday/i);
+    expect(bdayCategory).toBeInTheDocument();
+  });
+
+  await waitFor(() => {
+    const annivCategory = screen.getByText(/anniversary/i);
+    expect(annivCategory).toBeInTheDocument();
+  });
+
+  await waitFor(() => {
+    const tyCategory = screen.getByText(/thank you/i);
+    expect(tyCategory).toBeInTheDocument();
+  });
 
   const browseNowText = screen.queryAllByText(
     (content, element) =>
