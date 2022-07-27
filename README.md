@@ -384,3 +384,8 @@ This project went though a few refactors and improvements as I learnt new librar
 ### Wins
 - First time integrating a payment gateway
 - Design (horizontal scroll with fade out effects on the side)
+
+### Key Learnings:
+- In testing, `waitFor` (or other React Testing Library (RTL) async utilities such as `waitForElementToBeRemoved` or `findBy`) may be better practice than wrapping renders with `act()` because:
+  1. RTL already wraps utilities in `act()`
+  2. `act()` will supress the warnings and make the test past but cause other issues
