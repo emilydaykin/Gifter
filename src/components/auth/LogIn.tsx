@@ -16,7 +16,7 @@ const LogIn: FC = () => {
   const currentUser = useSelector(selectCurrentUser);
   const userState = useSelector(selectUserReducer);
 
-  console.log('form data from log in:', formData);
+  // console.log('form data from log in:', formData);
   useEffect(() => {
     if (!userState.error || currentUser !== null || formData === blankForm) {
       setErrorMessage('');
