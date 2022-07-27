@@ -3,12 +3,15 @@ import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import SignIn from '../components/auth/SignIn';
 import LogIn from '../components/auth/LogIn';
+import Register from '../components/auth/Register';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
 
 const mockUser = {
+  displayName: 'mock user',
   email: 'mock@user.com',
-  password: 'mockPassword1!'
+  password: 'mockPassword1!',
+  passwordConfirmation: 'mockPassword1!'
 };
 
 test('Sign In page (/auth) buttons rendered correctly', () => {
@@ -52,7 +55,7 @@ test('Sign In page (/auth) headings displayed correctly', () => {
   expect(subHeaders.length).toEqual(2);
 });
 
-test('Assert log in user inputs are accepted and displayed correctly', () => {
+test('Assert Log In user inputs are accepted and displayed correctly', () => {
   render(
     <Provider store={store}>
       <BrowserRouter>
@@ -64,22 +67,44 @@ test('Assert log in user inputs are accepted and displayed correctly', () => {
   const emailInput = screen.getByLabelText('Email', { selector: 'input' });
   const passwordInput = screen.getByLabelText('Password', { selector: 'input' });
 
-  // console.log('logInEmailInput', logInEmailInput);
-  // console.log('logInEmailInput.length', logInEmailInput.length);
-
-  // Get the form's button element with a (case-insensitive) classname of 'button'
-  // const submitButton = screen.getByRole('button', { className: /button/i });
-
   expect(emailInput).toBeInTheDocument();
   expect(passwordInput).toBeInTheDocument();
 
-  // simulate user typing in email & pw to form's input fields:
   userEvent.type(emailInput, mockUser.email);
   userEvent.type(passwordInput, mockUser.password);
 
-  // emailInput.value is from emailInput.pendingProps.value
-  // console.log('emailInput', emailInput);
-  // console.log('emailInput.value', emailInput.value);
   expect(emailInput.value).toEqual(mockUser.email);
   expect(passwordInput.value).toEqual(mockUser.password);
+});
+
+test('Assert Register user inputs are accepted and displayed correctly', () => {
+  render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Register />
+      </BrowserRouter>
+    </Provider>
+  );
+
+  const displayName = screen.getByLabelText('Display Name', { selector: 'input' });
+  const emailInput = screen.getByLabelText('Email', { selector: 'input' });
+  const passwordInput = screen.getByLabelText('Password', { selector: 'input' });
+  const passwordConfirmationInput = screen.getByLabelText('Password Confirmation', {
+    selector: 'input'
+  });
+
+  expect(displayName).toBeInTheDocument();
+  expect(emailInput).toBeInTheDocument();
+  expect(passwordInput).toBeInTheDocument();
+  expect(passwordConfirmationInput).toBeInTheDocument();
+
+  userEvent.type(displayName, mockUser.displayName);
+  userEvent.type(emailInput, mockUser.email);
+  userEvent.type(passwordInput, mockUser.password);
+  userEvent.type(passwordConfirmationInput, mockUser.passwordConfirmation);
+
+  expect(displayName.value).toEqual(mockUser.displayName);
+  expect(emailInput.value).toEqual(mockUser.email);
+  expect(passwordInput.value).toEqual(mockUser.password);
+  expect(passwordConfirmationInput.value).toEqual(mockUser.passwordConfirmation);
 });
