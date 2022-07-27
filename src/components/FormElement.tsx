@@ -9,7 +9,7 @@ const FormElement: FC<FormElementProps> = ({ label, ...inputProps }) => {
     <div className='form__element'>
       <input className='form__input' {...inputProps} />
       {label && (
-        <label htmlFor='displayName' className='form__label'>
+        <label htmlFor={inputProps.id} className='form__label'>
           {label}
         </label>
       )}
