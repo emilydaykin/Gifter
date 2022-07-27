@@ -9,6 +9,8 @@ test('About page renders all components', () => {
     </BrowserRouter>
   );
 
+  expect.assertions(3);
+
   const aboutSection = screen.getByText(/about/i);
   expect(aboutSection).toBeInTheDocument();
 

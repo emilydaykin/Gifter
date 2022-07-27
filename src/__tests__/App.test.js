@@ -13,6 +13,8 @@ test('Navbar displayed correctly', async () => {
     </Provider>
   );
 
+  expect.assertions(5);
+
   await waitFor(() => {
     const appName = screen.getByText(/gifter/i);
     expect(appName).toBeInTheDocument();
@@ -20,7 +22,7 @@ test('Navbar displayed correctly', async () => {
 
   const navbar = screen.getAllByRole('navbar-item');
   console.log('navbar', navbar);
-  expect(navbar.length).toEqual(4);
+  expect(navbar).toHaveLength(4);
 
   const expectedNavbarLinks = ['about', 'shop', 'auth'];
   const navbarLinks = navbar.map((navbarItem) => navbarItem.href && navbarItem.href.split('/')[3]);

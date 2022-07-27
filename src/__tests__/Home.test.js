@@ -10,6 +10,8 @@ test('Gift categories are rendered', async () => {
     </BrowserRouter>
   );
 
+  expect.assertions(6);
+
   // waitFor better than wrapping the render with act()
   await waitFor(() => {
     const xmasCategory = screen.getByText(/christmas/i);
@@ -31,12 +33,17 @@ test('Gift categories are rendered', async () => {
     expect(tyCategory).toBeInTheDocument();
   });
 
+  await waitFor(() => {
+    const weddingCategory = screen.getByText(/wedding/i);
+    expect(weddingCategory).toBeInTheDocument();
+  });
+
   const browseNowText = screen.queryAllByText(
     (content, element) =>
       element.tagName.toLowerCase() === 'p' &&
       element.innerHTML.toLowerCase().includes('browse now')
   );
-  expect(browseNowText.length).toEqual(5);
+  expect(browseNowText).toHaveLength(5);
 });
 
 test('Assert Footer is displayed on Home Page', () => {
@@ -45,6 +52,8 @@ test('Assert Footer is displayed on Home Page', () => {
       <Home />
     </BrowserRouter>
   );
+
+  expect.assertions(1);
 
   const footer = screen.getByText(/copyright/i);
   expect(footer).toBeInTheDocument();

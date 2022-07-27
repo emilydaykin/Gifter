@@ -23,10 +23,10 @@ test('Sign In page (/auth) buttons rendered correctly', () => {
     </Provider>
   );
 
-  const buttons = screen.getAllByRole('button', { className: /button/i });
+  expect.assertions(4);
 
-  // const buttons = screen.getAllByRole('button');
-  expect(buttons.length).toEqual(3);
+  const buttons = screen.getAllByRole('button', { className: /button/i });
+  expect(buttons).toHaveLength(3);
 
   const expectedButtons = ['log in!', 'register!', 'log in with google'];
   const actualButtons = buttons.map((button) => button.innerHTML.toLowerCase());
@@ -45,6 +45,8 @@ test('Sign In page (/auth) headings displayed correctly', () => {
     </Provider>
   );
 
+  expect.assertions(3);
+
   const logInHeader = screen.getByText(/i already have an account/i);
   expect(logInHeader).toBeInTheDocument();
 
@@ -52,7 +54,11 @@ test('Sign In page (/auth) headings displayed correctly', () => {
   expect(registerHeader).toBeInTheDocument();
 
   const subHeaders = screen.getAllByText(/with your email and password/i);
-  expect(subHeaders.length).toEqual(2);
+  expect(subHeaders).toHaveLength(2);
+  // expect(subHeaders).toEqual([
+  //   expect.stringContaining(/log in/i),
+  //   expect.stringContaining(/register/i)
+  // ]);
 });
 
 test('Assert Log In user inputs are accepted and displayed correctly', () => {
@@ -63,6 +69,8 @@ test('Assert Log In user inputs are accepted and displayed correctly', () => {
       </BrowserRouter>
     </Provider>
   );
+
+  expect.assertions(4);
 
   const emailInput = screen.getByLabelText('Email', { selector: 'input' });
   const passwordInput = screen.getByLabelText('Password', { selector: 'input' });
@@ -85,6 +93,8 @@ test('Assert Register user inputs are accepted and displayed correctly', () => {
       </BrowserRouter>
     </Provider>
   );
+
+  expect.assertions(8);
 
   const displayName = screen.getByLabelText('Display Name', { selector: 'input' });
   const emailInput = screen.getByLabelText('Email', { selector: 'input' });
