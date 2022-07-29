@@ -1,10 +1,50 @@
 # Gifter
 
-A full-stack, tested??? & responsive e-commerce web and mobile site to browse and buy gifts for any occasion. Gifter is built with JavaScript, TypeScript, React, Redux, Sass, Stripe and Firebase.
+A full-stack, tested & responsive e-commerce site to browse and buy gifts for any occasion. Gifter is built with JavaScript, TypeScript, React, Redux, Sass, Stripe and Firebase.
 
 [Live Gifter App](https://giftsbygifter.netlify.app/)
 
 ## Application Walkthrough 
+
+#### Home Page
+<p align="center">
+  <img src="src/assets/readme/home.png" width="90%"  />
+</p>
+
+#### About Page
+<p align="center">
+  <img src="src/assets/readme/about.png" width="90%"  />
+</p>
+
+#### Shop Overview
+<p align="center">
+  <img src="src/assets/readme/shop.gif" width="90%"  />
+</p>
+
+#### Authentication Page
+<p align="center">
+  <img src="src/assets/readme/auth.png" width="90%"  />
+</p>
+
+#### Shop Category Page
+<p align="center">
+  <img src="src/assets/readme/shop_category.gif" width="90%"  />
+</p>
+
+#### Checkout
+<p align="center">
+  <img src="src/assets/readme/xx.gif" width="90%"  />
+</p>
+
+#### Payment
+<p align="center">
+  <img src="src/assets/readme/xx.gif" width="90%"  />
+</p>
+
+#### Responsive Design
+<p align="center">
+  <img src="src/assets/readme/xx.gif" width="90%"  />
+</p>
 
 ## Tech Stack
 - Front End: 
@@ -22,8 +62,8 @@ A full-stack, tested??? & responsive e-commerce web and mobile site to browse an
   - Deployment: Netlify
   - Testing 
     - Testing Library (jest-dom, react, user-event)
-    - Jest
-    - Enzyme
+    - Jest (& Snapshot testing)
+    - (Enzyme: will attempt to convert to enzyme once React 18 is supported)
     - Unit / Int / Automation (end-to-end)
   - CI/CD (Continuous Integration & Continuous Deployment) - Integrating Netlify into Github
   - Google Analytics??
@@ -41,7 +81,7 @@ CHALLENGE: make this site have LIGHT MODE and DARK MODE?
 - Display of 5 gift categories (Birthday, Chirstmas, Thank you, Anniversary and Wedding)
 - Authentication by email and password, or with Google
 - Add/Remove item(s) to/from basket with a real time item counter and price total calculator
-- Pay with Stripe
+- Payment with Stripe
 - Fully responsive for any device size
 
 
