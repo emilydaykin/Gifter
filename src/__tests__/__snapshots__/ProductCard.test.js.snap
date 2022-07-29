@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Card in Shop preview renders 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="product-card product-card--preview"
+      >
+        <img
+          alt="Garden Book Shelf Box"
+          class="product-card__image"
+          src="https://images.unsplash.com/photo-1591492654773-6756035bef6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VsZWN0aW9uJTIwbm9uJTIwZmljdGlvbiUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+        />
+        <button
+          class="button product-card__button"
+        >
+          Add to Cart
+        </button>
+        <div
+          class="product-card__product-info"
+        >
+          <h3
+            class="product-card__product-name"
+          >
+            Garden Book Shelf Box
+          </h3>
+          <p
+            class="product-card__product-price"
+          >
+            €
+            87.50
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="product-card product-card--preview"
+    >
+      <img
+        alt="Garden Book Shelf Box"
+        class="product-card__image"
+        src="https://images.unsplash.com/photo-1591492654773-6756035bef6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VsZWN0aW9uJTIwbm9uJTIwZmljdGlvbiUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+      />
+      <button
+        class="button product-card__button"
+      >
+        Add to Cart
+      </button>
+      <div
+        class="product-card__product-info"
+      >
+        <h3
+          class="product-card__product-name"
+        >
+          Garden Book Shelf Box
+        </h3>
+        <p
+          class="product-card__product-price"
+        >
+          €
+          87.50
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Product Card in specific shop category renders 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="product-card"
+      >
+        <img
+          alt="Garden Book Shelf Box"
+          class="product-card__image"
+          src="https://images.unsplash.com/photo-1591492654773-6756035bef6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VsZWN0aW9uJTIwbm9uJTIwZmljdGlvbiUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+        />
+        <button
+          class="button product-card__button"
+        >
+          Add to Cart
+        </button>
+        <div
+          class="product-card__product-info"
+        >
+          <h3
+            class="product-card__product-name"
+          >
+            Garden Book Shelf Box
+          </h3>
+          <p
+            class="product-card__product-price"
+          >
+            €
+            87.50
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="product-card"
+    >
+      <img
+        alt="Garden Book Shelf Box"
+        class="product-card__image"
+        src="https://images.unsplash.com/photo-1591492654773-6756035bef6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c2VsZWN0aW9uJTIwbm9uJTIwZmljdGlvbiUyMGJvb2tzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
+      />
+      <button
+        class="button product-card__button"
+      >
+        Add to Cart
+      </button>
+      <div
+        class="product-card__product-info"
+      >
+        <h3
+          class="product-card__product-name"
+        >
+          Garden Book Shelf Box
+        </h3>
+        <p
+          class="product-card__product-price"
+        >
+          €
+          87.50
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
