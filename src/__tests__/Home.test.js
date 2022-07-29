@@ -4,13 +4,14 @@ import { BrowserRouter } from 'react-router-dom';
 import Home from '../components/Home';
 
 test('Gift categories are rendered', async () => {
-  render(
+  const view = render(
     <BrowserRouter>
       <Home />
     </BrowserRouter>
   );
+  expect.assertions(7);
 
-  expect.assertions(6);
+  expect(view).toMatchSnapshot();
 
   // waitFor better than wrapping the render with act()
   await waitFor(() => {
