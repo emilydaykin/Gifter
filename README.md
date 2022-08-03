@@ -18,12 +18,14 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
 
 #### Shop Overview
 <p align="center">
-  <img src="src/assets/readme/shop.gif" width="90%"  />
+  <img src="src/assets/readme/shop.gif" width="70%"  />
+  <img src="src/assets/readme/shop_mobile.gif" width="27.25%"  />
 </p>
 
 #### Authentication Page
 <p align="center">
-  <img src="src/assets/readme/auth.png" width="90%"  />
+  <img src="src/assets/readme/auth.png" width="65%"  />
+  <img src="src/assets/readme/auth_mobile.png" width="25.65%"  />
 </p>
 
 #### Shop Category Page
@@ -33,17 +35,13 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
 
 #### Checkout
 <p align="center">
-  <img src="src/assets/readme/xx.gif" width="90%"  />
+  <img src="src/assets/readme/cart_checkout.gif" width="71%"  />
+  <img src="src/assets/readme/checkout_mobile.gif" width="27.57%"  />
 </p>
 
 #### Payment
 <p align="center">
-  <img src="src/assets/readme/xx.gif" width="90%"  />
-</p>
-
-#### Responsive Design
-<p align="center">
-  <img src="src/assets/readme/xx.gif" width="90%"  />
+  <img src="src/assets/readme/payment.gif" width="90%"  />
 </p>
 
 ## Tech Stack
@@ -62,7 +60,7 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
   - Deployment: Netlify
   - Testing 
     - Testing Library (jest-dom, react, user-event)
-    - Jest (& Snapshot testing)
+    - Jest (& Snapshot testing for static/stateless components)
     - (Enzyme: will attempt to convert to enzyme once React 18 is supported)
     - Unit / Int / Automation (end-to-end)
   - CI/CD (Continuous Integration & Continuous Deployment) - Integrating Netlify into Github
