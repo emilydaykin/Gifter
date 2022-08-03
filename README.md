@@ -25,7 +25,7 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
 #### Authentication Page
 <p align="center">
   <img src="src/assets/readme/auth.png" width="65%"  />
-  <img src="src/assets/readme/auth_mobile.png" width="25.65%"  />
+  <img src="src/assets/readme/auth_mobile.png" width="25.3%"  />
 </p>
 
 #### Shop Category Page
