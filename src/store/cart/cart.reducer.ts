@@ -26,19 +26,4 @@ export const cartReducer = (state = CART_INITIAL_STATE, action: AnyAction): Cart
   } else {
     return state;
   }
-
-  // switch (type) {
-  //   case CART_ACTION_TYPES.SET_IS_CART_OPEN:
-  //     return {
-  //       ...state,
-  //       isCartOpen: payload
-  //     };
-  //   case CART_ACTION_TYPES.SET_CART_ITEMS:
-  //     return {
-  //       ...state,
-  //       cartItems: payload
-  //     };
-  //   default:
-  //     return state;
-  // }
 };
