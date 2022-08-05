@@ -64,16 +64,26 @@ test('Category reducer renders correct state on START', () => {
 });
 
 test('Category reducer renders correct state on SUCCESS', () => {
-  // no payload expected for this action type
   expect(
     categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
       type: categoryTypes.CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
       payload: ['Christmas', 'Birthday', 'Anniversary']
     })
-    // ).toEqual({ ...categoryReducers.CATEGORIES_INITIAL_STATE, isLoading: true });
   ).toEqual({
     ...categoryReducers.CATEGORIES_INITIAL_STATE,
     categories: ['Christmas', 'Birthday', 'Anniversary']
+  });
+});
+
+test('Category reducer renders correct state on FAILURE', () => {
+  expect(
+    categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
+      type: categoryTypes.CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILURE,
+      payload: 'there was an error'
+    })
+  ).toEqual({
+    ...categoryReducers.CATEGORIES_INITIAL_STATE,
+    error: 'there was an error'
   });
 });
 
