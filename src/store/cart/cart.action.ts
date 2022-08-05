@@ -21,7 +21,6 @@ export const addItemToCart = (cartItems: CartItem[], productToAdd: CategoryItem)
     // item not yet in cart
     const updatedCartItems = [...cartItems, { ...productToAdd, quantity: 1 }];
 
-    // createAction(CART_ACTION_TYPES.SET_CART_ITEMS, updatedCartItems);
     return setCartItems(updatedCartItems);
   } else {
     // item already in cart
