@@ -1,7 +1,8 @@
 import * as cartReducers from '../store/cart/cart.reducer';
-import * as categoryReducers from '../store/categories/category.reducer';
-import * as userReducers from '../store/user/user.reducer';
 import * as cartTypes from '../store/cart/cart.types';
+import * as categoryReducers from '../store/categories/category.reducer';
+import * as categoryTypes from '../store/categories/category.types';
+import * as userReducers from '../store/user/user.reducer';
 
 const mockCartItem = {
   id: 35,
@@ -13,16 +14,6 @@ const mockCartItem = {
 
 test('Cart reducer renders correct initial state', () => {
   expect(cartReducers.cartReducer(undefined, {})).toEqual(cartReducers.CART_INITIAL_STATE);
-});
-
-test('Category reducer renders correct initial state', () => {
-  expect(categoryReducers.categoriesReducer(undefined, {})).toEqual(
-    categoryReducers.CATEGORIES_INITIAL_STATE
-  );
-});
-
-test('User reducer renders correct initial state', () => {
-  expect(userReducers.userReducer(undefined, {})).toEqual(userReducers.USER_INITIAL_STATE);
 });
 
 test('Cart reducer sets cart items correctly', () => {
@@ -55,4 +46,37 @@ test('Cart reducer sets cart dropdown state correctly', () => {
       payload: false
     }).isCartOpen
   ).toEqual(false);
+});
+
+test('Category reducer renders correct initial state', () => {
+  expect(categoryReducers.categoriesReducer(undefined, {})).toEqual(
+    categoryReducers.CATEGORIES_INITIAL_STATE
+  );
+});
+
+test('Category reducer renders correct state on START', () => {
+  // no payload expected for this action type
+  expect(
+    categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
+      type: categoryTypes.CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START
+    })
+  ).toEqual({ ...categoryReducers.CATEGORIES_INITIAL_STATE, isLoading: true });
+});
+
+test('Category reducer renders correct state on SUCCESS', () => {
+  // no payload expected for this action type
+  expect(
+    categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
+      type: categoryTypes.CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
+      payload: ['Christmas', 'Birthday', 'Anniversary']
+    })
+    // ).toEqual({ ...categoryReducers.CATEGORIES_INITIAL_STATE, isLoading: true });
+  ).toEqual({
+    ...categoryReducers.CATEGORIES_INITIAL_STATE,
+    categories: ['Christmas', 'Birthday', 'Anniversary']
+  });
+});
+
+test('User reducer renders correct initial state', () => {
+  expect(userReducers.userReducer(undefined, {})).toEqual(userReducers.USER_INITIAL_STATE);
 });
