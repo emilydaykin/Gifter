@@ -3,6 +3,7 @@ import * as cartTypes from '../store/cart/cart.types';
 import * as categoryReducers from '../store/categories/category.reducer';
 import * as categoryTypes from '../store/categories/category.types';
 import * as userReducers from '../store/user/user.reducer';
+import * as userTypes from '../store/user/user.types';
 
 const mockCartItem = {
   id: 35,
@@ -12,7 +13,7 @@ const mockCartItem = {
   price: 105
 };
 
-test('Cart reducer renders correct initial state', () => {
+test('Cart reducer returns correct initial state', () => {
   expect(cartReducers.cartReducer(undefined, {})).toEqual(cartReducers.CART_INITIAL_STATE);
 });
 
@@ -48,13 +49,13 @@ test('Cart reducer sets cart dropdown state correctly', () => {
   ).toEqual(false);
 });
 
-test('Category reducer renders correct initial state', () => {
+test('Category reducer returns correct initial state', () => {
   expect(categoryReducers.categoriesReducer(undefined, {})).toEqual(
     categoryReducers.CATEGORIES_INITIAL_STATE
   );
 });
 
-test('Category reducer renders correct state on START', () => {
+test('Category reducer handles FETCH_CATEGORIES_START action correctly', () => {
   // no payload expected for this action type
   expect(
     categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
@@ -63,7 +64,7 @@ test('Category reducer renders correct state on START', () => {
   ).toEqual({ ...categoryReducers.CATEGORIES_INITIAL_STATE, isLoading: true });
 });
 
-test('Category reducer renders correct state on SUCCESS', () => {
+test('Category reducer handles FETCH_CATEGORIES_SUCCESS action correctly', () => {
   expect(
     categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
       type: categoryTypes.CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
@@ -75,7 +76,7 @@ test('Category reducer renders correct state on SUCCESS', () => {
   });
 });
 
-test('Category reducer renders correct state on FAILURE', () => {
+test('Category reducer handles FETCH_CATEGORIES_FAILURE action correctly', () => {
   expect(
     categoryReducers.categoriesReducer(categoryReducers.CATEGORIES_INITIAL_STATE, {
       type: categoryTypes.CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILURE,
@@ -87,6 +88,6 @@ test('Category reducer renders correct state on FAILURE', () => {
   });
 });
 
-test('User reducer renders correct initial state', () => {
+test('User reducer returns correct initial state', () => {
   expect(userReducers.userReducer(undefined, {})).toEqual(userReducers.USER_INITIAL_STATE);
 });
