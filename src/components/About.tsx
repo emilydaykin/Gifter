@@ -6,6 +6,8 @@ import reactLogo from '../assets/react-logo.png';
 import sassLogo from '../assets/sass-logo.png';
 import reduxLogo from '../assets/redux-logo.png';
 import reduxSagaLogo from '../assets/redux-saga-logo.png';
+import reactTestingLibLogo from '../assets/react-testing-lib-logo.png';
+import jestLogo from '../assets/jest-logo.png';
 import stripeLogo from '../assets/stripe-logo.png';
 import firebaseLogo from '../assets/firebase-logo.png';
 import Footer from './Footer';
@@ -63,18 +65,19 @@ const About = () => {
               <a href='https://redux-saga.js.org/'>
                 <img className='about__icon' src={reduxSagaLogo} alt='Redux Saga' />
               </a>
+              <a href='https://jestjs.io/'>
+                <img className='about__icon' src={jestLogo} alt='Jest' />
+              </a>
+              <a href='https://testing-library.com/docs/react-testing-library/intro/'>
+                <img
+                  className='about__icon'
+                  src={reactTestingLibLogo}
+                  alt='React Testing Library'
+                />
+              </a>
               <a href='https://stripe.com/'>
                 <img className='about__icon' src={stripeLogo} alt='Stripe' />
               </a>
-              {/* <a href='#'>
-                <img className='about__icon' src={jestLogo} alt='Jest' />
-              </a> */}
-              {/*<a href='#'>
-                <img className='about__icon' src={apolloLogo} alt='Apollo' />
-              </a>*/}
-              {/*<a href='#'>
-                <img className='about__icon' src={graphQLLogo} alt='GraphQL' />
-              </a>*/}
             </div>
           </div>
         </div>
