@@ -91,3 +91,33 @@ test('Category reducer handles FETCH_CATEGORIES_FAILURE action correctly', () =>
 test('User reducer returns correct initial state', () => {
   expect(userReducers.userReducer(undefined, {})).toEqual(userReducers.USER_INITIAL_STATE);
 });
+
+test('User reducer handles CHECK_USER_SESSION action correctly', () => {
+  // no payload with this user action
+  expect(
+    userReducers.userReducer(userReducers.USER_INITIAL_STATE, {
+      type: userTypes.USER_ACTION_TYPES.CHECK_USER_SESSION
+    })
+  ).toEqual(userReducers.USER_INITIAL_STATE);
+});
+
+test('User reducer handles SIGN_IN_SUCCESS action correctly', () => {
+  // no payload with this user action
+  expect(
+    userReducers.userReducer(userReducers.USER_INITIAL_STATE, {
+      type: userTypes.USER_ACTION_TYPES.SIGN_IN_SUCCESS
+    })
+  ).toEqual({ ...userReducers.USER_INITIAL_STATE, currentUser: undefined });
+});
+
+test('User reducer handles SIGN_IN_FAILURE action correctly', () => {
+  expect(
+    userReducers.userReducer(userReducers.USER_INITIAL_STATE, {
+      type: userTypes.USER_ACTION_TYPES.SIGN_IN_FAILURE,
+      payload: 'Oops. An error occurred at sign in.'
+    })
+  ).toEqual({
+    ...userReducers.USER_INITIAL_STATE,
+    error: 'Oops. An error occurred at sign in.'
+  });
+});
