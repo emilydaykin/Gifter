@@ -62,16 +62,9 @@ A full-stack, tested & **responsive** e-commerce site to browse and buy gifts fo
     - Testing Library (jest-dom, React, user-event)
     - Jest (& Snapshot testing for static/stateless components)
     - (Enzyme: will attempt to convert to enzyme once React 18 is supported)
-  - Google Analytics??
   - Yarn
 
 I also created a [spin-off version of Gifter](https://github.com/emilydaykin/graphql) that leverages GraphQL and Apollo.
-
-- Context API???
-- PWA (Progressive Web App)???
-- Gatsby.js
-
-CHALLENGE: make this site have LIGHT MODE and DARK MODE?
 
 ## Features:
 - Display of 5 gift categories (Birthday, Chirstmas, Thank you, Anniversary and Wedding)
@@ -84,10 +77,11 @@ CHALLENGE: make this site have LIGHT MODE and DARK MODE?
 ## Milestones:
 This project went though a few refactors and improvements as I learnt new libraries, frameworks and languages to incorporate. Using `git tag -a <version> -m "<version comments>"` to mark each of these in the code history ([see all tags](https://github.com/emilydaykin/Gifter/tags)), the state of Gifter at each milestone was as follows:
 
-### v5 [NOT DONE YET!]
-- Testing (React Testing Library/Jest/Snapshot Testing)
-- PWA: progressive web app?
-- GatsbyJS???
+### <span style="color:grey;">(v6: Coming soon)</span>
+<span style="color:grey;">Gifter to be a PWA (progressive web app)</span>
+
+### v5
+- Testing (React Testing Library / Jest / Snapshot Testing)
 ### v4
 - Performance optimisations (useCallback and React memo for function and function output memoisations respectively, and code splitting (the bundle.js) with dynamic imports via React Lazy & React Suspense)
 - Tightening Firebase (Firestore) security rules to read-only for all documents and categories, and allowing write access for users if the id matches the request's.
@@ -448,11 +442,11 @@ This project went though a few refactors and improvements as I learnt new librar
 
 ### Challenges:
 - Biggest challenge: Redux Saga (a lot of boilerplate set up and config to learn)
-- TypeScript
+- TypeScript for Redux
 
 ### Wins
 - First time integrating a payment gateway
-- Design (horizontal scroll with fade out effects on the side)
+- Design (horizontal scroll with fade out effects on the side) on Shop Overview page
 
 ### Key Learnings:
 - In testing, `waitFor` (or other React Testing Library (RTL) async utilities such as `waitForElementToBeRemoved` or `findBy`) may be better practice than wrapping renders with `act()` because:
