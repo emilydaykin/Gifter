@@ -1,4 +1,12 @@
-const shopData = [
+const shopData: {
+  title: String;
+  items: {
+    id: Number;
+    name: String;
+    imageUrl: String;
+    price: Number;
+  }[];
+}[] = [
   {
     title: 'Christmas',
     // items 1-20
