@@ -1,4 +1,12 @@
-export const mockShopData = [
+export const mockShopData: {
+  title: String;
+  items: {
+    id: Number;
+    name: String;
+    imageUrl: String;
+    price: Number;
+  }[];
+}[] = [
   {
     title: 'Christmas',
     items: [
