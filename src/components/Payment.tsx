@@ -72,8 +72,8 @@ const Payment = () => {
           <div className='payment__details-right'>
             <p>4242 4242 4242 4242</p>
             <p>04/24 (any future date)</p>
-            <p>242</p>
-            <p>42424</p>
+            <p>242 (any 3 digits)</p>
+            <p>42424 (any 5 digits)</p>
           </div>
         </div>
       </div>
