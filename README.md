@@ -77,8 +77,7 @@ I also created a [spin-off version of Gifter](https://github.com/emilydaykin/gra
 ## Milestones:
 This project went though a few refactors and improvements as I learnt new libraries, frameworks and languages to incorporate. Using `git tag -a <version> -m "<version comments>"` to mark each of these in the code history ([see all tags](https://github.com/emilydaykin/Gifter/tags)), the state of Gifter at each milestone was as follows:
 
-### <span style="color:grey;">(v6: Coming soon)</span>
-<span style="color:grey;">Gifter to be a PWA (progressive web app)</span>
+#### (v6: Coming soon - Gifter to be a PWA (progressive web app))
 
 ### v5
 - Testing (React Testing Library / Jest / Snapshot Testing)
