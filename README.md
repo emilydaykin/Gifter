@@ -230,6 +230,107 @@ This project went though a few refactors and improvements as I learnt new librar
 
 
 ### TypeScript
+<details>
+  <summary>Shop Data in TypeScript</summary>
+  
+  ```typescript
+  const shopData: {
+    title: String;
+    items: {
+      id: Number;
+      name: String;
+      imageUrl: String;
+      price: Number;
+    }[];
+  }[] = [
+    {
+      title: 'Christmas',
+      items: [
+        {
+          id: 1,
+          name: '4-Piece Stocking',
+          imageUrl:
+            'https://images.unsplash.com/photo-1607900177462-ac553f1f5d97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hyaXN0bWFzJTIwc3RvY2tpbmdzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+          price: 12
+        },
+        ...
+      ]
+      ...
+    }
+    ...
+  ]
+  ```
+</details>
+
+<details>
+  <summary>Cart Reducer in TypeScript</summary>
+  
+  ```typescript
+  import { AnyAction } from 'redux';
+  import { setCartItems, setIsCartOpen } from './cart.action';
+  import { CartItem } from './cart.types';
+
+  export type CartState = {
+    readonly isCartOpen: boolean;
+    readonly cartItems: CartItem[];
+  };
+
+  export const CART_INITIAL_STATE: CartState = {
+    isCartOpen: false,
+    cartItems: []
+  };
+
+  export const cartReducer = (state = CART_INITIAL_STATE, action: AnyAction): CartState => {
+    if (setIsCartOpen.match(action)) {
+      return {
+        ...state,
+        isCartOpen: action.payload
+      };
+    } else if (setCartItems.match(action)) {
+      return {
+        ...state,
+        cartItems: action.payload
+      };
+    } else {
+      return state;
+    }
+  };
+
+  ```
+</details>
+
+<details>
+  <summary>Category Types in TypeScript</summary>
+  
+  ```typescript
+  export enum CATEGORIES_ACTION_TYPES {
+    FETCH_CATEGORIES_START = 'category/FETCH_CATEGORIES_START',
+    FETCH_CATEGORIES_SUCCESS = 'category/FETCH_CATEGORIES_SUCCESS',
+    FETCH_CATEGORIES_FAILURE = 'category/FETCH_CATEGORIES_FAILURE'
+  }
+
+  export type CategoryItem = {
+    id: number;
+    imageUrl: string;
+    name: string;
+    price: number;
+  };
+
+  export type Category = {
+    title: string;
+    imageUrl: string;
+    items: CategoryItem[];
+  };
+
+  export type CategoryMap = {
+    [key: string]: CategoryItem[];
+  };
+
+
+  ```
+</details>
+
+
 
 ### Generator Functions & Redux Saga for Categories
 <details>
