@@ -79,20 +79,20 @@ This project went though a few refactors and improvements as I learnt new librar
 
 #### (v6: Coming soon - Gifter to be a PWA (progressive web app))
 
-### v5
+### [v5](https://github.com/emilydaykin/Gifter/releases/tag/v5)
 - Testing (React Testing Library / Jest / Snapshot Testing)
-### v4
+### [v4](https://github.com/emilydaykin/Gifter/releases/tag/v4)
 - Performance optimisations (useCallback and React memo for function and function output memoisations respectively, and code splitting (the bundle.js) with dynamic imports via React Lazy & React Suspense)
 - Tightening Firebase (Firestore) security rules to read-only for all documents and categories, and allowing write access for users if the id matches the request's.
-### v3
+### [v3](https://github.com/emilydaykin/Gifter/releases/tag/v3)
 - Codebase converted from JavaScript to TypeScript, including React Components, the entire Redux Store (and Sagas), and utility files (for firebase and reducer)
-### v2 
+### [v2](https://github.com/emilydaykin/Gifter/releases/tag/v2) 
 - Redux (Redux Saga & Generator functions) and Stripe integration
 - Serverless Function that creates a payment intent for Stripe. It is hosted on Netlify and uses AWS' Lambda function under the hood. This will help automate any necessary scaling.
 - Currying & Memoisation Design Patterns (via Redux's Reselect library)
 - Session Storage via Redux Persist to retain data between refreshes/sessions.
 - UX: Users can now pay for their selected gifts using a test credit card number, which will be handled by Stripe.
-### v1
+### [v1](https://github.com/emilydaykin/Gifter/releases/tag/v1)
 - Fully working and responsive app in web, tablet and mobile, powered by JavaScript and React, including useContext and useReducer Hooks. 
 - Styling done in pure Sass (without the help of any frameworks) using the BEM methodology.
 - Server, Storage and Authentication handled by Firebase (& Firestore).
