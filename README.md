@@ -1,6 +1,6 @@
 # Gifter
 
-A full-stack, tested & responsive e-commerce site to browse and buy gifts for any occasion. Gifter is built with JavaScript, TypeScript, React, Redux, Sass, Stripe and Firebase.
+A full-stack, tested & **responsive** e-commerce site to browse and buy gifts for any occasion. Gifter is built with **TypeScript**, **JavaScript**, **React**, **Redux**, **Sass**, **Stripe** and **Firebase**. Users can browse from 100 gifts across 5 categories, add, edit and remove items from their cart, and checkout and pay (with test card details). Gifter works on any device size, and has been tested to minimise bugs (**22 tests across 7 test suites**, and **4 snapshots**).
 
 [Live Gifter App](https://giftsbygifter.netlify.app/)
 
@@ -16,13 +16,13 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
   <img src="src/assets/readme/about.png" width="90%"  />
 </p>
 
-#### Shop Overview
+#### Shop Overview (desktop & mobile)
 <p align="center">
   <img src="src/assets/readme/shop.gif" width="70%"  />
   <img src="src/assets/readme/shop_mobile.gif" width="27.25%"  />
 </p>
 
-#### Authentication Page
+#### Authentication Page (desktop & mobile)
 <p align="center">
   <img src="src/assets/readme/auth.png" width="65%"  />
   <img src="src/assets/readme/auth_mobile.png" width="25.3%"  />
@@ -33,7 +33,7 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
   <img src="src/assets/readme/shop_category.gif" width="90%"  />
 </p>
 
-#### Checkout
+#### Checkout (desktop & mobile)
 <p align="center">
   <img src="src/assets/readme/cart_checkout.gif" width="71%"  />
   <img src="src/assets/readme/checkout_mobile.gif" width="27.57%"  />
@@ -59,11 +59,9 @@ A full-stack, tested & responsive e-commerce site to browse and buy gifts for an
 - DevOps:
   - Deployment: Netlify
   - Testing 
-    - Testing Library (jest-dom, react, user-event)
+    - Testing Library (jest-dom, React, user-event)
     - Jest (& Snapshot testing for static/stateless components)
     - (Enzyme: will attempt to convert to enzyme once React 18 is supported)
-    - Unit / Int / Automation (end-to-end)
-  - CI/CD (Continuous Integration & Continuous Deployment) - Integrating Netlify into Github
   - Google Analytics??
   - Yarn
 
@@ -87,8 +85,8 @@ CHALLENGE: make this site have LIGHT MODE and DARK MODE?
 This project went though a few refactors and improvements as I learnt new libraries, frameworks and languages to incorporate. Using `git tag -a <version> -m "<version comments>"` to mark each of these in the code history ([see all tags](https://github.com/emilydaykin/Gifter/tags)), the state of Gifter at each milestone was as follows:
 
 ### v5 [NOT DONE YET!]
+- Testing (React Testing Library/Jest/Snapshot Testing)
 - PWA: progressive web app?
-- Testing (Jest/Enzyme/Snapshot Testing)???
 - GatsbyJS???
 ### v4
 - Performance optimisations (useCallback and React memo for function and function output memoisations respectively, and code splitting (the bundle.js) with dynamic imports via React Lazy & React Suspense)
@@ -108,18 +106,52 @@ This project went though a few refactors and improvements as I learnt new librar
 - UX: Users can browse gifts across 5 categories, sign in (with email or via Google) and sign out, as well as add to, edit and remove items from their cart; they can also check out, but can't yet pay.
 
 
+## Tests:
+<p align="left">
+  &emsp;
+  <img src="src/assets/readme/tests.png" width="60%"  />
+</p>
+
 ## Code Snippets:
 
+### Testing Reducers
 <details>
-  <summary>Click to expand!</summary>
+  <summary>View tests</summary>
   
   ```javascript
-  
+  import * as cartReducers from '../store/cart/cart.reducer';
+  import * as cartTypes from '../store/cart/cart.types';
+
+  const mockCartItem = {
+    id: 35,
+    name: 'Smart Watch - Track your steps, calories, sleep and more',
+    imageUrl:
+      'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
+    price: 105
+  };
+
+  test('Cart reducer returns correct initial state', () => {
+    expect(cartReducers.cartReducer(undefined, {})).toEqual(cartReducers.CART_INITIAL_STATE);
+  });
+
+  test('Cart reducer sets cart items correctly', () => {
+    expect(
+      cartReducers.cartReducer(cartReducers.CART_INITIAL_STATE, {
+        type: cartTypes.CART_ACTION_TYPES.SET_CART_ITEMS,
+        payload: mockCartItem
+      }).cartItems
+    ).toEqual(mockCartItem);
+
+    expect(
+      cartReducers.cartReducer(cartReducers.CART_INITIAL_STATE, {
+        type: cartTypes.CART_ACTION_TYPES.SET_CART_ITEMS,
+        payload: mockCartItem
+      }).isCartOpen
+    ).toEqual(false);
+  });
   ```
 </details>
 
-
-- observer listener/design pattern
 ### Improving Firebase (Firestore) Security Rules
 <details>
   <summary>View rule</summary>
@@ -238,7 +270,7 @@ This project went though a few refactors and improvements as I learnt new librar
       const categoryArray = yield call(getCategoriesAndDocuments, 'categories'); // callable method & its params
       yield put(fetchCategoriesSuccess(categoryArray)); // put is the dispatch inside a generator
     } catch (err) {
-      console.log(`ERROR: ${err}`);
+      // console.log(`ERROR: ${err}`);
       yield put(fetchCategoriesFailure(err));
     }
   }
@@ -281,7 +313,7 @@ This project went though a few refactors and improvements as I learnt new librar
       const categoryArray = await getCategoriesAndDocuments('categories');
       dispatch(fetchCategoriesSuccess(categoryArray));
     } catch (error) {
-      console.log(`ERROR: ${error}`);
+      // console.log(`ERROR: ${error}`);
       dispatch(fetchCategoriesFailure(error));
     }
   };
@@ -387,7 +419,6 @@ This project went though a few refactors and improvements as I learnt new librar
 
     const reduceItemQuantityInCart = (productToReduce) => {
       const quantityOfItem = productToReduce.quantity;
-      console.log('quantityOfItem', quantityOfItem);
 
       const reduceQuantity = cartItems.map((item) => {
         return item.id === productToReduce.id ? { ...item, quantity: item.quantity - 1 } : item;
