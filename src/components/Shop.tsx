@@ -5,7 +5,7 @@ import { fetchCategoriesStart } from '../store/categories/category.action';
 import CategoriesPreview from './categories/CategoriesPreview';
 import Category from './categories/Category';
 // UNCOMMENT to add items to DB:
-// import allProducts from '../data/shop-data.js';
+// import allProducts from '../data/shop-data.ts';
 // import { addCollectionAndDocuments } from '../firebase/firebase.utils';
 
 const Shop: FC = () => {
