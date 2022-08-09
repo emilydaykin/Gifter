@@ -35,7 +35,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const middlewares = [process.env.NODE_ENV !== 'production' && logger, sagaMiddleware].filter(
   (middleware): middleware is Middleware => Boolean(middleware)
 ); // enhance our store
-// const middlewares = [process.env.NODE_ENV === 'development' && loggerMiddleware].filter(Boolean); // enhance our store
+// const middlewares = [process.env.NODE_ENV !== 'production' && loggerMiddleware].filter(Boolean); // enhance our store
 
 // Allowing Chrome to use Redux Dev Tools if Chrome extension is installed, otherwise use Redux's compose:
 const composeEnhancer =
