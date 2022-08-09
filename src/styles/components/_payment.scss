@@ -12,6 +12,30 @@
     font-weight: 500;
   }
 
+  &__instructions {
+    margin-top: 1.75rem;
+    color: red;
+  }
+
+  &__instructions-heading {
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  &__details {
+    display: flex;
+    justify-content: center;
+    font-weight: 300;
+  }
+
+  &__details-left {
+    text-align: right;
+  }
+
+  &__details-right {
+    padding-left: 1rem;
+  }
+
   &__form {
     border: 1px solid $theme-grey-light;
     border-radius: $default-border-radius;
