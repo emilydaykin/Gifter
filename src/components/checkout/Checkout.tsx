@@ -1,5 +1,4 @@
 import { FC } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectCartItems, selectCartTotalPrice } from '../../store/cart/cart.selector';
 import CheckoutItem from './CheckoutItem';
@@ -7,14 +6,8 @@ import Payment from '../Payment';
 import Footer from '../Footer';
 
 const Checkout: FC = () => {
-  // const navigate = useNavigate();
   const cartItems = useSelector(selectCartItems);
   const cartTotalPrice = useSelector(selectCartTotalPrice);
-
-  // const goToPayment = () => {
-  //   console.log('"go to payment" clicked!');
-  //   navigate('/payment');
-  // };
 
   return (
     <>
@@ -35,11 +28,6 @@ const Checkout: FC = () => {
           <div className='checkout__total'>
             Total: &euro;<span>{cartTotalPrice}</span>
           </div>
-          {/* <div className='checkout__payment-button-wrapper'>
-            <button className='button button--payment' onClick={goToPayment}>
-              Go To Payment
-            </button>
-          </div> */}
           <Payment />
         </div>
       </div>

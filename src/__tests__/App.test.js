@@ -21,7 +21,6 @@ test('Navbar displayed correctly', async () => {
   });
 
   const navbar = screen.getAllByRole('navbar-item');
-  console.log('navbar', navbar);
   expect(navbar).toHaveLength(4);
 
   const expectedNavbarLinks = ['about', 'shop', 'auth'];

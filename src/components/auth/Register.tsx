@@ -23,7 +23,6 @@ const Register: FC = () => {
     if (!userState.error || currentUser !== null) {
       setErrorMessage('');
       setFormData(blankForm);
-      console.log('--NO ERROR--');
     } else {
       switch ((userState.error as AuthError).code) {
         case AuthErrorCodes.EMAIL_EXISTS:
@@ -120,58 +119,3 @@ const Register: FC = () => {
 };
 
 export default Register;
-
-//   // console.log('ERROR FROM DISPATCH:', error);
-//   // } catch (error) {
-//   // console.log('error!!!!', error);
-//   // }
-//   console.log('currentUser', currentUser);
-//   console.log('userState', userState);
-//   if (userState.error) {
-//     switch ((userState.error as AuthError).code) {
-//       // case 'auth/email-already-in-use':
-//       case AuthErrorCodes.EMAIL_EXISTS:
-//         setErrorMessage('Email already registered.');
-//         break;
-//       // case 'auth/invalid-email':
-//       case AuthErrorCodes.INVALID_EMAIL:
-//         setErrorMessage('Invalid email address.');
-//         break;
-//       // case 'auth/weak-password':
-//       case AuthErrorCodes.WEAK_PASSWORD:
-//         setErrorMessage('Password should be at least 6 characters long.');
-//         break;
-//       default:
-//         setErrorMessage('Error registering.');
-//     }
-//     // if (userState.error.code) console.log(`type of error: ${typeof error}`);
-//     // console.error(`!!!!!! Register error (1): ${error}`);
-//   } else {
-//     setFormData(blankForm);
-//     console.log('--NO ERROR--');
-//     // FirebaseError: Firebase: Error (auth/email-already-in-use).
-//   }
-//   // }
-
-//   // } catch (error) {
-//   //   console.error(`!!!!!! Register error (2): ${error}`);
-//   //   switch ((error as AuthError).code) {
-//   //     // case 'auth/email-already-in-use':
-//   //     case AuthErrorCodes.EMAIL_EXISTS:
-//   //       setErrorMessage('Email already registered.');
-//   //       break;
-//   //     // case 'auth/invalid-email':
-//   //     case AuthErrorCodes.INVALID_EMAIL:
-//   //       setErrorMessage('Invalid email address.');
-//   //       break;
-//   //     // case 'auth/weak-password':
-//   //     case AuthErrorCodes.WEAK_PASSWORD:
-//   //       setErrorMessage('Password should be at least 6 characters long.');
-//   //       break;
-//   //     default:
-//   //       setErrorMessage('Error registering.');
-//   //       console.error(`Register error: ${error}`);
-//   //   }
-//   // }
-//   // }
-// };

@@ -21,7 +21,6 @@ const LogIn: FC = () => {
     if (!userState.error || currentUser !== null || formData === blankForm) {
       setErrorMessage('');
       setFormData(blankForm);
-      console.log('--NO ERROR--');
     } else {
       switch ((userState.error as AuthError).code) {
         case AuthErrorCodes.INVALID_PASSWORD:
@@ -33,17 +32,6 @@ const LogIn: FC = () => {
         default:
           // setErrorMessage('Error logging in.'); // this would show up with register error
           setErrorMessage('');
-
-        // if (
-        //   (userState.error as AuthError).code === AuthErrorCodes.INVALID_PASSWORD ||
-        //   AuthErrorCodes.USER_DELETED
-        // ) {
-        //   console.error(`Log In error: ${userState.error}`);
-        //   setErrorMessage('Incorrect email and/or password.');
-        // } else {
-        //   console.error(`Log In error: ${userState.error}`);
-        //   setErrorMessage('Error logging in.');
-        // }
       }
     }
   }, [userState]);

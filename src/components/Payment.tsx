@@ -30,7 +30,6 @@ const Payment = () => {
       body: JSON.stringify({ amount: totalAmount * 100 })
     }).then((res) => res.json());
 
-    // console.log('response', response);
     const clientSecret = response.paymentIntent.client_secret;
 
     const cardDetails = elements.getElement(CardElement);
