@@ -58,6 +58,25 @@ const Payment = () => {
   return (
     <div className='payment'>
       <h1 className='payment__heading'>Payment Details</h1>
+      <div className='payment__instructions'>
+        <p className='payment__instructions-heading'>
+          --- Please use this test card for payments ---
+        </p>
+        <div className='payment__details'>
+          <div className='payment__details-left'>
+            <p>Card Number:</p>
+            <p>MM/YY:</p>
+            <p>CVC:</p>
+            <p>ZIP:</p>
+          </div>
+          <div className='payment__details-right'>
+            <p>4242 4242 4242 4242</p>
+            <p>04/24 (any future date)</p>
+            <p>242</p>
+            <p>42424</p>
+          </div>
+        </div>
+      </div>
       <form className='payment__form' onSubmit={handlePayment}>
         <CardElement />
         <button disabled={isProcessingPayment} className='button payment__button'>
